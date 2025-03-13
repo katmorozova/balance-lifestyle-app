@@ -1,6 +1,8 @@
 package com.example.balancelifestyle;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SignUpActivity extends AppCompatActivity {
+
+    private EditText editTextName;
+    private EditText editTextLastName;
+    private EditText editTextAge;
+    private EditText editTextEmail;
+    private EditText editTextPassword;
+    private Button buttonSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +29,15 @@ public class SignUpActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initViews();
+    }
+
+    private void initViews(){
+        editTextName = findViewById(R.id.editTextName);
+        editTextLastName = findViewById(R.id.editTextLastName);
+        editTextAge = findViewById(R.id.editTextAge);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
     }
 }
