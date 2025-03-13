@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "868339676865",
+    "project_id": "balance-lifestyle-2144b",
+    "storage_bucket": "balance-lifestyle-2144b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868339676865:android:01c655043eb87e9c124640",
+        "android_client_info": {
+          "package_name": "com.example.balancelifestyle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqF-QNU_n752lckNsDU1oHUmD2KG52svk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
