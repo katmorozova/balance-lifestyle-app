@@ -71,7 +71,7 @@
 
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonLoginWithEmail"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
