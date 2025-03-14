@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +22,9 @@ public class UserActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, UserActivity.class);
     }
 }
