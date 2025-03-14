@@ -13,7 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -68,7 +71,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void observeViewModel(){
+        viewModel.getError().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String errorMessage) {
 
+            }
+        });
+        viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
+            @Override
+            public void onChanged(FirebaseUser firebaseUser) {
+
+            }
+        });
     }
 
     public static Intent newIntent(Context context){

@@ -15,18 +15,18 @@ public class LoginViewModel extends ViewModel {
 
     private FirebaseAuth auth;
 
-    private static final MutableLiveData<String> error = new MutableLiveData<>();
-    private static final MutableLiveData<FirebaseUser> user = new MutableLiveData<>();
+    private  MutableLiveData<String> error = new MutableLiveData<>();
+    private  MutableLiveData<FirebaseUser> user = new MutableLiveData<>();
 
     public LoginViewModel(){
         auth = FirebaseAuth.getInstance();
     }
 
-    public static LiveData<String> getError() {
+    public LiveData<String> getError() {
         return error;
     }
 
-    public static LiveData<FirebaseUser> getUser() {
+    public LiveData<FirebaseUser> getUser() {
         return user;
     }
 
