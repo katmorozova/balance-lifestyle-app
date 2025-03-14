@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,5 +38,9 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewResetPassword = findViewById(R.id.textViewResetPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, LoginActivity.class);
     }
 }
