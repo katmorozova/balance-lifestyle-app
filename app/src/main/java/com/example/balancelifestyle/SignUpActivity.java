@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -32,6 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
     }
 
     private void initViews(){
@@ -41,6 +43,15 @@ public class SignUpActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSignUp = findViewById(R.id.buttonSignUp);
+    }
+
+    private void setUpClickListeners(){
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     public static Intent newIntent(Context context){
