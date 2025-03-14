@@ -42,7 +42,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
         buttonResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String email = editTextEmail.getText().toString().trim();
+                //reset email
             }
         });
     }
