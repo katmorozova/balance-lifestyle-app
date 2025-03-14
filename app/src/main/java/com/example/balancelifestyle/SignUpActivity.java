@@ -49,6 +49,12 @@ public class SignUpActivity extends AppCompatActivity {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name = getTrimmedValue(editTextName);
+                String lastName = getTrimmedValue(editTextLastName);
+                int age = Integer.parseInt(getTrimmedValue(editTextAge));
+                String email = getTrimmedValue(editTextEmail);
+                String password = getTrimmedValue(editTextPassword);
+
                 Intent intent = UserActivity.newIntent(SignUpActivity.this);
                 startActivity(intent);
             }
