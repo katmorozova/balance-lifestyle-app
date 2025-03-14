@@ -34,7 +34,7 @@ public class LoginViewModel extends ViewModel {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                error.setValue(e.getMessage());
             }
         });
     }
