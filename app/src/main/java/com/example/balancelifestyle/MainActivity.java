@@ -1,6 +1,7 @@
 package com.example.balancelifestyle;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -25,10 +26,26 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
     }
 
     private void initViews(){
         buttonLoginWithEmail = findViewById(R.id.buttonLoginWithEmail);
         buttonSignUp = findViewById(R.id.buttonSignUp);
+    }
+
+    private void setUpClickListeners(){
+        buttonLoginWithEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }
