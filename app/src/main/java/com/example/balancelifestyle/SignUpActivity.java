@@ -55,6 +55,10 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
+    private String getTrimmedValue(EditText editText){
+        return editText.getText().toString().trim();
+    }
+
     public static Intent newIntent(Context context){
         return new Intent(context, SignUpActivity.class);
     }
