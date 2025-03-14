@@ -21,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textViewResetPassword;
     private Button buttonLogin;
 
+    private LoginViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
