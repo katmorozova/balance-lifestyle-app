@@ -1,16 +1,21 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
         initViews();
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -38,6 +44,24 @@ public class MainActivity extends AppCompatActivity {
         buttonLoginWithEmail = findViewById(R.id.buttonLoginWithEmail);
         buttonSignUp = findViewById(R.id.buttonSignUp);
     }
+
+    private void observeViewModel(){
+        viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
+            @Override
+            public void onChanged(FirebaseUser firebaseUser) {
+                if(firebaseUser != null){
+                    Intent intent = UserActivity.newIntent(MainActivity.this);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, MainActivity.class);
+    }
+
 
     private void setUpClickListeners(){
         buttonLoginWithEmail.setOnClickListener(new View.OnClickListener() {
