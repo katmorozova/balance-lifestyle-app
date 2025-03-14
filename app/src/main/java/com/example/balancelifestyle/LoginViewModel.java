@@ -35,7 +35,7 @@ public class LoginViewModel extends ViewModel {
                 new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-
+                user.setValue(authResult.getUser());
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
