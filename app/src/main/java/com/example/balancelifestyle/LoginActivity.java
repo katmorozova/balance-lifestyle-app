@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
-
+                viewModel.login(email,password);
                 Intent intent = UserActivity.newIntent(LoginActivity.this);
                 startActivity(intent);
             }
