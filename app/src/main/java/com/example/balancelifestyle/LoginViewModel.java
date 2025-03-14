@@ -1,6 +1,8 @@
 package com.example.balancelifestyle;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -12,8 +14,14 @@ public class LoginViewModel extends ViewModel {
 
     private FirebaseAuth auth;
 
+    private static final MutableLiveData<String> error = new MutableLiveData<>();
+
     public LoginViewModel(){
         auth = FirebaseAuth.getInstance();
+    }
+
+    public static LiveData<String> getError() {
+        return error;
     }
 
     public void login(String email, String password){
