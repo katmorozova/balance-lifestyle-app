@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,8 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
                 viewModel.login(email,password);
-                Intent intent = UserActivity.newIntent(LoginActivity.this);
-                startActivity(intent);
+
             }
         });
     }
@@ -74,13 +74,23 @@ public class LoginActivity extends AppCompatActivity {
         viewModel.getError().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String errorMessage) {
-
+                if(errorMessage != null){
+                    Toast.makeText(
+                            LoginActivity.this,
+                            errorMessage,
+                            Toast.LENGTH_SHORT
+                            ).show();
+                }
             }
         });
         viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
-
+                if(firebaseUser != null){
+                    Intent intent = UserActivity.newIntent(LoginActivity.this);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
