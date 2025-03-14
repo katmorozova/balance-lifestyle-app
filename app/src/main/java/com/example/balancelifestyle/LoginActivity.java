@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
     }
 
     private void initViews(){
@@ -45,13 +46,15 @@ public class LoginActivity extends AppCompatActivity {
         textViewResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = ResetPasswordActivity.newIntent(LoginActivity.this);
+                startActivity(intent);
             }
         });
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = UserActivity.newIntent(LoginActivity.this);
+                startActivity(intent);
             }
         });
     }
