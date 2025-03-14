@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         initViews();
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -64,6 +65,10 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void observeViewModel(){
+
     }
 
     public static Intent newIntent(Context context){
