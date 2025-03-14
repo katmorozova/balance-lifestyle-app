@@ -11,4 +11,8 @@ public class LoginViewModel extends ViewModel {
     public LoginViewModel(){
         auth = FirebaseAuth.getInstance();
     }
+
+    public void login(String email, String password){
+
+    }
 }
