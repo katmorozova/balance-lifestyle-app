@@ -13,7 +13,7 @@ public class MainViewModel extends ViewModel {
     private FirebaseAuth auth;
 
     private  MutableLiveData<FirebaseUser> user = new MutableLiveData<>();
-    private  MutableLiveData<String> error = new MutableLiveData<>();
+    //private  MutableLiveData<String> error = new MutableLiveData<>();
 
 
     public MainViewModel(){
@@ -33,7 +33,5 @@ public class MainViewModel extends ViewModel {
         return user;
     }
 
-    public LiveData<String> getError() {
-        return error;
-    }
+
 }
