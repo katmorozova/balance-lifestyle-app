@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         setUpClickListeners();
     }
 
@@ -55,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = editTextEmail.getText().toString().trim();
+                String password = editTextPassword.getText().toString().trim();
+
                 Intent intent = UserActivity.newIntent(LoginActivity.this);
                 startActivity(intent);
             }
