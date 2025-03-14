@@ -1,5 +1,6 @@
 package com.example.balancelifestyle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,13 +39,15 @@ public class MainActivity extends AppCompatActivity {
         buttonLoginWithEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = LoginActivity.newIntent(MainActivity.this);
+                startActivity(intent);
             }
         });
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = SignUpActivity.newIntent(MainActivity.this);
+                startActivity(intent);
             }
         });
     }
