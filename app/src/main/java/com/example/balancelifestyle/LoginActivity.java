@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,6 +39,21 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewResetPassword = findViewById(R.id.textViewResetPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+    }
+
+    private  void setUpClickListeners(){
+        textViewResetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     public static Intent newIntent(Context context){
