@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -83,7 +84,13 @@ public class SignUpActivity extends AppCompatActivity {
         viewModel.getError().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String errorMessage) {
-
+                if(errorMessage != null){
+                    Toast.makeText(
+                            SignUpActivity.this,
+                            errorMessage,
+                            Toast.LENGTH_SHORT
+                            ).show();
+                }
             }
         });
         viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
