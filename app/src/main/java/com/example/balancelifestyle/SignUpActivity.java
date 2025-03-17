@@ -74,4 +74,8 @@ public class SignUpActivity extends AppCompatActivity {
     public static Intent newIntent(Context context){
         return new Intent(context, SignUpActivity.class);
     }
+
+    public void observeViewModel(){
+
+    }
 }
