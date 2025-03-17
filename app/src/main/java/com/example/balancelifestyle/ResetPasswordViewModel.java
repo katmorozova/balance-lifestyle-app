@@ -1,6 +1,7 @@
 package com.example.balancelifestyle;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -10,6 +11,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ResetPasswordViewModel extends ViewModel {
 
     private FirebaseAuth auth = FirebaseAuth.getInstance();
+
+    private MutableLiveData<Boolean> success = new MutableLiveData<>();
 
     public ResetPasswordViewModel(){
     }
@@ -26,5 +29,9 @@ public class ResetPasswordViewModel extends ViewModel {
 
             }
         });
+    }
+
+    public MutableLiveData<Boolean> isSuccess() {
+        return success;
     }
 }
