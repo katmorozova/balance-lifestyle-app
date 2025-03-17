@@ -45,15 +45,11 @@ public class SignUpViewModel extends ViewModel {
             String email,
             String password
     ){
-        auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-            @Override
-            public void onSuccess(AuthResult authResult) {
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                error.setValue(e.getMessage());
             }
         });
     }
