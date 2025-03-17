@@ -34,4 +34,14 @@ public class SignUpViewModel extends ViewModel {
     public LiveData<FirebaseUser> getUser() {
         return user;
     }
+
+    public void signUpUser(
+            String name,
+            String lastName,
+            int age,
+            String email,
+            String password
+    ){
+
+    }
 }
