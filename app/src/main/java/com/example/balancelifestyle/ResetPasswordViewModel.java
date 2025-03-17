@@ -23,12 +23,12 @@ public class ResetPasswordViewModel extends ViewModel {
         auth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-
+                success.setValue(true);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                error.setValue(e.getMessage());
             }
         });
     }
