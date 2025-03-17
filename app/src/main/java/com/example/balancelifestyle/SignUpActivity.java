@@ -96,7 +96,11 @@ public class SignUpActivity extends AppCompatActivity {
         viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
-
+                if(firebaseUser != null){
+                    Intent intent = UserActivity.newIntent(SignUpActivity.this);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
