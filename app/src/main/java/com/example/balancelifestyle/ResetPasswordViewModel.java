@@ -14,6 +14,7 @@ public class ResetPasswordViewModel extends ViewModel {
     private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     private MutableLiveData<Boolean> success = new MutableLiveData<>();
+    private final MutableLiveData<String> error = new MutableLiveData<>();
 
     public ResetPasswordViewModel(){
     }
@@ -34,5 +35,9 @@ public class ResetPasswordViewModel extends ViewModel {
 
     public LiveData<Boolean> isSuccess() {
         return success;
+    }
+
+    public MutableLiveData<String> getError() {
+        return error;
     }
 }
