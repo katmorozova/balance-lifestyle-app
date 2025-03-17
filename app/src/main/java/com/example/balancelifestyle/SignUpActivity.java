@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
         initViews();
         viewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
+        observeViewModel();
         setUpClickListeners();
     }
 
