@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,8 +57,14 @@ public class ResetPasswordActivity extends AppCompatActivity {
     public void observeViewModel(){
         viewModel.getError().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(String s) {
-
+            public void onChanged(String errorMessage) {
+                if(errorMessage != null){
+                    Toast.makeText(
+                            ResetPasswordActivity.this,
+                            errorMessage,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
             }
         });
         viewModel.isSuccess().observe(this, new Observer<Boolean>() {
