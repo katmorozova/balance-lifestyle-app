@@ -1,6 +1,7 @@
 package com.example.balancelifestyle;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -31,7 +32,7 @@ public class ResetPasswordViewModel extends ViewModel {
         });
     }
 
-    public MutableLiveData<Boolean> isSuccess() {
+    public LiveData<Boolean> isSuccess() {
         return success;
     }
 }
