@@ -59,6 +59,8 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = getTrimmedValue(editTextEmail);
                 String password = getTrimmedValue(editTextPassword);
 
+                viewModel.signUpUser(name, lastName, age, email, password);
+
                 Intent intent = UserActivity.newIntent(SignUpActivity.this);
                 startActivity(intent);
             }
