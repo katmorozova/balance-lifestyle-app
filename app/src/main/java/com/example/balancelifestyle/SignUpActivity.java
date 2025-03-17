@@ -22,6 +22,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonSignUp;
 
+    private SignUpViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
