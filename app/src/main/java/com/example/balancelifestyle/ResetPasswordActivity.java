@@ -33,6 +33,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         });
         initViews();
         viewModel = new ViewModelProvider(this).get(ResetPasswordViewModel.class);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -49,6 +50,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 viewModel.resetUserPassword(email);
             }
         });
+    }
+
+    public void observeViewModel(){
+
     }
 
     public static Intent newIntent(Context context){
