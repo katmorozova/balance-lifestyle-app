@@ -69,8 +69,14 @@ public class ResetPasswordActivity extends AppCompatActivity {
         });
         viewModel.isSuccess().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(Boolean aBoolean) {
-
+            public void onChanged(Boolean success) {
+                if(success){
+                    Toast.makeText(
+                            ResetPasswordActivity.this,
+                            "@string/success_reset",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
             }
         });
     }

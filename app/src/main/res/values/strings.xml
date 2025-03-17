@@ -23,5 +23,6 @@
     <string name="citation">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
     <string name="title_logout">SALIR</string>
     <string name="title_delete">ELIMINAR PERFIL</string>
+    <string name="success_reset">Enlace para cambiar contraseña ha sido enviado con exito</string>
 
 </resources>
