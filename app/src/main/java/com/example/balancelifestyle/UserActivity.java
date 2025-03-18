@@ -62,6 +62,12 @@ public class UserActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.item_logout){
+
+        }
+        if(item.getItemId() == R.id.item_deleteProfile){
+
+        }
         return super.onOptionsItemSelected(item);
     }
 
