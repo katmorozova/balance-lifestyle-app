@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 if(firebaseUser != null){
                     Intent intent = UserActivity.newIntent(MainActivity.this);//comprobar si es correcto
                     startActivity(intent);//comprobar si es correcto
-                    finish();//comprobar si es correcto
+                    finishAffinity();//comprobar si es correcto
                 }
             }
         });

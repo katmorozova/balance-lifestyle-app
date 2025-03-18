@@ -33,12 +33,12 @@ public class UserActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Toolbar toolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
 
         viewModel = new ViewModelProvider(this).get(UserViewModel.class);
         observeViewModel();
 
-        Toolbar toolbar = findViewById(R.id.myToolbar);
-        setSupportActionBar(toolbar);
     }
 
     private void observeViewModel(){
@@ -48,7 +48,7 @@ public class UserActivity extends AppCompatActivity {
                 if(firebaseUser == null){
                     Intent intent = MainActivity.newIntent(UserActivity.this);
                     startActivity(intent);
-                    finish();
+                    finishAffinity();
                 }
             }
         });
