@@ -44,7 +44,11 @@ public class UserActivity extends AppCompatActivity {
         viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
-
+                if(firebaseUser == null){
+                    Intent intent = MainActivity.newIntent(UserActivity.this);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
