@@ -63,7 +63,7 @@ public class UserActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.item_logout){
-
+            viewModel.logOut();
         }
         if(item.getItemId() == R.id.item_deleteProfile){
 
