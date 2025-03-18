@@ -28,4 +28,8 @@ public class UserViewModel extends ViewModel {
     public LiveData<FirebaseUser> getUser() {
         return user;
     }
+
+    public void logOut(){
+        auth.signOut();
+    }
 }
