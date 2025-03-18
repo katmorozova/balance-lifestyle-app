@@ -35,6 +35,6 @@ public class UserViewModel extends ViewModel {
     }
 
     public void deleteUserProfile(){
-
+        currentUser.delete();
     }
 }
