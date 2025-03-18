@@ -14,7 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.google.firebase.auth.FirebaseUser;
 
 public class UserActivity extends AppCompatActivity {
 
@@ -35,6 +38,15 @@ public class UserActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.myToolbar);
         setSupportActionBar(toolbar);
+    }
+
+    private void observeViewModel(){
+        viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
+            @Override
+            public void onChanged(FirebaseUser firebaseUser) {
+
+            }
+        });
     }
 
     @Override
