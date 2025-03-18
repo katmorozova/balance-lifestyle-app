@@ -31,4 +31,8 @@ public class UserViewModel extends ViewModel {
     public void logOut(){
         auth.signOut();
     }
+
+    public void deleteUserProfile(){
+
+    }
 }
