@@ -1,19 +1,27 @@
 package com.example.balancelifestyle;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class UserViewModel extends ViewModel {
 
-    private FirebaseAuth auth;
-    private FirebaseUser currentUser = auth.getCurrentUser();
+    private static final String TAG = "UserViewModel";
 
-    private  MutableLiveData<FirebaseUser> user = new MutableLiveData<>();
+    private final FirebaseAuth auth;
+
+
+    private final MutableLiveData<FirebaseUser> user = new MutableLiveData<>();
 
     public UserViewModel(){
         auth = FirebaseAuth.getInstance();
@@ -35,6 +43,24 @@ public class UserViewModel extends ViewModel {
     }
 
     public void deleteUserProfile(){
-        currentUser.delete();
-    }
+        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        AuthCredential credential = EmailAuthProvider
+                .getCredential("email@email.com", "password1234");
+                if(currentUser != null){
+                    currentUser.reauthenticate(credential)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                currentUser.delete()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Log.d(TAG, "User account deleted");
+                                            }
+                                        });
+                            }
+                        });
+
+                }
+            }
 }

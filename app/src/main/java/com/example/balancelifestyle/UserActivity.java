@@ -52,6 +52,7 @@ public class UserActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     @Override
@@ -66,7 +67,7 @@ public class UserActivity extends AppCompatActivity {
             viewModel.logOut();
         }
         if(item.getItemId() == R.id.item_deleteProfile){
-
+            viewModel.deleteUserProfile();
         }
         return super.onOptionsItemSelected(item);
     }
