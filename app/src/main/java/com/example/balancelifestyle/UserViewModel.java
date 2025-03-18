@@ -18,7 +18,9 @@ public class UserViewModel extends ViewModel {
         auth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
+                if(firebaseAuth.getCurrentUser() != null){
+                    user.setValue(firebaseAuth.getCurrentUser());
+                }
             }
         });
     }
