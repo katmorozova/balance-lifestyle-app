@@ -11,6 +11,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class UserViewModel extends ViewModel {
 
     private FirebaseAuth auth;
+    private FirebaseUser currentUser = auth.getCurrentUser();
+
     private  MutableLiveData<FirebaseUser> user = new MutableLiveData<>();
 
     public UserViewModel(){
