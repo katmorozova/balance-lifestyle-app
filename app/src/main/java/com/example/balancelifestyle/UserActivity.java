@@ -17,6 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class UserActivity extends AppCompatActivity {
 
+    private UserViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
