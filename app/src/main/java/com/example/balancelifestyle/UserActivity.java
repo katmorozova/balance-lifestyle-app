@@ -35,6 +35,7 @@ public class UserActivity extends AppCompatActivity {
         });
 
         viewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        observeViewModel();
 
         Toolbar toolbar = findViewById(R.id.myToolbar);
         setSupportActionBar(toolbar);
