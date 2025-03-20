@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +22,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class UserActivity extends AppCompatActivity {
 
+    private ImageView imageViewWheelOfLife;
+    private ImageView imageViewHabits;
+    private ImageView imageViewGratitud;
+    private ImageView imageViewGoals;
+    private ImageView imageViewPlanning;
+    private ImageView imageViewToDo;
+    private ImageView imageViewWishlist;
+    private ImageView imageViewTravel;
+    private ImageView imageViewMenuSemanal;
+
     private UserViewModel viewModel;
 
     @Override
@@ -35,7 +46,7 @@ public class UserActivity extends AppCompatActivity {
         });
         Toolbar toolbar = findViewById(R.id.myToolbar);
         setSupportActionBar(toolbar);
-
+        initViews();
         viewModel = new ViewModelProvider(this).get(UserViewModel.class);
         observeViewModel();
 
@@ -74,5 +85,17 @@ public class UserActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, UserActivity.class);
+    }
+
+    private void initViews(){
+        imageViewWheelOfLife = findViewById(R.id.imageViewWheelOfLife);
+        imageViewHabits = findViewById(R.id.imageViewHabits);
+        imageViewGratitud = findViewById(R.id.imageViewGratitud);
+        imageViewGoals = findViewById(R.id.imageViewGoals);
+        imageViewPlanning = findViewById(R.id.imageViewPlanning);
+        imageViewToDo = findViewById(R.id.imageViewToDo);
+        imageViewWishlist = findViewById(R.id.imageViewWishlist);
+        imageViewTravel = findViewById(R.id.imageViewTravel);
+        imageViewMenuSemanal = findViewById(R.id.imageViewMenuSemanal);
     }
 }
