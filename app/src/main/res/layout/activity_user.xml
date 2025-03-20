@@ -123,7 +123,7 @@
             android:textColor="@color/blue_dark"/>
 
         <ImageView
-            android:id="@+id/imageViewMenuSemanal"
+            android:id="@+id/imageViewMenuWeek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -131,7 +131,7 @@
             app:srcCompat="@drawable/icon_calendar_food" />
 
         <TextView
-            android:id="@+id/textViewTitleMenuSemanal"
+            android:id="@+id/textViewTitleMenuWeek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -206,7 +206,7 @@
             android:textColor="@color/blue_dark"/>
 
         <ImageView
-            android:id="@+id/imageViewGratitud"
+            android:id="@+id/imageViewThank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -215,7 +215,7 @@
 
 
         <TextView
-            android:id="@+id/textViewTitleGratitud"
+            android:id="@+id/textViewTitleThank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"

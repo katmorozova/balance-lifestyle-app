@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin = findViewById(R.id.buttonLogin);
     }
 
-    private  void setUpClickListeners(){
+    private void setUpClickListeners(){
         textViewResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

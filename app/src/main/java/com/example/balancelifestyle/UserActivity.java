@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -24,13 +25,13 @@ public class UserActivity extends AppCompatActivity {
 
     private ImageView imageViewWheelOfLife;
     private ImageView imageViewHabits;
-    private ImageView imageViewGratitud;
+    private ImageView imageViewThank;
     private ImageView imageViewGoals;
     private ImageView imageViewPlanning;
     private ImageView imageViewToDo;
     private ImageView imageViewWishlist;
     private ImageView imageViewTravel;
-    private ImageView imageViewMenuSemanal;
+    private ImageView imageViewMenuWeek;
 
     private UserViewModel viewModel;
 
@@ -49,6 +50,7 @@ public class UserActivity extends AppCompatActivity {
         initViews();
         viewModel = new ViewModelProvider(this).get(UserViewModel.class);
         observeViewModel();
+        setUpClickListeners();
 
     }
 
@@ -90,12 +92,69 @@ public class UserActivity extends AppCompatActivity {
     private void initViews(){
         imageViewWheelOfLife = findViewById(R.id.imageViewWheelOfLife);
         imageViewHabits = findViewById(R.id.imageViewHabits);
-        imageViewGratitud = findViewById(R.id.imageViewGratitud);
+        imageViewThank = findViewById(R.id.imageViewThank);
         imageViewGoals = findViewById(R.id.imageViewGoals);
         imageViewPlanning = findViewById(R.id.imageViewPlanning);
         imageViewToDo = findViewById(R.id.imageViewToDo);
         imageViewWishlist = findViewById(R.id.imageViewWishlist);
         imageViewTravel = findViewById(R.id.imageViewTravel);
-        imageViewMenuSemanal = findViewById(R.id.imageViewMenuSemanal);
+        imageViewMenuWeek = findViewById(R.id.imageViewMenuWeek);
+    }
+
+    private void setUpClickListeners(){
+        imageViewWheelOfLife.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewHabits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewThank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewGoals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewPlanning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewToDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewWishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewTravel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        imageViewMenuWeek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }
