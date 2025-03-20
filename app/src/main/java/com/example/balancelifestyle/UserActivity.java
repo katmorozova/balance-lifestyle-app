@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class UserActivity extends AppCompatActivity {
 
+    private TextView textViewUserInfo;
     private ImageView imageViewWheelOfLife;
     private ImageView imageViewHabits;
     private ImageView imageViewThank;
@@ -90,6 +92,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void initViews(){
+        textViewUserInfo = findViewById(R.id.textViewUserInfo);
         imageViewWheelOfLife = findViewById(R.id.imageViewWheelOfLife);
         imageViewHabits = findViewById(R.id.imageViewHabits);
         imageViewThank = findViewById(R.id.imageViewThank);
