@@ -13,10 +13,301 @@
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
-        app:title=" "
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:title=" " />
 
+    <TextView
+        android:id="@+id/textViewUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nansy Stuart, 45 años"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/blue_dark"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSlogan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_slogan3"
+        android:textColor="@color/coral"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserInfo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="36dp"
+        android:text="@string/citation"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSlogan"
+        android:background="@drawable/icon_bg" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRaw3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutRaw2"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/textViewLifestyle"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginTop="16dp"
+            android:padding="14dp"
+            android:text="@string/section_lifestyle"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"
+            android:background="@drawable/title_bg"/>
+
+        <ImageView
+            android:id="@+id/imageViewWishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_wishlist" />
+
+        <TextView
+            android:id="@+id/textViewTitleWishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_wishlist"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+        <ImageView
+            android:id="@+id/imageViewTravel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_travel" />
+
+        <TextView
+            android:id="@+id/textViewTitleTravel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_travel"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+        <ImageView
+            android:id="@+id/imageViewMenuSemanal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_calendar_food" />
+
+        <TextView
+            android:id="@+id/textViewTitleMenuSemanal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_food"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRaw1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@id/linearLayoutRaw2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/textViewBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginTop="16dp"
+            android:padding="14dp"
+            android:text="@string/section_balance"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"
+            android:background="@drawable/title_bg"/>
+
+        <ImageView
+            android:id="@+id/imageViewWheelOfLife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_color_wheel_of_life" />
+
+        <TextView
+            android:id="@+id/textViewTitleWheel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_wheel"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+        <ImageView
+            android:id="@+id/imageViewHabits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_habits" />
+
+        <TextView
+            android:id="@+id/textViewTitleHabits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_habits"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+        <ImageView
+            android:id="@+id/imageViewGratitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_gratitud" />
+
+
+        <TextView
+            android:id="@+id/textViewTitleGratitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_gratitud"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRaw2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@id/linearLayoutRaw3"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutRaw1"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/textViewMetas"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginTop="16dp"
+            android:padding="14dp"
+            android:text="@string/section_goals"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"
+            android:background="@drawable/title_bg"/>
+
+        <ImageView
+            android:id="@+id/imageViewGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_achieving_goals" />
+
+        <TextView
+            android:id="@+id/textViewTitleGoals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_metas"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+        <ImageView
+            android:id="@+id/imageViewPlanning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_schedule_planning_month" />
+
+        <TextView
+            android:id="@+id/textViewTitlePlanning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_plannig"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+        <ImageView
+            android:id="@+id/imageViewToDo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_bg"
+            app:srcCompat="@drawable/icon_online_goal_tracking" />
+
+        <TextView
+            android:id="@+id/textViewTitleToDo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/icon_toDo"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue_dark"/>
+
+    </LinearLayout>
 
 
 

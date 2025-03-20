@@ -2,27 +2,50 @@
     <string name="app_name">Balance Lifestyle</string>
     <string name="image_logo">Logotipo de la aplicacion que muestra balance de la vida.</string>
     <string name="app_title">BALANCE LIFESTYLE</string>
-    <string name="app_slogan">\"Vive con conciencia.</string>
+    <string name="app_slogan">\"Vive con conciencia. </string>
     <string name="app_slogan2">Planifica con inteligencia.\"</string>
+    <string name="app_slogan3">\"Vive con conciencia.Planifica con inteligencia.\"</string>
     <string name="button_login">LOGIN with e-mail</string>
     <string name="button_sign_up">Sign Up</string>
+
     <string name="title_login">ENTRA EN TU PERFIL</string>
     <string name="hint_email">Email:</string>
     <string name="hint_password">Password:</string>
     <string name="reset">Reset password</string>
     <string name="button_entrar">LOGIN</string>
+
     <string name="signUp_title">Registra tu perfil</string>
     <string name="hint_name">Name:</string>
     <string name="hint_lastName">Last name:</string>
     <string name="hint_age">Age:</string>
     <string name="reset_title">RESET PASSWORD</string>
     <string name="button_reset">RESET</string>
-    <string name="name">%s</string>
-    <string name="lastName">%s</string>
-    <string name="age">%s</string>
-    <string name="citation">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
+
+
     <string name="title_logout">SALIR</string>
     <string name="title_delete">ELIMINAR PERFIL</string>
     <string name="success_reset">Enlace para cambiar contraseña ha sido enviado con exito</string>
+
+
+    <string name="name">%s</string>
+    <string name="lastName">%s</string>
+    <string name="age">%s</string>
+    <string name="citation1">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
+    <string name="citation">\" Como un artesano que trabaja pacientemente en su obra,
+        cada día tenemos la oportunidad de esculpir la mejor versión de nosotros mismos.\"</string>
+
+    <string name="section_balance">BALANCE</string>
+    <string name="section_goals">GOALS</string>
+    <string name="section_lifestyle">LIFESTYLE</string>
+    <string name="icon_wheel">Rueda de balance</string>
+    <string name="icon_habits">Habitos</string>
+    <string name="icon_gratitud">Gratitud</string>
+    <string name="icon_metas">Metas</string>
+    <string name="icon_plannig">Plan de mes</string>
+    <string name="icon_toDo">To Do</string>
+    <string name="icon_wishlist">Whishlist</string>
+    <string name="icon_travel">Viajes</string>
+    <string name="icon_food">Menu semanal</string>
+
 
 </resources>
