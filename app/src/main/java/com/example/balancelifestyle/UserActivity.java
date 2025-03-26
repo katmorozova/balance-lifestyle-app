@@ -2,6 +2,7 @@ package com.example.balancelifestyle;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,6 +53,7 @@ public class UserActivity extends AppCompatActivity {
         initViews();
         viewModel = new ViewModelProvider(this).get(UserViewModel.class);
         observeViewModel();
+        loadUserData();
         setUpClickListeners();
 
     }
@@ -71,6 +73,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     public void loadUserData(){
+        SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
 
     }
 
