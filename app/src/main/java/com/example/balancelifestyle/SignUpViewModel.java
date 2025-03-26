@@ -1,6 +1,7 @@
 package com.example.balancelifestyle;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -8,8 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -57,6 +57,10 @@ public class SignUpViewModel extends ViewModel {
     }
 
     public void saveUserData(Context context, String name, String lastName, int age){
+        SharedPreferences preferences = context.getSharedPreferences(
+                "UserPrefs",
+                Context.MODE_PRIVATE
+        );
 
     }
 }
