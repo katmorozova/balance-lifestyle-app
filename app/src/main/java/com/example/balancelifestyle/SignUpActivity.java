@@ -66,8 +66,6 @@ public class SignUpActivity extends AppCompatActivity {
 
                 viewModel.signUpUser(name, lastName, age, email, password);
 
-                Intent intent = UserActivity.newIntent(SignUpActivity.this);
-                startActivity(intent);
             }
         });
     }
@@ -97,6 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if(firebaseUser != null){
+
                     Intent intent = UserActivity.newIntent(SignUpActivity.this);
                     startActivity(intent);
                     finish();
