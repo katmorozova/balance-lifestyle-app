@@ -51,6 +51,9 @@ public class UserViewModel extends ViewModel {
                 "UserPrefs",
                 Context.MODE_PRIVATE
         );
+        SharedPreferences.Editor userData = preferences.edit();
+        userData.clear();
+        userData.apply();
     }
 
     public void deleteUserProfile(Context context, String email, String password){
