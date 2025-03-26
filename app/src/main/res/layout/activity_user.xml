@@ -21,7 +21,7 @@
         android:id="@+id/textViewUserInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nansy Stuart, 45 años"
+        android:text="@string/user_info"
         android:textSize="18sp"
         android:textAlignment="center"
         android:textColor="@color/blue_dark"
