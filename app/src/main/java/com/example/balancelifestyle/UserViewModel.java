@@ -46,9 +46,11 @@ public class UserViewModel extends ViewModel {
         auth.signOut();
     }
 
+    public void deleteUserData(){
 
+    }
 
-    public void deleteUserProfile(Context context, String email, String password){
+    public void deleteUserProfile(String email, String password){
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         AuthCredential credential = EmailAuthProvider
                 .getCredential(email, password);
@@ -68,7 +70,7 @@ public class UserViewModel extends ViewModel {
                         });
 
                 }
-
+                deleteUserData();
             }
 
 
