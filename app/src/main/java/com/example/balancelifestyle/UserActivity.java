@@ -84,7 +84,7 @@ public class UserActivity extends AppCompatActivity {
         }else{
             userInfo = "User no exist!!!";
         }
-
+        textViewUserInfo.setText(userInfo);
     }
 
 
