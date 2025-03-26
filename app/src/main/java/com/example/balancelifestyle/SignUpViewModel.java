@@ -62,5 +62,9 @@ public class SignUpViewModel extends ViewModel {
                 Context.MODE_PRIVATE
         );
         SharedPreferences.Editor userData = preferences.edit();
+        userData.putString("name", name);
+        userData.putString("lastName", lastName);
+        userData.putInt("age", age);
+        userData.apply();
     }
 }
