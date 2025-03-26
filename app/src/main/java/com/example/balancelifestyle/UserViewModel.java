@@ -1,5 +1,9 @@
 package com.example.balancelifestyle;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -42,10 +46,12 @@ public class UserViewModel extends ViewModel {
         auth.signOut();
     }
 
-    public void deleteUserProfile(){
+
+
+    public void deleteUserProfile(Context context, String email, String password){
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         AuthCredential credential = EmailAuthProvider
-                .getCredential("email@email.com", "password1234");
+                .getCredential(email, password);
                 if(currentUser != null){
                     currentUser.reauthenticate(credential)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -62,5 +68,8 @@ public class UserViewModel extends ViewModel {
                         });
 
                 }
+
             }
+
+
 }
