@@ -74,7 +74,9 @@ public class UserActivity extends AppCompatActivity {
 
     public void loadUserData(){
         SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-
+        String name = preferences.getString("name", "No disponible");
+        String lastName = preferences.getString("lastName", "No disponible");
+        int age = preferences.getInt("age", -1);
     }
 
 
