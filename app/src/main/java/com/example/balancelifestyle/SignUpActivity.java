@@ -2,6 +2,7 @@ package com.example.balancelifestyle;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,13 +66,24 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = getTrimmedValue(editTextPassword);
 
                 viewModel.signUpUser(name, lastName, age, email, password);
-
             }
         });
     }
 
     private String getTrimmedValue(EditText editText){
         return editText.getText().toString().trim();
+    }
+
+    public void saveUserData(String name, String lastName, int age){
+        SharedPreferences preferences = getSharedPreferences(
+                "UserPrefs",
+                Context.MODE_PRIVATE
+        );
+        SharedPreferences.Editor userData = preferences.edit();
+        userData.putString("name", name);
+        userData.putString("lastName", lastName);
+        userData.putInt("age", age);
+        userData.apply();
     }
 
     public static Intent newIntent(Context context){
@@ -95,7 +107,10 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if(firebaseUser != null){
-
+                    String name = getTrimmedValue(editTextName);
+                    String lastName = getTrimmedValue(editTextLastName);
+                    int age = Integer.parseInt(getTrimmedValue(editTextAge));
+                    saveUserData(name, lastName, age);
                     Intent intent = UserActivity.newIntent(SignUpActivity.this);
                     startActivity(intent);
                     finish();
