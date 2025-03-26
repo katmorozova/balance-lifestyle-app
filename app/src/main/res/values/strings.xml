@@ -27,7 +27,7 @@
     <string name="success_reset">Enlace para cambiar contraseña ha sido enviado con exito</string>
 
 
-    <string name="user_info">%s %s, %d años</string>
+    <string name="user_info">%1$s %2$s, %3$d años</string>
 
     <string name="citation1">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
     <string name="citation">\" Como un artesano que trabaja pacientemente en su obra,
