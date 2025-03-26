@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -52,5 +54,9 @@ public class SignUpViewModel extends ViewModel {
                 error.setValue(e.getMessage());
             }
         });
+    }
+
+    public void saveUserData(Context context, String name, String lastName, int age){
+
     }
 }
