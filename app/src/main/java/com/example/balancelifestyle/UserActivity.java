@@ -70,6 +70,11 @@ public class UserActivity extends AppCompatActivity {
 
     }
 
+    public void loadUserData(){
+
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
