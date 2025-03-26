@@ -79,6 +79,11 @@ public class UserActivity extends AppCompatActivity {
         int age = preferences.getInt("age", -1);
 
         String userInfo;
+        if(age != -1){
+            userInfo = getString(R.string.user_info, name, lastName, age);
+        }else{
+            userInfo = "User no exist!!!";
+        }
 
     }
 
