@@ -102,7 +102,19 @@ public class UserActivity extends AppCompatActivity {
             viewModel.logOut();
         }
         if(item.getItemId() == R.id.item_deleteProfile){
-            viewModel.deleteUserProfile();
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            if(currentUser == null || currentUser.getEmail() == null){
+                Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            String email = currentUser.getEmail();
+            String password = "Introduce su contraseña por favor";
+            if(password.isEmpty()){
+                Toast.makeText(this, "Ingrece su contraseña para continuar", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+
+            viewModel.deleteUserProfile(getApplicationContext(), email, password);
         }
         return super.onOptionsItemSelected(item);
     }
