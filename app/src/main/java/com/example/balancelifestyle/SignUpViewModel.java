@@ -61,6 +61,6 @@ public class SignUpViewModel extends ViewModel {
                 "UserPrefs",
                 Context.MODE_PRIVATE
         );
-
+        SharedPreferences.Editor userData = preferences.edit();
     }
 }
