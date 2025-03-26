@@ -77,6 +77,9 @@ public class UserActivity extends AppCompatActivity {
         String name = preferences.getString("name", "No disponible");
         String lastName = preferences.getString("lastName", "No disponible");
         int age = preferences.getInt("age", -1);
+
+        String userInfo;
+
     }
 
 
