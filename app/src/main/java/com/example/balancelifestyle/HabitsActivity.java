@@ -42,6 +42,7 @@ public class HabitsActivity extends AppCompatActivity {
             Habit habit = new Habit(i, "Habit"+i, random.nextInt(3));
             habits.add(habit);
         }
+        showHabits();
 
     }
 
@@ -61,7 +62,7 @@ public class HabitsActivity extends AppCompatActivity {
                     linearLayoutHabits,
                     false
             );
-
+            linearLayoutHabits.addView(view);
         }
     }
 }
