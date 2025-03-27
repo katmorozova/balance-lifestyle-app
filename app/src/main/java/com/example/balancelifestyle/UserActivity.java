@@ -146,7 +146,8 @@ public class UserActivity extends AppCompatActivity {
         imageViewHabits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = HabitsActivity.newIntent(UserActivity.this);
+                startActivity(intent);
             }
         });
         imageViewThank.setOnClickListener(new View.OnClickListener() {
