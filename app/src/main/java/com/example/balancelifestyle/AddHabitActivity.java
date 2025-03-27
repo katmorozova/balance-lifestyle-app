@@ -1,6 +1,9 @@
 package com.example.balancelifestyle;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,19 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AddHabitActivity extends AppCompatActivity {
+
+    private EditText editTextAddHabit;
+    private RadioButton radioButtonSalud;
+    private RadioButton radioButtonMental;
+    private RadioButton radioButtonRelaciones;
+    private RadioButton radioButtonCreatividad;
+    private RadioButton radioButtonFinance;
+    private RadioButton radioButtonHiguiene;
+    private Button buttonSaveHabit;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
