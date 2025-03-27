@@ -39,14 +39,6 @@ public class AddHabitActivity extends AppCompatActivity {
         setUpClickListeners();
     }
 
-    private void setUpClickListeners(){
-        buttonSaveHabit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    }
 
     private void initViews(){
         editTextAddHabit = findViewById(R.id.editTextAddHabit);
@@ -58,5 +50,17 @@ public class AddHabitActivity extends AppCompatActivity {
         radioButtonDesarrollo = findViewById(R.id.radioButtonDesarrollo);
         radioButtonHiguiene = findViewById(R.id.radioButtonHiguiene);
         buttonSaveHabit = findViewById(R.id.buttonSaveHabit);
+    }
+    private void setUpClickListeners(){
+        buttonSaveHabit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    private void saveHabit(){
+
     }
 }
