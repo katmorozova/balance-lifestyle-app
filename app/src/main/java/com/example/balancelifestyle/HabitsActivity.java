@@ -81,7 +81,7 @@ public class HabitsActivity extends AppCompatActivity {
                     colorResId = android.R.color.holo_purple;
             }
             int color = ContextCompat.getColor(this, colorResId);
-
+            textViewHabit.setBackgroundColor(color);
             linearLayoutHabits.addView(view);
         }
     }
