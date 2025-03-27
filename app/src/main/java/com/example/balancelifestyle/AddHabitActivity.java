@@ -61,6 +61,7 @@ public class AddHabitActivity extends AppCompatActivity {
     }
 
     private void saveHabit(){
-
+//añadir validacion si usuario ha introducido algo en EditText
+        String text = editTextAddHabit.getText().toString().trim();
     }
 }
