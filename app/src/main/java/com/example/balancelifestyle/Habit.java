@@ -12,5 +12,15 @@ public class Habit {
         this.typeOfHabit = typeOfHabit;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public String getText() {
+        return text;
+    }
+
+    public int getTypeOfHabit() {
+        return typeOfHabit;
+    }
 }
