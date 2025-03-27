@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,6 +63,7 @@ public class HabitsActivity extends AppCompatActivity {
                     linearLayoutHabits,
                     false
             );
+            TextView textViewHabit = view.findViewById(R.id.textViewHabit);
             linearLayoutHabits.addView(view);
         }
     }
