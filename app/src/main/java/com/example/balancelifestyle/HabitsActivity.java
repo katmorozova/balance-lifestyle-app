@@ -54,6 +54,8 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private  void showHabits(){
+        for(Habit habit : habits){
 
+        }
     }
 }
