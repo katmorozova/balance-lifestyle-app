@@ -66,7 +66,19 @@ public class HabitsActivity extends AppCompatActivity {
             TextView textViewHabit = view.findViewById(R.id.textViewHabit);
             textViewHabit.setText(habit.getText());
             int colorResId;
-
+            switch(habit.getTypeOfHabit()){
+                case 0:
+                    colorResId = android.R.color.holo_green_dark;
+                    break;
+                case 1:
+                    colorResId = android.R.color.holo_orange_dark;
+                    break;
+                case 2:
+                    colorResId = android.R.color.holo_blue_dark;
+                    break;
+                default:
+                    colorResId = android.R.color.holo_purple;
+            }
 
             linearLayoutHabits.addView(view);
         }
