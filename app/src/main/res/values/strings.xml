@@ -29,7 +29,6 @@
 
     <string name="user_info">%1$s %2$s, %3$d años</string>
 
-    <string name="citation1">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
     <string name="citation">\" Como un artesano que trabaja pacientemente en su obra,
         cada día tenemos la oportunidad de esculpir la mejor versión de nosotros mismos.\"</string>
 
@@ -46,5 +45,9 @@
     <string name="icon_travel">Viajes</string>
     <string name="icon_food">Menu semanal</string>
 
+    <string name="habits_title">HABITOS</string>
+    <string name="citation1">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
+    <string name="button_habits">Boton para añadir los habitos en la lista</string>
+    <string name="scroll_habits">Descripción para ScrollView</string>
 
 </resources>

@@ -5,6 +5,63 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/beige"
     tools:context=".HabitsActivity">
+
+
+    <TextView
+        android:id="@+id/textViewHabitsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/habits_title"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/blue_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/textViewCitation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/citation1"
+        android:textAlignment="center"
+        android:textColor="@color/coral"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHabitsTitle"
+        app:layout_constraintBottom_toTopOf="@id/scrollViewHabits"/>
+
+    <ScrollView
+        android:id="@+id/scrollViewHabits"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@string/scroll_habits"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCitation">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutHabits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonHabits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/button_habits"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
