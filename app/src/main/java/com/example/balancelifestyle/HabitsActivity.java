@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -55,6 +56,11 @@ public class HabitsActivity extends AppCompatActivity {
 
     private  void showHabits(){
         for(Habit habit : habits){
+            View view = getLayoutInflater().inflate(
+                    R.layout.habit_item,
+                    linearLayoutHabits,
+                    false
+            );
 
         }
     }
