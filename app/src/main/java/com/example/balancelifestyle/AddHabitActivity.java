@@ -19,6 +19,7 @@ public class AddHabitActivity extends AppCompatActivity {
     private RadioButton radioButtonRelaciones;
     private RadioButton radioButtonCreatividad;
     private RadioButton radioButtonFinance;
+    private RadioButton radioButtonDesarrollo;
     private RadioButton radioButtonHiguiene;
     private Button buttonSaveHabit;
 
@@ -37,6 +38,14 @@ public class AddHabitActivity extends AppCompatActivity {
     }
 
     private void initViews(){
-
+        editTextAddHabit = findViewById(R.id.editTextAddHabit);
+        radioButtonSalud = findViewById(R.id.radioButtonSalud);
+        radioButtonMental = findViewById(R.id.radioButtonMental);
+        radioButtonRelaciones = findViewById(R.id.radioButtonRelaciones);
+        radioButtonCreatividad = findViewById(R.id.radioButtonCreatividad);
+        radioButtonFinance = findViewById(R.id.radioButtonFinance);
+        radioButtonDesarrollo = findViewById(R.id.radioButtonDesarrollo);
+        radioButtonHiguiene = findViewById(R.id.radioButtonHiguiene);
+        buttonSaveHabit = findViewById(R.id.buttonSaveHabit);
     }
 }
