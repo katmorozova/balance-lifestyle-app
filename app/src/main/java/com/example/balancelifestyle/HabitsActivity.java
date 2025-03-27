@@ -64,6 +64,7 @@ public class HabitsActivity extends AppCompatActivity {
                     false
             );
             TextView textViewHabit = view.findViewById(R.id.textViewHabit);
+            textViewHabit.setText(habit.getText());
             linearLayoutHabits.addView(view);
         }
     }
