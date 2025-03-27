@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
@@ -32,5 +34,9 @@ public class HabitsActivity extends AppCompatActivity {
     private void  initViews(){
         linearLayoutHabits = findViewById(R.id.linearLayoutHabits);
         floatingActionButtonHabits = findViewById(R.id.floatingActionButtonHabits);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, HabitsActivity.class);
     }
 }
