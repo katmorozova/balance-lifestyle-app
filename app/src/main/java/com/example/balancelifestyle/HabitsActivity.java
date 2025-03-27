@@ -13,10 +13,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class HabitsActivity extends AppCompatActivity {
 
     private LinearLayout linearLayoutHabits;
     private FloatingActionButton floatingActionButtonHabits;
+
+    private List<Habit> habits = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,13 @@ public class HabitsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+
+        Random random = new Random();
+        for(int i = 0; i < 20; i++){
+            Habit habit = new Habit(i, "Habit"+i, random.nextInt(3));
+            habits.add(habit);
+        }
+
     }
 
     private void  initViews(){
@@ -38,5 +51,9 @@ public class HabitsActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, HabitsActivity.class);
+    }
+
+    private  void showHabits(){
+
     }
 }
