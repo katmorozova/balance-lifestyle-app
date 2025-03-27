@@ -23,9 +23,6 @@ public class AddHabitActivity extends AppCompatActivity {
     private Button buttonSaveHabit;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +33,10 @@ public class AddHabitActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initViews();
+    }
+
+    private void initViews(){
+
     }
 }
