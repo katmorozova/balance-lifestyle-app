@@ -50,4 +50,17 @@
     <string name="button_habits">Boton para añadir los habitos en la lista</string>
     <string name="scroll_habits">Descripción para ScrollView</string>
 
+    <string name="title_addHabit">AÑADE UN HÁBITO EN TU LISTA</string>
+    <string name="hint_addHabit">Introduce un hábito</string>
+
+    <string name="habit_salud">Actividades fisicas y salud </string>
+    <string name="habit_mental">Salud mental y emocional</string>
+    <string name="habit_relaciones">Sociales y relaciones</string>
+    <string name="habit_desarrollo">Productividad y desarrollo personal</string>
+    <string name="habit_creatividad">Creativos y espirituales</string>
+    <string name="habit_finance">Financieros</string>
+    <string name="habit_higuiene">Habitos de higuiene</string>
+
+    <string name="button_saveHabit">GUARDAR</string>
+
 </resources>

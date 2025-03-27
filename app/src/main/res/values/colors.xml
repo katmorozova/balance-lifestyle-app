@@ -6,4 +6,12 @@
     <color name="blue_dark">#2F4F4F</color>
     <color name="coral">#E8A07D</color>
 
+    <color name="verde_nature">#4CAF50</color>
+    <color name="turquesa_relajante">#4DD0E1</color>
+    <color name="morado_equilibrado">#9575CD</color>
+    <color name="rosa_suave_brillante">#FF80AB</color>
+    <color name="gris_azulado_claro">#B0BEC5</color>
+    <color name="amarillo_dorado">#FFC107</color>
+    <color name="azul_concentracion">#2196F3</color>
+
 </resources>
