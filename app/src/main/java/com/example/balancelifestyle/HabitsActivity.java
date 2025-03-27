@@ -65,6 +65,9 @@ public class HabitsActivity extends AppCompatActivity {
             );
             TextView textViewHabit = view.findViewById(R.id.textViewHabit);
             textViewHabit.setText(habit.getText());
+            int colorResId;
+
+
             linearLayoutHabits.addView(view);
         }
     }
