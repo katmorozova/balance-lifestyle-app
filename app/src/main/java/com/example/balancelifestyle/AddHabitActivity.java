@@ -1,6 +1,7 @@
 package com.example.balancelifestyle;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -35,6 +36,16 @@ public class AddHabitActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
+    }
+
+    private void setUpClickListeners(){
+        buttonSaveHabit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void initViews(){
