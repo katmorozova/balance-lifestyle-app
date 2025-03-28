@@ -14,6 +14,9 @@ public class Database {
     public void remove(int id){
         for(int i = 0; i < habits.size(); i++){
             Habit habit = habits.get(i);
+            if(habit.getId() == id){
+                habits.remove(habit);
+            }
         }
     }
 }
