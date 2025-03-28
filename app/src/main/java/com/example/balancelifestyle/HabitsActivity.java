@@ -45,6 +45,7 @@ public class HabitsActivity extends AppCompatActivity {
             habits.add(habit);
         }
         showHabits();
+        setUpClickListeners();
 
     }
 
@@ -55,6 +56,15 @@ public class HabitsActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, HabitsActivity.class);
+    }
+
+    private void setUpClickListeners(){
+        floatingActionButtonHabits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void showHabits(){
