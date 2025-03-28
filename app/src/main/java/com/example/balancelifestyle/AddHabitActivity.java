@@ -89,7 +89,6 @@ public class AddHabitActivity extends AppCompatActivity {
     }
 
     public static Intent newIntent(Context context){
-        Intent intent = new Intent(context, AddHabitActivity.class);
-        return intent;
+        return new Intent(context, AddHabitActivity.class);
     }
 }
