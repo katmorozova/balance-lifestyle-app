@@ -1,11 +1,19 @@
 package com.example.balancelifestyle;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class Database {
 
     private ArrayList<Habit> habits = new ArrayList<>();
+
+    public Database(){
+        Random random = new Random();
+        for(int i = 0; i < 20; i++){
+            Habit habit = new Habit(i, "Habit"+i, random.nextInt(6));
+            habits.add(habit);
+        }
+    }
 
     public void add(Habit habit){
         habits.add(habit);

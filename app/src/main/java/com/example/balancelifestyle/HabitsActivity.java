@@ -25,7 +25,7 @@ public class HabitsActivity extends AppCompatActivity {
     private LinearLayout linearLayoutHabits;
     private FloatingActionButton floatingActionButtonHabits;
 
-    private List<Habit> habits = new ArrayList<>();
+    private ArrayList<Habit> habits = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,6 @@ public class HabitsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
-
-        Random random = new Random();
-        for(int i = 0; i < 20; i++){
-            Habit habit = new Habit(i, "Habit"+i, random.nextInt(6));
-            habits.add(habit);
-        }
-
         setUpClickListeners();
 
     }
