@@ -10,4 +10,8 @@ public class Database {
     public void add(Habit habit){
         habits.add(habit);
     }
+
+    public void remove(int id){
+
+    }
 }
