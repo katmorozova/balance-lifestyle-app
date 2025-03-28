@@ -8,6 +8,6 @@ public class Database {
     private List<Habit> habits = new ArrayList<>();
 
     public void add(Habit habit){
-
+        habits.add(habit);
     }
 }
