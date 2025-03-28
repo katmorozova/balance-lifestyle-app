@@ -55,7 +55,7 @@ public class AddHabitActivity extends AppCompatActivity {
         buttonSaveHabit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                saveHabit();
             }
         });
     }
