@@ -12,6 +12,8 @@ public class Database {
     }
 
     public void remove(int id){
+        for(int i = 0; i < habits.size(); i++){
 
+        }
     }
 }
