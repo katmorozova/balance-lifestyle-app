@@ -62,7 +62,8 @@ public class HabitsActivity extends AppCompatActivity {
         floatingActionButtonHabits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = AddHabitActivity.newIntent(HabitsActivity.this);
+                startActivity(intent);
             }
         });
     }
