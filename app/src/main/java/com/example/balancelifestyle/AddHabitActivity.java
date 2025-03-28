@@ -64,4 +64,24 @@ public class AddHabitActivity extends AppCompatActivity {
 //añadir validacion si usuario ha introducido algo en EditText
         String text = editTextAddHabit.getText().toString().trim();
     }
+
+    private int getTypeOfHabit(){
+        int typeOfHabit = -1;
+        if(radioButtonSalud.isChecked()){
+            typeOfHabit = 0;
+        }else if(radioButtonMental.isChecked()){
+            typeOfHabit = 1;
+        }else if(radioButtonRelaciones.isChecked()){
+            typeOfHabit = 2;
+        }else if(radioButtonDesarrollo.isChecked()){
+            typeOfHabit = 3;
+        }else if(radioButtonCreatividad.isChecked()){
+            typeOfHabit = 4;
+        }else if(radioButtonFinance.isChecked()){
+            typeOfHabit = 5;
+        }else if(radioButtonHiguiene.isChecked()){
+            typeOfHabit = 6;
+        }
+        return typeOfHabit;
+    }
 }
