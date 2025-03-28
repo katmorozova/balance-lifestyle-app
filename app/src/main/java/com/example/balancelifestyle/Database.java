@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Database {
 
-    private List<Habit> habits = new ArrayList<>();
+    private ArrayList<Habit> habits = new ArrayList<>();
 
     public void add(Habit habit){
         habits.add(habit);
@@ -18,5 +18,9 @@ public class Database {
                 habits.remove(habit);
             }
         }
+    }
+
+    public ArrayList<Habit> getHabits() {
+        return new ArrayList<>(habits);
     }
 }
