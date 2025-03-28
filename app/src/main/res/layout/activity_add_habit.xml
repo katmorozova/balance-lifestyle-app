@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/beige"
     tools:context=".AddHabitActivity">
 
     <TextView
@@ -98,6 +99,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_saveHabit"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_marginStart="150dp"
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/blue_dark"/>
