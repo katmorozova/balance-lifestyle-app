@@ -58,6 +58,8 @@ public class AddHabitActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveHabit();
+                Intent intent = HabitsActivity.newIntent(AddHabitActivity.this);
+                startActivity(intent);
             }
         });
     }

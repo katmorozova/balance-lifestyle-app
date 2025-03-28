@@ -44,9 +44,15 @@ public class HabitsActivity extends AppCompatActivity {
             Habit habit = new Habit(i, "Habit"+i, random.nextInt(6));
             habits.add(habit);
         }
-        showHabits();
+
         setUpClickListeners();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showHabits();
     }
 
     private void  initViews(){
@@ -69,6 +75,7 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void showHabits(){
+        linearLayoutHabits.removeAllViews();
         for(Habit habit : habits){
             View view = getLayoutInflater().inflate(
                     R.layout.habit_item,
