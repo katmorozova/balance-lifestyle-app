@@ -25,7 +25,7 @@ public class HabitsActivity extends AppCompatActivity {
     private LinearLayout linearLayoutHabits;
     private FloatingActionButton floatingActionButtonHabits;
 
-    private ArrayList<Habit> habits = new ArrayList<>();
+    private Database database = new Database();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
