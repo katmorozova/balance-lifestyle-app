@@ -1,5 +1,8 @@
 package com.example.balancelifestyle;
 
+import androidx.room.Entity;
+
+@Entity(tableName = "notes")
 public class Habit {
 
     private int id;
