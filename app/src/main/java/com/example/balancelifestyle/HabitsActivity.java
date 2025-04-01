@@ -69,7 +69,7 @@ public class HabitsActivity extends AppCompatActivity {
 
     private void showHabits(){
         linearLayoutHabits.removeAllViews();
-        for(Habit habit : habits){
+        for(Habit habit : database.getHabits()){
             View view = getLayoutInflater().inflate(
                     R.layout.habit_item,
                     linearLayoutHabits,
