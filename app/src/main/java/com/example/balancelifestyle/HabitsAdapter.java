@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class HabitsAdapter extends RecyclerView.Adapter<> {
+public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsViewHolder> {
 
     private ArrayList<Habit> habits = new ArrayList<>();
 
