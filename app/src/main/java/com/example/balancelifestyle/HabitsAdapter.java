@@ -32,10 +32,9 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
 
     //añade color del fondo para objetos y el texto
     @Override
-    public void onBindView(@NonNull View view, int position) {
+    public void onBindViewHolder(@NonNull HabitsViewHolder viewHolder, int position) {
         Habit habit = habits.get(position);
-        TextView textViewHabit = view.findViewById(R.id.textViewHabit);
-        textViewHabit.setText(habit.getText());
+        viewHolder.textViewHabit.setText(habit.getText());
         int colorResId;
         switch(habit.getTypeOfHabit()){
             case 0:
@@ -62,8 +61,8 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
             default:
                 colorResId = R.color.coral;
         }
-        int color = ContextCompat.getColor(view.getContext(), colorResId);
-        textViewHabit.setBackgroundColor(color);
+        int color = ContextCompat.getColor(viewHolder.itemView.getContext(), colorResId);
+        viewHolder.textViewHabit.setBackgroundColor(color);
     }
 
     @Override
