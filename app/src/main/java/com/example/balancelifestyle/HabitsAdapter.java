@@ -1,8 +1,12 @@
 package com.example.balancelifestyle;
 
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,16 +18,52 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
     public void setHabits(ArrayList<Habit> habits) {
         this.habits = habits;
     }
-
+//mostramos elementos en la pantalla
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public View onCreateView(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.habit_item,
+                parent,
+                false
+        );
+        return view;
     }
 
+    //añade color del fondo para objetos y el texto
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+    public void onBindView(@NonNull View view, int position) {
+        Habit habit = habits.get(position);
+        TextView textViewHabit = view.findViewById(R.id.textViewHabit);
+        textViewHabit.setText(habit.getText());
+        int colorResId;
+        switch(habit.getTypeOfHabit()){
+            case 0:
+                colorResId = R.color.verde_nature;
+                break;
+            case 1:
+                colorResId = R.color.turquesa_relajante;
+                break;
+            case 2:
+                colorResId = R.color.rosa_suave_brillante;
+                break;
+            case 3:
+                colorResId = R.color.azul_concentracion;
+                break;
+            case 4:
+                colorResId = R.color.morado_equilibrado;
+                break;
+            case 5:
+                colorResId = R.color.amarillo_dorado;
+                break;
+            case 6:
+                colorResId = R.color.gris_azulado_claro;
+                break;
+            default:
+                colorResId = R.color.coral;
+        }
+        int color = ContextCompat.getColor(view.getContext(), colorResId);
+        textViewHabit.setBackgroundColor(color);
     }
 
     @Override
