@@ -86,4 +86,8 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
         }
 
     }
+
+    interface onHabitClickListener {
+        void onHabitClick(Habit habit);
+    }
 }
