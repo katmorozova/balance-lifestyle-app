@@ -70,4 +70,11 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
     public int getItemCount() {
         return habits.size();
     }
+    class HabitsViewHolder extends  RecyclerView.ViewHolder {
+
+        public HabitsViewHolder(@NonNull View itemView){
+            super(itemView);
+        }
+
+    }
 }
