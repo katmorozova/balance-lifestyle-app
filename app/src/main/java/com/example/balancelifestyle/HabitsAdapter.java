@@ -16,6 +16,11 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
     private ArrayList<Habit> habits = new ArrayList<>();
     private OnHabitClickListener onHabitClickListener;
 
+
+    public ArrayList<Habit> getHabits() {
+        return habits;
+    }
+
     public void setOnHabitClickListener(OnHabitClickListener onHabitClickListener) {
         this.onHabitClickListener = onHabitClickListener;
     }

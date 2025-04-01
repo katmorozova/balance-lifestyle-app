@@ -60,9 +60,11 @@ public class HabitsActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
+                int position = viewHolder.getAdapterPosition();
+                database.remove(habit.getId());
+                showHabits();
             }
-        })
+        });
         setUpClickListeners();
 
     }
