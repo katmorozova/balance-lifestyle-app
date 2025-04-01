@@ -38,23 +38,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHabitsTitle"
-        app:layout_constraintBottom_toTopOf="@id/scrollViewHabits"/>
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewHabits"/>
 
-    <ScrollView
-        android:id="@+id/scrollViewHabits"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHabits"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:contentDescription="@string/scroll_habits"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCitation">
-
-        <LinearLayout
-            android:id="@+id/linearLayoutHabits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-    </ScrollView>
+        android:layout_height="match_parent"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonHabits"
@@ -64,7 +54,6 @@
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/mas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

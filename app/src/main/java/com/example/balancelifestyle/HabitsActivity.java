@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,7 +23,7 @@ import java.util.Random;
 
 public class HabitsActivity extends AppCompatActivity {
 
-    private LinearLayout linearLayoutHabits;
+    private RecyclerView recyclerViewHabits;
     private FloatingActionButton floatingActionButtonHabits;
 
     private Database database = Database.getInstance();
@@ -49,7 +50,7 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void  initViews(){
-        linearLayoutHabits = findViewById(R.id.linearLayoutHabits);
+        recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
         floatingActionButtonHabits = findViewById(R.id.floatingActionButtonHabits);
     }
 
@@ -68,11 +69,11 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void showHabits(){
-        linearLayoutHabits.removeAllViews();
+        recyclerViewHabits.removeAllViews();
         for(Habit habit : database.getHabits()){
             View view = getLayoutInflater().inflate(
                     R.layout.habit_item,
-                    linearLayoutHabits,
+                    recyclerViewHabits,
                     false
             );
             TextView textViewHabit = view.findViewById(R.id.textViewHabit);
@@ -105,7 +106,7 @@ public class HabitsActivity extends AppCompatActivity {
             }
             int color = ContextCompat.getColor(this, colorResId);
             textViewHabit.setBackgroundColor(color);
-            linearLayoutHabits.addView(view);
+            recyclerViewHabits.addView(view);
         }
     }
 }
