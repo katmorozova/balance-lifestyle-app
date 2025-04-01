@@ -16,6 +16,10 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
     private ArrayList<Habit> habits = new ArrayList<>();
     private OnHabitClickListener onHabitClickListener;
 
+    public void setOnHabitClickListener(OnHabitClickListener onHabitClickListener) {
+        this.onHabitClickListener = onHabitClickListener;
+    }
+
     public void setHabits(ArrayList<Habit> habits) {
         this.habits = habits;
         notifyDataSetChanged();
@@ -68,7 +72,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                onHabitClickListener.onHabitClick(habit);
             }
         });
     }
