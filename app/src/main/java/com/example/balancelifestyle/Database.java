@@ -10,8 +10,10 @@ public class Database {
     private static Database instance = null;
 
     public static Database getInstance(){
-
-        return new Database();
+        if(instance == null){
+            instance = new Database();
+        }
+        return instance;
     }
 
     public Database(){
