@@ -70,6 +70,10 @@ public class AddHabitActivity extends AppCompatActivity {
 //añadir validacion si usuario ha introducido algo en EditText
         String text = editTextAddHabit.getText().toString().trim();
         int typeOfHabit = getTypeOfHabit();
+        int id = database.getHabits().size();//creamos id para añadir luego habito en base de datos
+        Habit habit = new Habit(id, text, typeOfHabit);
+        database.add(habit);
+        finish();
     }
 
     private int getTypeOfHabit(){
