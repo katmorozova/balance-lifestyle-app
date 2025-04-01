@@ -72,8 +72,11 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
     }
     class HabitsViewHolder extends  RecyclerView.ViewHolder {
 
+        private TextView textViewHabit;
+
         public HabitsViewHolder(@NonNull View itemView){
             super(itemView);
+            textViewHabit = itemView.findViewById(R.id.textViewHabit);
         }
 
     }
