@@ -3,7 +3,7 @@ package com.example.balancelifestyle;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "notes")
+@Entity(tableName = "habits")
 public class Habit {
 
     @PrimaryKey(autoGenerate = true)
