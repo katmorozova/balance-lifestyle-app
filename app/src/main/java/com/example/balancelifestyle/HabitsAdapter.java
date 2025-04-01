@@ -5,7 +5,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class HabitsAdapter extends RecyclerView.Adapter<> {
+
+    private ArrayList<Habit> habits = new ArrayList<>();
 
     @NonNull
     @Override
