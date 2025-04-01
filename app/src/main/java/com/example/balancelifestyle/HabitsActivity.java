@@ -40,6 +40,7 @@ public class HabitsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        habitsAdapter = new HabitsAdapter();
         setUpClickListeners();
 
     }
