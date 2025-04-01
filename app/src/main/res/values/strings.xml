@@ -48,7 +48,7 @@
     <string name="habits_title">HABITOS</string>
     <string name="citation1">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
     <string name="button_habits">Boton para añadir los habitos en la lista</string>
-    <string name="scroll_habits">Descripción para ScrollView</string>
+    <string name="recycler_habits">Descripción para RecyclerView</string>
 
     <string name="title_addHabit">AÑADE UN HÁBITO EN TU LISTA</string>
     <string name="hint_addHabit">Introduce un hábito</string>

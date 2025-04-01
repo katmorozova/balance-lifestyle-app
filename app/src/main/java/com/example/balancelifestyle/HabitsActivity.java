@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -42,6 +43,7 @@ public class HabitsActivity extends AppCompatActivity {
         initViews();
         habitsAdapter = new HabitsAdapter();
         recyclerViewHabits.setAdapter(habitsAdapter);
+
         setUpClickListeners();
 
     }
@@ -72,44 +74,6 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void showHabits(){
-        recyclerViewHabits.removeAllViews();
-        for(Habit habit : database.getHabits()){
-            View view = getLayoutInflater().inflate(
-                    R.layout.habit_item,
-                    recyclerViewHabits,
-                    false
-            );
-            TextView textViewHabit = view.findViewById(R.id.textViewHabit);
-            textViewHabit.setText(habit.getText());
-            int colorResId;
-            switch(habit.getTypeOfHabit()){
-                case 0:
-                    colorResId = R.color.verde_nature;
-                    break;
-                case 1:
-                    colorResId = R.color.turquesa_relajante;
-                    break;
-                case 2:
-                    colorResId = R.color.rosa_suave_brillante;
-                    break;
-                case 3:
-                    colorResId = R.color.azul_concentracion;
-                    break;
-                case 4:
-                    colorResId = R.color.morado_equilibrado;
-                    break;
-                case 5:
-                    colorResId = R.color.amarillo_dorado;
-                    break;
-                case 6:
-                    colorResId = R.color.gris_azulado_claro;
-                    break;
-                default:
-                    colorResId = R.color.coral;
-            }
-            int color = ContextCompat.getColor(this, colorResId);
-            textViewHabit.setBackgroundColor(color);
-            recyclerViewHabits.addView(view);
-        }
+        habitsAdapter.setHabits(database.getHabits());
     }
 }

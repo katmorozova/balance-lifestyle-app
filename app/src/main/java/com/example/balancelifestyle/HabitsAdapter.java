@@ -17,6 +17,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
 
     public void setHabits(ArrayList<Habit> habits) {
         this.habits = habits;
+        notifyDataSetChanged();
     }
 //mostramos elementos en la pantalla
     @NonNull

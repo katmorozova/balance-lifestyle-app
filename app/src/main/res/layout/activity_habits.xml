@@ -43,17 +43,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHabits"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="0dp"
+        android:contentDescription="@string/recycler_habits"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/textViewCitation"
+        app:layout_constraintBottom_toTopOf="@id/floatingActionButtonHabits"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonHabits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/button_habits"
         android:layout_marginBottom="30dp"
+        android:contentDescription="@string/button_habits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/mas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

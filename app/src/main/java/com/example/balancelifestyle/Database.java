@@ -18,7 +18,7 @@ public class Database {
 
     public Database(){
         Random random = new Random();
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 10; i++){
             Habit habit = new Habit(i, "Habit"+i, random.nextInt(6));
             habits.add(habit);
         }
