@@ -47,8 +47,9 @@ public class HabitsActivity extends AppCompatActivity {
         habitsAdapter.setOnHabitClickListener(new HabitsAdapter.OnHabitClickListener() {
             @Override
             public void onHabitClick(Habit habit) {
-                database.remove(habit.getId());
-                showHabits();
+               // database.remove(habit.getId());
+                //showHabits();
+
             }
         });
         recyclerViewHabits.setAdapter(habitsAdapter);
@@ -73,6 +74,7 @@ public class HabitsActivity extends AppCompatActivity {
                 showHabits();
             }
         });
+        itemTouchHelper.attachToRecyclerView(recyclerViewHabits);
         setUpClickListeners();
 
     }
