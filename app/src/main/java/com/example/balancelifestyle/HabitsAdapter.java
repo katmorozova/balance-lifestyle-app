@@ -21,13 +21,13 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
 //mostramos elementos en la pantalla
     @NonNull
     @Override
-    public View onCreateView(@NonNull ViewGroup parent, int viewType) {
+    public HabitsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.habit_item,
                 parent,
                 false
         );
-        return view;
+        return new HabitsViewHolder(view);
     }
 
     //añade color del fondo para objetos y el texto
