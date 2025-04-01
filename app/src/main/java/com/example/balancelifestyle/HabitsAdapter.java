@@ -11,6 +11,10 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
 
     private ArrayList<Habit> habits = new ArrayList<>();
 
+    public void setHabits(ArrayList<Habit> habits) {
+        this.habits = habits;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
