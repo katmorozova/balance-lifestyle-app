@@ -45,7 +45,8 @@ public class HabitsActivity extends AppCompatActivity {
         habitsAdapter.setOnHabitClickListener(new HabitsAdapter.OnHabitClickListener() {
             @Override
             public void onHabitClick(Habit habit) {
-
+                database.remove(habit.getId());
+                showHabits();
             }
         });
 
