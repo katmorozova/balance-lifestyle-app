@@ -26,7 +26,7 @@ public class AddHabitActivity extends AppCompatActivity {
     private RadioButton radioButtonHiguiene;
     private Button buttonSaveHabit;
 
-    private Database database = new Database();
+    private Database database = Database.getInstance();
 
 
     @Override
