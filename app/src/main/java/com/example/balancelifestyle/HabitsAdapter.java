@@ -28,6 +28,6 @@ public class HabitsAdapter extends RecyclerView.Adapter<> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return habits.size();
     }
 }
