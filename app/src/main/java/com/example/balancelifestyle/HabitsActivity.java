@@ -41,6 +41,7 @@ public class HabitsActivity extends AppCompatActivity {
         });
         initViews();
         habitsAdapter = new HabitsAdapter();
+        recyclerViewHabits.setAdapter(habitsAdapter);
         setUpClickListeners();
 
     }
