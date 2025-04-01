@@ -7,7 +7,10 @@ public class Database {
 
     private ArrayList<Habit> habits = new ArrayList<>();
 
+    private static Database instance = null;
+
     public static Database getInstance(){
+
         return new Database();
     }
 
