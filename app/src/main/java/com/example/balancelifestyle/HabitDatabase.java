@@ -23,4 +23,6 @@ public abstract class HabitDatabase extends RoomDatabase {
         }
         return instance;
     }
+
+    public abstract HabitsDao habitsDao();
 }
