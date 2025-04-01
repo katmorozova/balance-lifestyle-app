@@ -64,6 +64,12 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
         }
         int color = ContextCompat.getColor(viewHolder.itemView.getContext(), colorResId);
         viewHolder.textViewHabit.setBackgroundColor(color);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
