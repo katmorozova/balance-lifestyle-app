@@ -7,6 +7,10 @@ public class Database {
 
     private ArrayList<Habit> habits = new ArrayList<>();
 
+    public static Database getInstance(){
+
+    }
+
     public Database(){
         Random random = new Random();
         for(int i = 0; i < 20; i++){
