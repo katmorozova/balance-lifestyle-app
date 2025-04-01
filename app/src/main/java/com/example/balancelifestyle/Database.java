@@ -8,7 +8,7 @@ public class Database {
     private ArrayList<Habit> habits = new ArrayList<>();
 
     public static Database getInstance(){
-
+        return new Database();
     }
 
     public Database(){
