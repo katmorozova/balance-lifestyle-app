@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsViewHolder> {
 
     private ArrayList<Habit> habits = new ArrayList<>();
+    private OnHabitClickListener onHabitClickListener;
 
     public void setHabits(ArrayList<Habit> habits) {
         this.habits = habits;
@@ -87,7 +88,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
 
     }
 
-    interface onHabitClickListener {
+    public interface OnHabitClickListener {
         void onHabitClick(Habit habit);
     }
 }
