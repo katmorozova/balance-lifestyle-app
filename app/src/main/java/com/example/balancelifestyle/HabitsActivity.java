@@ -25,6 +25,7 @@ public class HabitsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewHabits;
     private FloatingActionButton floatingActionButtonHabits;
+    private HabitsAdapter habitsAdapter;
 
     private Database database = Database.getInstance();
 
