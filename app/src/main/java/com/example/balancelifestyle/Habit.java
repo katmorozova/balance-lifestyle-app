@@ -1,10 +1,12 @@
 package com.example.balancelifestyle;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "notes")
 public class Habit {
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String text;
     private int typeOfHabit;
