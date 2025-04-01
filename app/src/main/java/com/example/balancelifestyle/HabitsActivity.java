@@ -42,6 +42,13 @@ public class HabitsActivity extends AppCompatActivity {
         });
         initViews();
         habitsAdapter = new HabitsAdapter();
+        habitsAdapter.setOnHabitClickListener(new HabitsAdapter.OnHabitClickListener() {
+            @Override
+            public void onHabitClick(Habit habit) {
+
+            }
+        });
+
         recyclerViewHabits.setAdapter(habitsAdapter);
 
         setUpClickListeners();
