@@ -72,7 +72,9 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onHabitClickListener.onHabitClick(habit);
+                if(onHabitClickListener != null){
+                    onHabitClickListener.onHabitClick(habit);
+                }
             }
         });
     }
