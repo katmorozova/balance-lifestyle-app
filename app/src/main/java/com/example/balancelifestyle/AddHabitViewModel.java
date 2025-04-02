@@ -7,6 +7,10 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.functions.Action;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 public class AddHabitViewModel extends AndroidViewModel {
 
     private HabitsDao habitsDao;
@@ -22,13 +26,15 @@ public class AddHabitViewModel extends AndroidViewModel {
     }
 
     public void saveHabit(Habit habit){
-        Thread thread = new Thread(new Runnable() {
+        habitsDao.add(habit)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action() {
             @Override
-            public void run() {
-                habitsDao.add(habit);
-                shouldCloseScreen.postValue(true);
+            public void run() throws Throwable {
+                shouldCloseScreen.setValue(true);
             }
         });
-        thread.start();
+
     }
 }
