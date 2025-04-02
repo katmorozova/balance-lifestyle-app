@@ -15,6 +15,12 @@ public class AddHabitViewModel extends AndroidViewModel {
     }
 
     public void saveHabit(Habit habit){
-
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                habitsDao.add(habit);
+            }
+        });
+        thread.start();
     }
 }
