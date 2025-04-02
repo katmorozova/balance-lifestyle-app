@@ -13,4 +13,8 @@ public class AddHabitViewModel extends AndroidViewModel {
         super(application);
         habitsDao = HabitDatabase.getInstance(application).habitsDao();
     }
+
+    public void saveHabit(Habit habit){
+
+    }
 }
