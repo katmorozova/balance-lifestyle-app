@@ -3,8 +3,6 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +27,6 @@ public class HabitsActivity extends AppCompatActivity {
     private HabitsAdapter habitsAdapter;
 
     private HabitDatabase habitDatabase;
-    private Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,13 @@ public class HabitsActivity extends AppCompatActivity {
             }
         });
         recyclerViewHabits.setAdapter(habitsAdapter);
+        habitDatabase.habitsDao().getHabits().observe(this, new Observer<List<Habit>>() {
+            @Override
+            public void onChanged(List<Habit> habits) {
+                habitsAdapter.setHabits(habits);
+            }
+        });
+
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
                 0,
                 ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
@@ -74,12 +79,6 @@ public class HabitsActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         habitDatabase.habitsDao().remove(habit.getId());
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                showHabits();
-                            }
-                        });
                     }
                 });
                 thread.start();
@@ -88,12 +87,6 @@ public class HabitsActivity extends AppCompatActivity {
         itemTouchHelper.attachToRecyclerView(recyclerViewHabits);
         setUpClickListeners();
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        showHabits();
     }
 
     private void  initViews(){
@@ -115,19 +108,4 @@ public class HabitsActivity extends AppCompatActivity {
         });
     }
 
-    private void showHabits(){
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<Habit> habits = habitDatabase.habitsDao().getHabits();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        habitsAdapter.setHabits(habits);
-                    }
-                });
-            }
-        });
-        thread.start();
-    }
 }
