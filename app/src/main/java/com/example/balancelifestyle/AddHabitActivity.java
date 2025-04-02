@@ -66,6 +66,7 @@ public class AddHabitActivity extends AppCompatActivity {
                 saveHabit();
                 Intent intent = HabitsActivity.newIntent(AddHabitActivity.this);
                 startActivity(intent);
+                finish();
             }
         });
     }

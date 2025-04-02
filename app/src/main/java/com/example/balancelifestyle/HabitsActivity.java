@@ -39,10 +39,9 @@ public class HabitsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        viewModel = new ViewModelProvider(this).get(HabitsViewModel.class);
         initViews();
+        viewModel = new ViewModelProvider(this).get(HabitsViewModel.class);
         habitsAdapter = new HabitsAdapter();
-
         recyclerViewHabits.setAdapter(habitsAdapter);
         observeViewModel();
         setupItemTouchHelper();
@@ -70,6 +69,7 @@ public class HabitsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = AddHabitActivity.newIntent(HabitsActivity.this);
                 startActivity(intent);
+                finish();
             }
         });
     }
