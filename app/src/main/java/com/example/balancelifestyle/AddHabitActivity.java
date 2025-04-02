@@ -3,8 +3,6 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 public class AddHabitActivity extends AppCompatActivity {
 
@@ -28,8 +27,7 @@ public class AddHabitActivity extends AppCompatActivity {
     private RadioButton radioButtonHiguiene;
     private Button buttonSaveHabit;
 
-    private HabitDatabase habitDatabase;
-    private Handler handler = new Handler(Looper.getMainLooper());
+    private AddHabitViewModel viewModel;
 
 
     @Override
@@ -42,7 +40,7 @@ public class AddHabitActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        habitDatabase = HabitDatabase.getInstance(getApplication());
+        viewModel = new ViewModelProvider(this).get(AddHabitViewModel.class);
         initViews();
         setUpClickListeners();
     }
