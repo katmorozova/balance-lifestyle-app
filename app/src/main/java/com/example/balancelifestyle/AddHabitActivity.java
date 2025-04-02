@@ -69,23 +69,11 @@ public class AddHabitActivity extends AppCompatActivity {
     }
 
     private void saveHabit(){
-//añadir validacion si usuario ha introducido algo en EditText
+        //añadir validacion si usuario ha introducido algo en EditText
         String text = editTextAddHabit.getText().toString().trim();
         int typeOfHabit = getTypeOfHabit();
         Habit habit = new Habit(0, text, typeOfHabit); //si pasamos 0 como parametro - autogenerate lo va generar automaticamente
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                habitDatabase.habitsDao().add(habit);
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        finish();
-                    }
-                });
-            }
-        });
-        thread.start();
+        viewModel.saveHabit(habit);
     }
 
     private int getTypeOfHabit(){
