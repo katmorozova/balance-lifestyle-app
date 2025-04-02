@@ -7,7 +7,11 @@ import androidx.lifecycle.AndroidViewModel;
 
 public class HabitsViewModel extends AndroidViewModel {
 
+    private HabitDatabase habitDatabase;
+
     public HabitsViewModel(@NonNull Application application){
         super(application);
     }
+
+
 }
