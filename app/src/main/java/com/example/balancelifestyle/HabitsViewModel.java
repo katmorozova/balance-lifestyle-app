@@ -11,7 +11,10 @@ public class HabitsViewModel extends AndroidViewModel {
 
     public HabitsViewModel(@NonNull Application application){
         super(application);
+        habitDatabase = HabitDatabase.getInstance(application);
     }
 
+    public void remove(Habit habit){
 
+    }
 }
