@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 public class AddHabitActivity extends AppCompatActivity {
@@ -40,8 +41,9 @@ public class AddHabitActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        viewModel = new ViewModelProvider(this).get(AddHabitViewModel.class);
         initViews();
+        viewModel = new ViewModelProvider(this).get(AddHabitViewModel.class);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -98,5 +100,16 @@ public class AddHabitActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, AddHabitActivity.class);
+    }
+
+    public void observeViewModel(){
+        viewModel.getShouldCloseScreen().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean shouldClose) {
+                if(shouldClose){
+                    finish();
+                }
+            }
+        });
     }
 }
