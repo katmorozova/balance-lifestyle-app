@@ -15,6 +15,12 @@ public class HabitsViewModel extends AndroidViewModel {
     }
 
     public void remove(Habit habit){
-
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                habitDatabase.habitsDao().remove(habit.getId());
+            }
+        });
+        thread.start();
     }
 }
