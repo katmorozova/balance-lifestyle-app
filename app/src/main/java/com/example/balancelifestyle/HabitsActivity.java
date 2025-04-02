@@ -65,7 +65,7 @@ public class HabitsActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 Habit habit = habitsAdapter.getHabits().get(position);
-                database.remove(habit.getId());
+                habitDatabase.habitsDao().remove(habit.getId());
                 showHabits();
             }
         });
