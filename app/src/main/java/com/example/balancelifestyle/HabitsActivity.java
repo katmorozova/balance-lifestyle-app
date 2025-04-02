@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +27,7 @@ public class HabitsActivity extends AppCompatActivity {
     private FloatingActionButton floatingActionButtonHabits;
     private HabitsAdapter habitsAdapter;
 
-    private HabitDatabase habitDatabase;
+    private HabitsViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +39,12 @@ public class HabitsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        habitDatabase = HabitDatabase.getInstance(getApplication());
+        viewModel = new ViewModelProvider(this).get(HabitsViewModel.class);
         initViews();
         habitsAdapter = new HabitsAdapter();
-        habitsAdapter.setOnHabitClickListener(new HabitsAdapter.OnHabitClickListener() {
-            @Override
-            public void onHabitClick(Habit habit) {
-               // database.remove(habit.getId());
-                //showHabits();
 
-            }
-        });
         recyclerViewHabits.setAdapter(habitsAdapter);
-        habitDatabase.habitsDao().getHabits().observe(this, new Observer<List<Habit>>() {
+        viewModel.getHabits().observe(this, new Observer<List<Habit>>() {
             @Override
             public void onChanged(List<Habit> habits) {
                 habitsAdapter.setHabits(habits);
@@ -74,14 +68,7 @@ public class HabitsActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 Habit habit = habitsAdapter.getHabits().get(position);
-
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        habitDatabase.habitsDao().remove(habit.getId());
-                    }
-                });
-                thread.start();
+                viewModel.remove(habit);
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerViewHabits);
