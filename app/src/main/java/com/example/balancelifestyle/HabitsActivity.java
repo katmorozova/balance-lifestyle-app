@@ -44,13 +44,31 @@ public class HabitsActivity extends AppCompatActivity {
         habitsAdapter = new HabitsAdapter();
 
         recyclerViewHabits.setAdapter(habitsAdapter);
-        viewModel.getHabits().observe(this, new Observer<List<Habit>>() {
+        observeViewModel();
+        setupItemTouchHelper();
+
+    }
+
+    private void  initViews(){
+        recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
+        floatingActionButtonHabits = findViewById(R.id.floatingActionButtonHabits);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, HabitsActivity.class);
+    }
+
+    private void setUpClickListeners(){
+        floatingActionButtonHabits.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(List<Habit> habits) {
-                habitsAdapter.setHabits(habits);
+            public void onClick(View view) {
+                Intent intent = AddHabitActivity.newIntent(HabitsActivity.this);
+                startActivity(intent);
             }
         });
+    }
 
+    private void setupItemTouchHelper(){
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
                 0,
                 ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
@@ -73,24 +91,13 @@ public class HabitsActivity extends AppCompatActivity {
         });
         itemTouchHelper.attachToRecyclerView(recyclerViewHabits);
         setUpClickListeners();
-
     }
 
-    private void  initViews(){
-        recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
-        floatingActionButtonHabits = findViewById(R.id.floatingActionButtonHabits);
-    }
-
-    public static Intent newIntent(Context context){
-        return new Intent(context, HabitsActivity.class);
-    }
-
-    private void setUpClickListeners(){
-        floatingActionButtonHabits.setOnClickListener(new View.OnClickListener() {
+    public void observeViewModel(){
+        viewModel.getHabits().observe(this, new Observer<List<Habit>>() {
             @Override
-            public void onClick(View view) {
-                Intent intent = AddHabitActivity.newIntent(HabitsActivity.this);
-                startActivity(intent);
+            public void onChanged(List<Habit> habits) {
+                habitsAdapter.setHabits(habits);
             }
         });
     }
