@@ -15,6 +15,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
+import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class HabitsViewModel extends AndroidViewModel {
@@ -31,6 +32,19 @@ public class HabitsViewModel extends AndroidViewModel {
 
     public LiveData<List<Habit>> getHabits() {
         return habits;
+    }
+
+    public void refreshList() {
+        Disposable disposable = habitDatabase.habitsDao().getHabits()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<Habit>>() {
+                    @Override
+                    public void accept(List<Habit> habitsFromDb) throws Throwable {
+                        habits.setValue(habitsFromDb);
+                    }
+                });
+        compositeDisposable.add(disposable);
     }
 
     public void remove(Habit habit){
