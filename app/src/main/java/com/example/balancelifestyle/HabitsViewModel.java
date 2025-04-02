@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class HabitsViewModel extends AndroidViewModel {
 
     private HabitDatabase habitDatabase;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-
+    private MutableLiveData<List<Habit>> habits = new MutableLiveData<>();
 
 
     public HabitsViewModel(@NonNull Application application){
@@ -29,7 +30,7 @@ public class HabitsViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Habit>> getHabits() {
-        return habitDatabase.habitsDao().getHabits();
+        return habits;
     }
 
     public void remove(Habit habit){
