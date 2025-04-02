@@ -24,7 +24,7 @@ public class HabitsActivity extends AppCompatActivity {
     private FloatingActionButton floatingActionButtonHabits;
     private HabitsAdapter habitsAdapter;
 
-    private Database database = Database.getInstance();
+    private HabitDatabase habitDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class HabitsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        habitDatabase = HabitDatabase.getInstance(getApplication());
         initViews();
         habitsAdapter = new HabitsAdapter();
         habitsAdapter.setOnHabitClickListener(new HabitsAdapter.OnHabitClickListener() {
