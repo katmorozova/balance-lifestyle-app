@@ -8,6 +8,8 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.core.Completable;
+
 
 @Dao
 public interface HabitsDao {
@@ -16,7 +18,7 @@ public interface HabitsDao {
     LiveData<List<Habit>> getHabits(); //recibe habito
 
     @Insert
-    void add(Habit habit);//agrega habito dentro de DB
+    Completable add(Habit habit);//agrega habito dentro de DB
 
     @Query("DELETE FROM habits WHERE id = :id")
     void remove(int id);//Elimina habito por su id
