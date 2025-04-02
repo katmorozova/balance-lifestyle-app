@@ -3,6 +3,8 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,7 @@ public class AddHabitActivity extends AppCompatActivity {
     private Button buttonSaveHabit;
 
     private HabitDatabase habitDatabase;
+    private Handler handler = new Handler(Looper.getMainLooper());
 
 
     @Override
@@ -72,8 +75,19 @@ public class AddHabitActivity extends AppCompatActivity {
         String text = editTextAddHabit.getText().toString().trim();
         int typeOfHabit = getTypeOfHabit();
         Habit habit = new Habit(0, text, typeOfHabit); //si pasamos 0 como parametro - autogenerate lo va generar automaticamente
-        habitDatabase.habitsDao().add(habit);
-        finish();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                habitDatabase.habitsDao().add(habit);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                });
+            }
+        });
+        thread.start();
     }
 
     private int getTypeOfHabit(){

@@ -19,9 +19,7 @@ public abstract class HabitDatabase extends RoomDatabase {
                     application,
                     HabitDatabase.class,
                     DB_NAME
-            )
-                    .allowMainThreadQueries()
-                    .build();
+            ).build();
         }
         return instance;
     }

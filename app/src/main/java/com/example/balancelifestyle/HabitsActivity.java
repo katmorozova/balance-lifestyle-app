@@ -3,6 +3,8 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
 
 
 public class HabitsActivity extends AppCompatActivity {
@@ -25,6 +28,7 @@ public class HabitsActivity extends AppCompatActivity {
     private HabitsAdapter habitsAdapter;
 
     private HabitDatabase habitDatabase;
+    private Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +69,20 @@ public class HabitsActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
                 Habit habit = habitsAdapter.getHabits().get(position);
-                habitDatabase.habitsDao().remove(habit.getId());
-                showHabits();
+
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        habitDatabase.habitsDao().remove(habit.getId());
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                showHabits();
+                            }
+                        });
+                    }
+                });
+                thread.start();
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerViewHabits);
@@ -100,6 +116,18 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void showHabits(){
-        habitsAdapter.setHabits(habitDatabase.habitsDao().getHabits());
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<Habit> habits = habitDatabase.habitsDao().getHabits();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        habitsAdapter.setHabits(habits);
+                    }
+                });
+            }
+        });
+        thread.start();
     }
 }
