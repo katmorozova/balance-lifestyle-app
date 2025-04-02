@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class AddHabitViewModel extends AndroidViewModel {
@@ -14,6 +15,10 @@ public class AddHabitViewModel extends AndroidViewModel {
     public AddHabitViewModel(@NonNull Application application) {
         super(application);
         habitsDao = HabitDatabase.getInstance(application).habitsDao();
+    }
+
+    public LiveData<Boolean> getShouldCloseScreen() {
+        return shouldCloseScreen;
     }
 
     public void saveHabit(Habit habit){
