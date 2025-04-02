@@ -49,6 +49,12 @@ public class HabitsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.refreshList();
+    }
+
     private void  initViews(){
         recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
         floatingActionButtonHabits = findViewById(R.id.floatingActionButtonHabits);

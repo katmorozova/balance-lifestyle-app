@@ -55,6 +55,7 @@ public class HabitsViewModel extends AndroidViewModel {
                     @Override
                     public void run() throws Throwable {
                         Log.d("HabitsViewModel", "Removed: "+ habit.getId());
+                        refreshList();
                     }
                 });
         compositeDisposable.add(disposable);
