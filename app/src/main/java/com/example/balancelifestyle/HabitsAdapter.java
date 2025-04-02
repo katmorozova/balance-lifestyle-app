@@ -10,14 +10,15 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsViewHolder> {
 
-    private ArrayList<Habit> habits = new ArrayList<>();
+    private List<Habit> habits = new ArrayList<>();
     private OnHabitClickListener onHabitClickListener;
 
 
-    public ArrayList<Habit> getHabits() {
+    public List<Habit> getHabits() {
         return new ArrayList<>(habits);
     }
 
@@ -25,7 +26,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
         this.onHabitClickListener = onHabitClickListener;
     }
 
-    public void setHabits(ArrayList<Habit> habits) {
+    public void setHabits(List<Habit> habits) {
         this.habits = habits;
         notifyDataSetChanged();
     }

@@ -100,6 +100,6 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     private void showHabits(){
-        habitsAdapter.setHabits(database.getHabits());
+        habitsAdapter.setHabits(habitDatabase.habitsDao().getHabits());
     }
 }
