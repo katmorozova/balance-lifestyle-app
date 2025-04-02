@@ -26,7 +26,7 @@ public class AddHabitActivity extends AppCompatActivity {
     private RadioButton radioButtonHiguiene;
     private Button buttonSaveHabit;
 
-    private Database database = Database.getInstance();
+    private HabitDatabase habitDatabase;
 
 
     @Override
@@ -39,6 +39,7 @@ public class AddHabitActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        habitDatabase = HabitDatabase.getInstance(getApplication());
         initViews();
         setUpClickListeners();
     }
@@ -70,9 +71,8 @@ public class AddHabitActivity extends AppCompatActivity {
 //añadir validacion si usuario ha introducido algo en EditText
         String text = editTextAddHabit.getText().toString().trim();
         int typeOfHabit = getTypeOfHabit();
-        int id = database.getHabits().size();//creamos id para añadir luego habito en base de datos
-        Habit habit = new Habit(id, text, typeOfHabit);
-        database.add(habit);
+        Habit habit = new Habit(0, text, typeOfHabit); //si pasamos 0 como parametro - autogenerate lo va generar automaticamente
+        habitDatabase.habitsDao().add(habit);
         finish();
     }
 
