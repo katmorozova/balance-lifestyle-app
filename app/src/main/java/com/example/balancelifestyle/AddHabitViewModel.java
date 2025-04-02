@@ -26,7 +26,7 @@ public class AddHabitViewModel extends AndroidViewModel {
             @Override
             public void run() {
                 habitsDao.add(habit);
-                shouldCloseScreen.setValue(true);
+                shouldCloseScreen.postValue(true);
             }
         });
         thread.start();
