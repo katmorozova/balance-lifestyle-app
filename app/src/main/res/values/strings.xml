@@ -63,4 +63,11 @@
 
     <string name="button_saveHabit">GUARDAR</string>
 
+    <string name="project_textview">IDEAS PARA PROYECTOS:</string>
+    <string name="books_textview">LISTA DE LOS LIBROS:</string>
+    <string name="films_textview">LISTA DE LAS PELICULAS:</string>
+    <string name="imageButton_description">Boton para añadir nota en la lista de deseos</string>
+    <string name="recycler_description">Descripción para RecyclerView</string>
+
+
 </resources>
