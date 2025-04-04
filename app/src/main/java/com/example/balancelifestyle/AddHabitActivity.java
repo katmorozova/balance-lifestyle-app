@@ -16,6 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.balancelifestyle.database.Habit;
+
 public class AddHabitActivity extends AppCompatActivity {
 
     private EditText editTextAddHabit;

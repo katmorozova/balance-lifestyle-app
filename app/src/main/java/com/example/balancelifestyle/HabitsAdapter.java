@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.balancelifestyle.database.Habit;
+
 import java.util.ArrayList;
 import java.util.List;
 

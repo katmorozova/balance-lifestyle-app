@@ -1,4 +1,4 @@
-package com.example.balancelifestyle;
+package com.example.balancelifestyle.database;
 
 import android.app.Application;
 
