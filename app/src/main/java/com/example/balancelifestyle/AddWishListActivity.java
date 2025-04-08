@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +40,10 @@ public class AddWishListActivity extends AppCompatActivity {
         radioButtonBooks = findViewById(R.id.radioButtonBooks);
         radioButtonFilms = findViewById(R.id.radioButtonFilms);
         buttonSaveWish = findViewById(R.id.buttonSaveWish);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, AddWishListActivity.class);
     }
 
 }
