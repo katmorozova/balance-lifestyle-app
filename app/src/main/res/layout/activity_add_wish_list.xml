@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/beige"
-    tools:context=".AddHabitActivity">
+    tools:context=".AddWishListActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_addHabit"
-        android:layout_marginTop="50dp"
+        android:text="@string/title_addWishList"
+        android:layout_marginTop="80dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="10dp"
@@ -24,12 +24,12 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/editTextAddHabit"
+        android:id="@+id/editTextAddWishlist"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:inputType="textPersonName"
-        android:hint="@string/hint_addHabit"
-        android:layout_marginTop="30dp"
+        android:hint="@string/hint_addWish"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="26dp"
         android:layout_marginEnd="26dp" />
 
@@ -40,68 +40,36 @@
         android:padding = "50dp">
 
         <RadioButton
-            android:id="@+id/radioButtonSalud"
+            android:id="@+id/radioButtonProjects"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/habit_salud"
+            android:text="@string/radioButton_projects"
             android:textColor="@color/coral"
             android:textStyle="bold" />
 
         <RadioButton
-            android:id="@+id/radioButtonMental"
+            android:id="@+id/radioButtonBooks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/habit_mental"
+            android:text="@string/radioButton_books"
             android:textColor="@color/coral"
             android:textStyle="bold" />
 
         <RadioButton
-            android:id="@+id/radioButtonRelaciones"
+            android:id="@+id/radioButtonFilms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/habit_relaciones"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButtonDesarrollo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/habit_desarrollo"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButtonCreatividad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/habit_creatividad"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButtonFinance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/habit_finance"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButtonHiguiene"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/habit_higuiene"
+            android:text="@string/radioButton_films"
             android:textColor="@color/coral"
             android:textStyle="bold" />
 
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonSaveHabit"
+        android:id="@+id/buttonSaveWish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_saveHabit"
+        android:text="@string/button_saveWish"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginStart="150dp"

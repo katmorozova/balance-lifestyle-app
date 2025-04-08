@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BalanceLifestyle"
         tools:targetApi="31">
         <activity
+            android:name=".AddWishListActivity"
+            android:exported="false" />
+        <activity
             android:name=".WishListActivity"
             android:exported="false" />
         <activity

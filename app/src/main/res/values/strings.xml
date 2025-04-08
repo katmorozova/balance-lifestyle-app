@@ -69,5 +69,11 @@
     <string name="imageButton_description">Boton para añadir nota en la lista de deseos</string>
     <string name="recycler_description">Descripción para RecyclerView</string>
 
+    <string name="title_addWishList">AÑADE UNA NOTA EN TU LISTA</string>
+    <string name="hint_addWish">Introduce una nota</string>
+    <string name="radioButton_projects">Ideas para proyectos</string>
+    <string name="radioButton_books">Lista de los libros</string>
+    <string name="radioButton_films">Lista de las peliculas</string>
+    <string name="button_saveWish">GUARDAR</string>
 
 </resources>
