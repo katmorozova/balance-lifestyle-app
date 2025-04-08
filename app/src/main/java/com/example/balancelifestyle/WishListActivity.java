@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -39,5 +41,9 @@ public class WishListActivity extends AppCompatActivity {
         recyclerViewProjects = findViewById(R.id.recyclerViewProjects);
         recyclerViewBooks = findViewById(R.id.recyclerViewBooks);
         recyclerViewFilms = findViewById(R.id.recyclerViewFilms);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, WishListActivity.class);
     }
 }
