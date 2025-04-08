@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class AddWishListActivity extends AppCompatActivity {
 
     private EditText editTextAddWishList;
+    private RadioGroup radioGroupWishlist;
     private RadioButton radioButtonProjects;
     private RadioButton radioButtonBooks;
     private RadioButton radioButtonFilms;
@@ -36,6 +38,7 @@ public class AddWishListActivity extends AppCompatActivity {
 
     private void initViews(){
         editTextAddWishList = findViewById(R.id.editTextAddWishlist);
+        radioGroupWishlist = findViewById(R.id.radioGroupWishlist);
         radioButtonProjects = findViewById(R.id.radioButtonProjects);
         radioButtonBooks = findViewById(R.id.radioButtonBooks);
         radioButtonFilms = findViewById(R.id.radioButtonFilms);

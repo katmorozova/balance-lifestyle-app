@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -32,6 +33,7 @@ public class WishListActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpclickListeners();
     }
 
     public void initViews(){
@@ -45,5 +47,32 @@ public class WishListActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, WishListActivity.class);
+    }
+
+    private void setUpclickListeners(){
+        imageButtonProjects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
+        imageButtonBooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
+        imageButtonFilms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
