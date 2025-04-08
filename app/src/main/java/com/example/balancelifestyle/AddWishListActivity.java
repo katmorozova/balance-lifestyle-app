@@ -3,8 +3,10 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -17,11 +19,12 @@ import androidx.core.view.WindowInsetsCompat;
 public class AddWishListActivity extends AppCompatActivity {
 
     private EditText editTextAddWishList;
-    private RadioGroup radioGroupWishlist;
     private RadioButton radioButtonProjects;
     private RadioButton radioButtonBooks;
     private RadioButton radioButtonFilms;
     private Button buttonSaveWish;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +37,54 @@ public class AddWishListActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+
+        setOnClickListeners();
+        setChekedButtons();
     }
 
     private void initViews(){
         editTextAddWishList = findViewById(R.id.editTextAddWishlist);
-        radioGroupWishlist = findViewById(R.id.radioGroupWishlist);
         radioButtonProjects = findViewById(R.id.radioButtonProjects);
         radioButtonBooks = findViewById(R.id.radioButtonBooks);
         radioButtonFilms = findViewById(R.id.radioButtonFilms);
         buttonSaveWish = findViewById(R.id.buttonSaveWish);
+
     }
 
     public static Intent newIntent(Context context){
         return new Intent(context, AddWishListActivity.class);
+    }
+
+    private void setOnClickListeners(){
+
+    }
+
+    public String getTypeOfCategory(){
+        String category = "";
+        if(radioButtonProjects.isChecked()){
+            category = "projects";
+        }else if(radioButtonBooks.isChecked()) {
+            category = "books";
+        }else if(radioButtonFilms.isChecked()) {
+            category = "films";
+        }
+        return category;
+    }
+
+    public void setChekedButtons(){
+        String category = getIntent().getStringExtra("category");
+        if(category != null){
+            switch (category){
+                case "projects":
+                    radioButtonProjects.setChecked(true);
+                    break;
+                case "books":radioButtonBooks.setChecked(true);
+                    break;
+                case "films":
+                    radioButtonFilms.setChecked(true);
+                    break;
+            }
+        }
     }
 
 }
