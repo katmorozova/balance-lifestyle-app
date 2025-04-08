@@ -91,7 +91,9 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
     public int getItemCount() {
         return habits.size();
     }
-    class HabitsViewHolder extends  RecyclerView.ViewHolder {
+
+
+    class HabitsViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textViewHabit;
 
