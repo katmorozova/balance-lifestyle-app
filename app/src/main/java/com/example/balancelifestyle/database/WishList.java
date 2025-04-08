@@ -1,7 +1,12 @@
-package com.example.balancelifestyle;
+package com.example.balancelifestyle.database;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "wishes")
 public class WishList {
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String text;
     private String typeOfCategory;
