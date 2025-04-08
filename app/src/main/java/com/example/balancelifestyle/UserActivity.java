@@ -177,7 +177,8 @@ public class UserActivity extends AppCompatActivity {
         imageViewWishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = WishListActivity.newIntent(UserActivity.this);
+                startActivity(intent);
             }
         });
         imageViewTravel.setOnClickListener(new View.OnClickListener() {
