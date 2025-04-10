@@ -48,7 +48,7 @@
     <string name="habits_title">MIS NUEVOS HABITOS</string>
     <string name="citation1">\"Peqeños pasos cada dia conducen a los grandes cambios.\"</string>
     <string name="button_habits">Boton para añadir los habitos en la lista</string>
-    <string name="recycler_habits">Descripción para RecyclerView</string>
+    <string name="recycler">Descripción para RecyclerView</string>
 
     <string name="title_addHabit">AÑADE UN HÁBITO EN TU LISTA</string>
     <string name="hint_addHabit">Introduce un hábito</string>
@@ -75,5 +75,8 @@
     <string name="radioButton_books">Lista de los libros</string>
     <string name="radioButton_films">Lista de las peliculas</string>
     <string name="button_saveWish">GUARDAR</string>
+
+    <string name="button_toDo">Boton para añadir notas en la lista To Do</string>
+    <string name="title_toDo">TO DO LIST</string>
 
 </resources>

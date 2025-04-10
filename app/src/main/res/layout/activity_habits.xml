@@ -44,7 +44,7 @@
         android:id="@+id/recyclerViewHabits"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:contentDescription="@string/recycler_habits"
+        android:contentDescription="@string/recycler"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/textViewCitation"
         app:layout_constraintBottom_toTopOf="@id/floatingActionButtonHabits"/>
@@ -58,6 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewHabits"
         app:srcCompat="@drawable/mas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
