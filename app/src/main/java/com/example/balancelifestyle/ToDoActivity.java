@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -33,5 +35,9 @@ public class ToDoActivity extends AppCompatActivity {
     private void initViews(){
         recyclerViewToDo = findViewById(R.id.recyclerViewToDo);
         buttonAddNote = findViewById(R.id.buttonAddNote);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, ToDoActivity.class);
     }
 }
