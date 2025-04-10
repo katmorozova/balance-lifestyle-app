@@ -82,6 +82,6 @@
     <string name="note_priorityHeigh">Prioridad alta </string>
     <string name="note_priorityMedium">Prioridad media </string>
     <string name="note_priorityLow">Prioridad baja </string>
-    <string name="title_addNote">AÑADIR UNA NOTA </string>
+    <string name="title_addNote">AÑADIR UNA NOTA A LA LISTA </string>
 
 </resources>
