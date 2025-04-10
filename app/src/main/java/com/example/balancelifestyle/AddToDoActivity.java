@@ -1,6 +1,9 @@
 package com.example.balancelifestyle;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AddToDoActivity extends AppCompatActivity {
+
+    private EditText editTextAddNote;
+    private RadioButton radioButtonHighPriority;
+    private RadioButton radioButtonMediumPriority;
+    private RadioButton radioButtonLowPriority;
+    private Button buttonSaveNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +29,14 @@ public class AddToDoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initViews();
+    }
+
+    private void initViews(){
+        editTextAddNote = findViewById(R.id.editTextAddNote);
+        radioButtonHighPriority = findViewById(R.id.radioButtonHighPriority);
+        radioButtonMediumPriority = findViewById(R.id.radioButtonMediumPriority);
+        radioButtonLowPriority = findViewById(R.id.radioButtonLowPriority);
+        buttonSaveNote = findViewById(R.id.buttonAddNote);
     }
 }

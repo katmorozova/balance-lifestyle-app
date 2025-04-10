@@ -40,10 +40,10 @@
         android:padding = "50dp">
 
         <RadioButton
-            android:id="@+id/radioButtonHeighPriority"
+            android:id="@+id/radioButtonHighPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/note_priorityHeigh"
+            android:text="@string/note_priorityHigh"
             android:textColor="@color/coral"
             android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
 
 
         <RadioButton
-            android:id="@+id/radioButtonLow"
+            android:id="@+id/radioButtonLowPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/note_priorityLow"

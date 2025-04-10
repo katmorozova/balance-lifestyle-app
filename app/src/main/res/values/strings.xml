@@ -79,7 +79,7 @@
     <string name="button_toDo">Boton para añadir notas en la lista To Do</string>
     <string name="title_toDo">TO DO LIST</string>
 
-    <string name="note_priorityHeigh">Prioridad alta </string>
+    <string name="note_priorityHigh">Prioridad alta </string>
     <string name="note_priorityMedium">Prioridad media </string>
     <string name="note_priorityLow">Prioridad baja </string>
     <string name="title_addNote">AÑADIR UNA NOTA A LA LISTA </string>
