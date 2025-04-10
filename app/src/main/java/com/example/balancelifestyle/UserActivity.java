@@ -171,7 +171,8 @@ public class UserActivity extends AppCompatActivity {
         imageViewToDo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = ToDoActivity.newIntent(UserActivity.this);
+                startActivity(intent);
             }
         });
         imageViewWishlist.setOnClickListener(new View.OnClickListener() {
