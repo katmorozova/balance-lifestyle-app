@@ -19,6 +19,8 @@ public class ToDoActivity extends AppCompatActivity {
     private RecyclerView recyclerViewToDo;
     private FloatingActionButton buttonAddNote;
 
+    private ToDoAdapter toDoAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,8 @@ public class ToDoActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        toDoAdapter = new ToDoAdapter();
+        recyclerViewToDo.setAdapter(toDoAdapter);
         setUpClickListeners();
     }
 
