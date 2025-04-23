@@ -10,9 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.balancelifestyle.database.ToDoList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class ToDoActivity extends AppCompatActivity {
 
@@ -20,6 +25,7 @@ public class ToDoActivity extends AppCompatActivity {
     private FloatingActionButton buttonAddNote;
 
     private ToDoAdapter toDoAdapter;
+    private ToDoViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +38,10 @@ public class ToDoActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        viewModel = new ViewModelProvider(this).get(ToDoViewModel.class);
         toDoAdapter = new ToDoAdapter();
         recyclerViewToDo.setAdapter(toDoAdapter);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -54,6 +62,15 @@ public class ToDoActivity extends AppCompatActivity {
                 Intent intent = AddToDoActivity.newIntent(ToDoActivity.this);
                 startActivity(intent);
                 finish();
+            }
+        });
+    }
+
+    private void observeViewModel(){
+        viewModel.getToDoLists().observe(this, new Observer<List<ToDoList>>() {
+            @Override
+            public void onChanged(List<ToDoList> toDoLists) {
+                toDoAdapter.setToDoLists(toDoLists);
             }
         });
     }
