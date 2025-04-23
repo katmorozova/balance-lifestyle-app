@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.balancelifestyle.database.ToDoList;
@@ -42,9 +44,14 @@ public class ToDoActivity extends AppCompatActivity {
         toDoAdapter = new ToDoAdapter();
         recyclerViewToDo.setAdapter(toDoAdapter);
         observeViewModel();
-        setUpClickListeners();
+        setupItemTouchHelper();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.refreshToDoList();
+    }
 
     private void initViews(){
         recyclerViewToDo = findViewById(R.id.recyclerViewToDo);
@@ -74,4 +81,31 @@ public class ToDoActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void setupItemTouchHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                ToDoList toDoList = toDoAdapter.getToDoLists().get(position);
+                viewModel.remove(toDoList);
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewToDo);
+        setUpClickListeners();
+    }
+
 }
