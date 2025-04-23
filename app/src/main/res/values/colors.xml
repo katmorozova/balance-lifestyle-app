@@ -14,4 +14,8 @@
     <color name="amarillo_dorado">#FFC107</color>
     <color name="azul_concentracion">#2196F3</color>
 
+    <color name="red_high">#D9534F</color>
+    <color name="yellow_medium">#F0AD4E</color>
+    <color name="green_low">#5CB85C</color>
+
 </resources>
