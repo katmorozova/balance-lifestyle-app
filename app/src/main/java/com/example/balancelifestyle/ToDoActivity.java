@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class ToDoActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
     }
 
 
@@ -39,5 +41,16 @@ public class ToDoActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, ToDoActivity.class);
+    }
+
+    private void setUpClickListeners(){
+        buttonAddNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddToDoActivity.newIntent(ToDoActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
