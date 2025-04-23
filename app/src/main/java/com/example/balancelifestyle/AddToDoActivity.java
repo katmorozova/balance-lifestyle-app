@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.balancelifestyle.database.ToDoList;
 
@@ -23,6 +25,8 @@ public class AddToDoActivity extends AppCompatActivity {
     private RadioButton radioButtonMediumPriority;
     private RadioButton radioButtonLowPriority;
     private Button buttonSaveNote;
+
+    private AddToDoViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class AddToDoActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        viewModel = new ViewModelProvider(this).get(AddToDoViewModel.class);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -78,6 +84,19 @@ public class AddToDoActivity extends AppCompatActivity {
         String text = editTextAddNote.getText().toString().trim();
         int typeOfList = getTypeOfToDoList();
         ToDoList toDoList = new ToDoList(0, text, typeOfList);
+        viewModel.saveToDoList(toDoList);
+
+    }
+
+    public void observeViewModel(){
+        viewModel.getShouldCloseScreen().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean shouldClose) {
+                if(shouldClose){
+                    finish();
+                }
+            }
+        });
     }
 
 }

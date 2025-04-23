@@ -1,5 +1,7 @@
 package com.example.balancelifestyle.database;
 
+import android.app.Application;
+
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -11,6 +13,8 @@ import io.reactivex.rxjava3.core.Single;
 
 @Dao
 public interface ToDoListDao {
+
+
 
     @Query("SELECT * FROM listNotes")
     Single<List<ToDoList>> getToDoLists();
