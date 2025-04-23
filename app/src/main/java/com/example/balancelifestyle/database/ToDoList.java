@@ -1,4 +1,4 @@
-package com.example.balancelifestyle;
+package com.example.balancelifestyle.database;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
