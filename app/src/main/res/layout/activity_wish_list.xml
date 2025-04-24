@@ -22,7 +22,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewProjects"/>
 
     <ImageButton
         android:id="@+id/imageButtonProjects"
@@ -64,6 +65,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewBooks"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewProjects" />
 
     <ImageButton
@@ -91,19 +93,19 @@
         app:layout_constraintBottom_toTopOf="@id/textViewFilms"/>
 
 
-
     <TextView
         android:id="@+id/textViewFilms"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="23dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/title_bg"
         android:text="@string/films_textview"
         android:textColor="@color/blue_dark"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewFilms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewBooks" />
@@ -130,8 +132,9 @@
         android:background="@color/white"
         android:contentDescription="@string/recycler_description"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewFilms"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        tools:layout_editor_absoluteX="40dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
