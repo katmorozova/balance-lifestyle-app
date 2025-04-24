@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,10 +83,13 @@ public class AddToDoActivity extends AppCompatActivity {
 
     private void saveToDoList(){
         String text = editTextAddNote.getText().toString().trim();
-        int typeOfList = getTypeOfToDoList();
-        ToDoList toDoList = new ToDoList(0, text, typeOfList);
-        viewModel.saveToDoList(toDoList);
-
+        if(text.isEmpty()){
+            Toast.makeText(this, "Introduce una nota", Toast.LENGTH_SHORT).show();
+        }else{
+            int typeOfList = getTypeOfToDoList();
+            ToDoList toDoList = new ToDoList(0, text, typeOfList);
+            viewModel.saveToDoList(toDoList);
+        }
     }
 
     public void observeViewModel(){

@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
@@ -58,26 +59,47 @@ public class UserViewModel extends ViewModel {
 
     public void deleteUserProfile(Context context, String email, String password){
         final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        AuthCredential credential = EmailAuthProvider
-                .getCredential(email, password);
-                if(currentUser != null){
-                    currentUser.reauthenticate(credential)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                currentUser.delete()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                Log.d(TAG, "User account deleted");
-                                            }
-                                        });
-                            }
-                        });
 
-                }
-                deleteUserData(context);
-            }
+        // Verifica si hay un usuario autenticado antes de continuar
+        if (currentUser == null) {
+            Log.e(TAG, "No user is currently logged in.");
+            return;
+        }
+
+        // Verifica que el correo y la contraseña no estén vacíos
+        if (email.isEmpty() || password.isEmpty()) {
+            Log.e(TAG, "Email or password cannot be empty.");
+            return;
+        }
+
+        AuthCredential credential = EmailAuthProvider.getCredential(email, password);
+
+        currentUser.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Reauthentication successful");
+
+                            currentUser.delete()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> deleteTask) {
+                                            if (deleteTask.isSuccessful()) {
+                                                Log.d(TAG, "User account deleted from Firebase");
+                                                deleteUserData(context);
+                                            } else {
+                                                Log.e(TAG, "Error deleting user", deleteTask.getException());
+                                            }
+                                        }
+                                    });
+
+                        } else {
+                            Log.e(TAG, "Error in reauthentication", task.getException());
+                        }
+                    }
+                });
+    }
 
 
 }

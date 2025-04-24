@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,9 +77,13 @@ public class AddHabitActivity extends AppCompatActivity {
     private void saveHabit(){
         //añadir validacion si usuario ha introducido algo en EditText
         String text = editTextAddHabit.getText().toString().trim();
-        int typeOfHabit = getTypeOfHabit();
-        Habit habit = new Habit(0, text, typeOfHabit); //si pasamos 0 como parametro - autogenerate lo va generar automaticamente
-        viewModel.saveHabit(habit);
+        if(text.isEmpty()){
+            Toast.makeText(this, "Introduce una nota", Toast.LENGTH_SHORT).show();
+        }else {
+            int typeOfHabit = getTypeOfHabit();
+            Habit habit = new Habit(0, text, typeOfHabit); //si pasamos 0 como parametro - autogenerate lo va generar automaticamente
+            viewModel.saveHabit(habit);
+        }
     }
 
     private int getTypeOfHabit(){

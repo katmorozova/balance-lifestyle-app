@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final String TAG = "LoginActivity";
 
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -64,6 +67,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
+
+                // Verificar que email y contraseña no estén vacíos
+                if (email.isEmpty() || password.isEmpty()) {
+                    Log.e(TAG, "Error: Email or password is empty.");
+                    Toast.makeText(LoginActivity.this, "Por favor, ingresa un correo y contraseña", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 viewModel.login(email,password);
 
             }
