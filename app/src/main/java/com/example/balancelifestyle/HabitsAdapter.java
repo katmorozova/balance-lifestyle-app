@@ -17,15 +17,11 @@ import java.util.List;
 public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsViewHolder> {
 
     private List<Habit> habits = new ArrayList<>();
-    private OnHabitClickListener onHabitClickListener;
+
 
 
     public List<Habit> getHabits() {
         return new ArrayList<>(habits);
-    }
-
-    public void setOnHabitClickListener(OnHabitClickListener onHabitClickListener) {
-        this.onHabitClickListener = onHabitClickListener;
     }
 
     public void setHabits(List<Habit> habits) {
@@ -77,14 +73,7 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
         }
         int color = ContextCompat.getColor(viewHolder.itemView.getContext(), colorResId);
         viewHolder.textViewHabit.setBackgroundColor(color);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(onHabitClickListener != null){
-                    onHabitClickListener.onHabitClick(habit);
-                }
-            }
-        });
+
     }
 
     @Override
@@ -104,7 +93,5 @@ public class HabitsAdapter extends RecyclerView.Adapter<HabitsAdapter.HabitsView
 
     }
 
-    public interface OnHabitClickListener {
-        void onHabitClick(Habit habit);
-    }
+
 }
