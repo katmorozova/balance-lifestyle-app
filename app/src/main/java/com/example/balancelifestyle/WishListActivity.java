@@ -20,6 +20,8 @@ public class WishListActivity extends AppCompatActivity {
     private RecyclerView recyclerViewWishlist;
     private FloatingActionButton fabAddNote;
 
+    private WishListAdapter wishListAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,9 @@ public class WishListActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
-        setUpclickListeners();
+        wishListAdapter = new WishListAdapter();
+        recyclerViewWishlist.setAdapter(wishListAdapter);
+        setUpClickListeners();
     }
 
     public void initViews(){
@@ -43,10 +47,11 @@ public class WishListActivity extends AppCompatActivity {
         return new Intent(context, WishListActivity.class);
     }
 
-    private void setUpclickListeners(){
+    private void setUpClickListeners(){
         fabAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
                 startActivity(intent);
                 finish();

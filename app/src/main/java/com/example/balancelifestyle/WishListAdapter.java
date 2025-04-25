@@ -42,8 +42,10 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishLi
 
     //añade color del fondo para objetos y el texto
     @Override
-    public void onBindViewHolder(@NonNull WishListViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull WishListViewHolder viewHolder, int position) {
+        WishList wishList = wishLists.get(position);
+        viewHolder.textViewTitle.setText(wishList.getText());
+        viewHolder.textViewNote.setText(wishList.getText());
     }
 
     @Override
