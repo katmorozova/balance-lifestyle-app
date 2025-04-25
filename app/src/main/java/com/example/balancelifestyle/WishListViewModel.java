@@ -5,11 +5,10 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.balancelifestyle.database.ToDoList;
-import com.example.balancelifestyle.database.ToDoListDatabase;
+import com.example.balancelifestyle.database.WishList;
+import com.example.balancelifestyle.database.WishListDatabase;
 
 import java.util.List;
 
@@ -20,45 +19,45 @@ import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ToDoViewModel extends AndroidViewModel {
+public class WishListViewModel extends AndroidViewModel {
 
-    private static final String TAG = "ToDoViewModel";
+    private static final String TAG = "WishListViewModel";
 
-    private ToDoListDatabase toDoListDatabase;
+    private WishListDatabase wishListDatabase;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private MutableLiveData<List<ToDoList>> toDoLists = new MutableLiveData<>();
+    private MutableLiveData<List<WishList>> wishLists = new MutableLiveData<>();
 
-    public ToDoViewModel(@NonNull Application application) {
+    public WishListViewModel(@NonNull Application application) {
         super(application);
-        toDoListDatabase = ToDoListDatabase.getInstance(application);
+        wishListDatabase = WishListDatabase.getInstance(application);
     }
 
-    public LiveData<List<ToDoList>> getToDoLists() {
-        return toDoLists;
+    public MutableLiveData<List<WishList>> getWishLists() {
+        return wishLists;
     }
 
-    public void refreshToDoList() {
-        Disposable disposable = toDoListDatabase.toDoListDao().getToDoLists()
+    public void refreshWishList() {
+        Disposable disposable = wishListDatabase.wishListDao().getWishLists()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<ToDoList>>() {
+                .subscribe(new Consumer<List<WishList>>() {
                     @Override
-                    public void accept(List<ToDoList> toDoListFromDb) throws Throwable {
-                        toDoLists.setValue(toDoListFromDb);
+                    public void accept(List<WishList> wishListsFromDb) throws Throwable {
+                        wishLists.setValue(wishListsFromDb);
                     }
                 });
         compositeDisposable.add(disposable);
     }
 
-    public void remove(ToDoList toDoList){
-        Disposable disposable = toDoListDatabase.toDoListDao().remove(toDoList.getId())
+    public void remove(WishList wishList){
+        Disposable disposable = wishListDatabase.wishListDao().remove(wishList.getId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
                     @Override
                     public void run() throws Throwable {
-                        Log.d(TAG, "Removed: "+ toDoList.getId());
-                        refreshToDoList();
+                        Log.d(TAG, "Removed: "+ wishList.getId());
+                        refreshWishList();
                     }
                 });
         compositeDisposable.add(disposable);

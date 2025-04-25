@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +20,8 @@ public class WishListActivity extends AppCompatActivity {
     private FloatingActionButton fabAddNote;
 
     private WishListAdapter wishListAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
