@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.balancelifestyle.database.WishList;
@@ -43,7 +45,7 @@ public class WishListActivity extends AppCompatActivity {
         wishListAdapter = new WishListAdapter();
         recyclerViewWishlist.setAdapter(wishListAdapter);
         observeViewModel();
-        setUpClickListeners();
+        setupItemTouchHelper();
     }
 
     public void initViews(){
@@ -73,6 +75,37 @@ public class WishListActivity extends AppCompatActivity {
                 wishListAdapter.setWishLists(wishLists);
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.refreshWishList();
+    }
+
+    private void setupItemTouchHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                WishList wishList = wishListAdapter.getWishLists().get(position);
+                viewModel.remove(wishList);
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewWishlist);
+        setUpClickListeners();
     }
 
 }
