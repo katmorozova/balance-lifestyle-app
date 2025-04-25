@@ -55,7 +55,7 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishLi
 
     class WishListViewHolder extends RecyclerView.ViewHolder{
 
-        private LinearLayout linearLayoutWishlist;
+        private LinearLayout linearLayoutWishlist; //en teoria en este layout tenemos que pasar los valores de datos recibidos y mostrarles en pantalla
         private TextView textViewTitle;
         private TextView textViewNote;
 

@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.balancelifestyle.database.ToDoList;
-import com.example.balancelifestyle.database.ToDoListDao;
-import com.example.balancelifestyle.database.ToDoListDatabase;
+import com.example.balancelifestyle.database.WishList;
+import com.example.balancelifestyle.database.WishListDao;
+import com.example.balancelifestyle.database.WishListDatabase;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -17,26 +17,25 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class AddToDoViewModel extends AndroidViewModel {
+public class AddWishListViewModel extends AndroidViewModel {
 
-    private static final String TAG = "AddToDoViewModel";
+    private static final String TAG = "AddWishListViewModel";
 
-    private ToDoListDao toDoListDao;
+    private WishListDao wishListDao;
     private MutableLiveData<Boolean> shouldCloseScreen = new MutableLiveData<>();
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-
-    public AddToDoViewModel(@NonNull Application application) {
+    public AddWishListViewModel(@NonNull Application application) {
         super(application);
-        toDoListDao = ToDoListDatabase.getInstance(application).toDoListDao();
+        wishListDao = WishListDatabase.getInstance(application).wishListDao();
     }
 
     public MutableLiveData<Boolean> getShouldCloseScreen() {
         return shouldCloseScreen;
     }
 
-    public void saveToDoList(ToDoList toDoList){
-        Disposable disposable = toDoListDao.add(toDoList)
+    public void saveWishList(WishList wishList){
+        Disposable disposable = wishListDao.add(wishList)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
