@@ -6,17 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:background="@color/beige"
     tools:context=".AddWishListActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_addWishList"
-        android:layout_marginTop="80dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:textColor="@color/blue_dark"
         android:textSize="18sp"
@@ -24,46 +23,27 @@
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/editTextAddWishlist"
+        android:id="@+id/editTextAddWishlistTitle"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:inputType="textPersonName"
-        android:hint="@string/hint_addWish"
+        android:hint="@string/hint_addWishTitle"
         android:layout_marginTop="40dp"
         android:layout_marginStart="26dp"
-        android:layout_marginEnd="26dp" />
+        android:layout_marginEnd="26dp"
+        android:background="@drawable/notes_bg"/>
 
-    <RadioGroup
+    <EditText
+        android:id="@+id/editTextAddWishlistNote"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding = "50dp">
+        android:layout_height="50dp"
+        android:inputType="textMultiLine"
+        android:hint="@string/hint_addWishNote"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:background="@drawable/notes_bg"/>
 
-        <RadioButton
-            android:id="@+id/radioButtonProjects"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/radioButton_projects"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButtonBooks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/radioButton_books"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/radioButtonFilms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/radioButton_films"
-            android:textColor="@color/coral"
-            android:textStyle="bold" />
-
-    </RadioGroup>
 
     <Button
         android:id="@+id/buttonSaveWish"
@@ -72,8 +52,7 @@
         android:text="@string/button_saveWish"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop ="60dp"
         android:backgroundTint="@color/blue_dark"/>
 
 </LinearLayout>

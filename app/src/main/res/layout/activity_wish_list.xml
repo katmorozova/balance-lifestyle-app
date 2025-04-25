@@ -3,138 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:contentDescription="@string/recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
     tools:context=".WishListActivity">
 
     <TextView
-        android:id="@+id/textViewProjects"
+        android:id="@+id/textViewTitleWishlist"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="26dp"
         android:background="@drawable/title_bg"
-        android:text="@string/project_textview"
+        android:text="@string/wishlist_title"
+        android:textSize="24sp"
+        android:textAlignment="center"
         android:textColor="@color/blue_dark"
-        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewProjects"/>
-
-    <ImageButton
-        android:id="@+id/imageButtonProjects"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@color/coral"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/imageButton_description"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewProjects"
-        app:layout_constraintEnd_toEndOf="@+id/textViewProjects"
-        app:layout_constraintTop_toTopOf="@+id/textViewProjects"
-        app:srcCompat="@drawable/star_svgrepo_com" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewProjects"
+        android:id="@+id/recyclerViewWishlist"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/white"
-        android:contentDescription="@string/recycler_description"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/recycler"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/textViewProjects"
-        app:layout_constraintBottom_toTopOf="@id/textViewBooks"/>
+        app:layout_constraintTop_toBottomOf="@id/textViewTitleWishlist"
+        app:layout_constraintBottom_toTopOf="@id/fabAddNote" />
 
-
-
-    <TextView
-        android:id="@+id/textViewBooks"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/title_bg"
-        android:text="@string/books_textview"
-        android:textColor="@color/blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewBooks"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewProjects" />
-
-    <ImageButton
-        android:id="@+id/imageButtonBooks"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@color/coral"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/imageButton_description"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewBooks"
-        app:layout_constraintEnd_toEndOf="@+id/textViewBooks"
-        app:layout_constraintTop_toTopOf="@+id/textViewBooks"
-        app:srcCompat="@drawable/star_svgrepo_com" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewBooks"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/white"
-        android:contentDescription="@string/recycler_description"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/textViewBooks"
-        app:layout_constraintBottom_toTopOf="@id/textViewFilms"/>
-
-
-    <TextView
-        android:id="@+id/textViewFilms"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/title_bg"
-        android:text="@string/films_textview"
-        android:textColor="@color/blue_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewFilms"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewBooks" />
-
-    <ImageButton
-        android:id="@+id/imageButtonFilms"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@color/coral"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/imageButton_description"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewFilms"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFilms"
-        app:layout_constraintTop_toTopOf="@+id/textViewFilms"
-        app:srcCompat="@drawable/star_svgrepo_com" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewFilms"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
         android:layout_marginBottom="30dp"
-        android:background="@color/white"
-        android:contentDescription="@string/recycler_description"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:contentDescription="@string/button_description"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewFilms"
-        tools:layout_editor_absoluteX="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mas"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewWishlist"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

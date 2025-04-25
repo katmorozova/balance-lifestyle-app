@@ -14,12 +14,12 @@
     <string name="reset">Reset password</string>
     <string name="button_entrar">LOGIN</string>
 
-    <string name="signUp_title">Registra tu perfil</string>
+    <string name="signUp_title">SIGN UP</string>
     <string name="hint_name">Name:</string>
     <string name="hint_lastName">Last name:</string>
     <string name="hint_age">Age:</string>
-    <string name="reset_title">RESET PASSWORD</string>
-    <string name="button_reset">RESET</string>
+    <string name="reset_title">RECUPERAR CONTRASEÑA</string>
+    <string name="button_reset">RESET PASSWORD</string>
 
 
     <string name="title_logout">SALIR</string>
@@ -63,17 +63,16 @@
 
     <string name="button_saveHabit">GUARDAR</string>
 
-    <string name="project_textview">IDEAS PARA PROYECTOS:</string>
-    <string name="books_textview">LISTA DE LOS LIBROS:</string>
-    <string name="films_textview">LISTA DE LAS PELICULAS:</string>
-    <string name="imageButton_description">Boton para añadir nota en la lista de deseos</string>
-    <string name="recycler_description">Descripción para RecyclerView</string>
+
+    <string name="wish_title">%s</string>
+    <string name="wish_note">%s</string>
+    <string name="wishlist_title">LISTA DE MIS DESEOS</string>
+    <string name="button_description">Boton para añadir nota en la lista de deseos</string>
+
 
     <string name="title_addWishList">AÑADE UNA NOTA EN TU LISTA</string>
-    <string name="hint_addWish">Introduce una nota</string>
-    <string name="radioButton_projects">Ideas para proyectos</string>
-    <string name="radioButton_books">Lista de los libros</string>
-    <string name="radioButton_films">Lista de las peliculas</string>
+    <string name="hint_addWishTitle">Introduce un titulo</string>
+    <string name="hint_addWishNote">Introduce una nota</string>
     <string name="button_saveWish">GUARDAR</string>
 
     <string name="button_toDo">Boton para añadir notas en la lista To Do</string>

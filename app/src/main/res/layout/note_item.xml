@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/textViewNote"
+    android:id="@+id/linearLayoutWishList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
     android:padding="16dp"
-    android:textColor="@color/white"
-    android:textStyle="bold"
-    android:textSize="16sp"
-    tools:background="@android:color/holo_blue_dark"
-    tools:text="crear APP para portafolio" />
+    android:layout_margin="30dp"
+    android:orientation="vertical"
+    android:background="@drawable/notes_bg"
+    tools:text="crear APP para portafolio" >
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wish_title"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue_dark"/>
+
+
+    <TextView
+        android:id="@+id/textViewNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wish_note"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:paddingTop="10dp"
+        android:textColor="@color/blue_dark"/>
+</LinearLayout>
