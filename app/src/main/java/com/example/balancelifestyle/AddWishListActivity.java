@@ -3,9 +3,11 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.balancelifestyle.database.ToDoList;
+import com.example.balancelifestyle.database.WishList;
 
 public class AddWishListActivity extends AppCompatActivity {
 
@@ -49,10 +54,29 @@ public class AddWishListActivity extends AppCompatActivity {
     }
 
     private void setOnClickListeners(){
+        buttonSaveWish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //saveNote();
+                Intent intent = WishListActivity.newIntent(AddWishListActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
+    private void saveNote(){
+        String title = editTextAddWishListTitle.getText().toString().trim();
+        String text = editTextAddWishListNote.getText().toString().trim();
+        if(title.isEmpty() && text.isEmpty()){
+            Toast.makeText(this, "Introduce titulo y nota", Toast.LENGTH_SHORT).show();
+        }else{
+            WishList wishList = new WishList(0, title, text);
+            //viewModel.saveToDoList(toDoList);
+        }
 
+    }
 
 
 
