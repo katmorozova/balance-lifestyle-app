@@ -81,19 +81,19 @@ La idea de crear esta aplicacion fue para aprender la programacion de aplicacion
 
 ![WishList](screenshots/wishlist_screen.jpg)
 
-### Pantalla de AÑADIR NOTA en WISHLIST
+### Pantalla de AÑADIR NOTA EN WISHLIST
 
-![Añadir nota](screenshots/add_noteWishlist.jpg)
+![WishList](screenshots/add_wishlist_screen.jpg)
 
 ### Pantalla de TO DO
 
 ![ToDo](screenshots/todo_screen0.jpg)
 
-### Pantalla de AÑADIR NOTA en TO DO
+### Pantalla de AÑADIR NOTA
 
-![Añadir nota](screenshots/add_todo.jpg)
+![Añadir nota](screenshots/add_todo_screen.jpg)
 
-### Pantalla de TO DO (nota en la lista ToDo añadida)
+### Pantalla de TO DO (nota añadida en la lista)
 
 ![ToDo](screenshots/todo_screen1.jpg)
 
