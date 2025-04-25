@@ -16,10 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class AddWishListActivity extends AppCompatActivity {
 
-    private EditText editTextAddWishList;
-    private RadioButton radioButtonProjects;
-    private RadioButton radioButtonBooks;
-    private RadioButton radioButtonFilms;
+    private EditText editTextAddWishListTitle;
+    private EditText editTextAddWishListNote;
     private Button buttonSaveWish;
 
 
@@ -37,16 +35,13 @@ public class AddWishListActivity extends AppCompatActivity {
         initViews();
 
         setOnClickListeners();
-        setChekedButtons();
+
     }
 
     private void initViews(){
-        editTextAddWishList = findViewById(R.id.editTextAddWishlist);
-        radioButtonProjects = findViewById(R.id.radioButtonProjects);
-        radioButtonBooks = findViewById(R.id.radioButtonBooks);
-        radioButtonFilms = findViewById(R.id.radioButtonFilms);
+        editTextAddWishListTitle = findViewById(R.id.editTextAddWishlistTitle);
+        editTextAddWishListNote = findViewById(R.id.editTextAddWishlistNote);
         buttonSaveWish = findViewById(R.id.buttonSaveWish);
-
     }
 
     public static Intent newIntent(Context context){
@@ -57,32 +52,8 @@ public class AddWishListActivity extends AppCompatActivity {
 
     }
 
-    public String getTypeOfCategory(){
-        String category = "";
-        if(radioButtonProjects.isChecked()){
-            category = "projects";
-        }else if(radioButtonBooks.isChecked()) {
-            category = "books";
-        }else if(radioButtonFilms.isChecked()) {
-            category = "films";
-        }
-        return category;
-    }
 
-    public void setChekedButtons(){
-        String category = getIntent().getStringExtra("category");
-        if(category != null){
-            switch (category){
-                case "projects":
-                    radioButtonProjects.setChecked(true);
-                    break;
-                case "books":radioButtonBooks.setChecked(true);
-                    break;
-                case "films":
-                    radioButtonFilms.setChecked(true);
-                    break;
-            }
-        }
-    }
+
+
 
 }

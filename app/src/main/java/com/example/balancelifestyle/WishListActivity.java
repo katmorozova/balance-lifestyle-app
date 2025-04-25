@@ -13,14 +13,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class WishListActivity extends AppCompatActivity {
 
-    private ImageButton imageButtonProjects;
-    private ImageButton imageButtonBooks;
-    private ImageButton imageButtonFilms;
-    private RecyclerView recyclerViewProjects;
-    private RecyclerView recyclerViewBooks;
-    private RecyclerView recyclerViewFilms;
+    private RecyclerView recyclerViewWishlist;
+    private FloatingActionButton fabAddNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +35,8 @@ public class WishListActivity extends AppCompatActivity {
     }
 
     public void initViews(){
-        imageButtonProjects = findViewById(R.id.imageButtonProjects);
-        imageButtonBooks = findViewById(R.id.imageButtonBooks);
-        imageButtonFilms = findViewById(R.id.imageButtonFilms);
-        recyclerViewProjects = findViewById(R.id.recyclerViewProjects);
-        recyclerViewBooks = findViewById(R.id.recyclerViewBooks);
-        recyclerViewFilms = findViewById(R.id.recyclerViewFilms);
+        recyclerViewWishlist = findViewById(R.id.recyclerViewWishlist);
+        fabAddNote = findViewById(R.id.fabAddNote);
     }
 
     public static Intent newIntent(Context context){
@@ -50,32 +44,14 @@ public class WishListActivity extends AppCompatActivity {
     }
 
     private void setUpclickListeners(){
-        imageButtonProjects.setOnClickListener(new View.OnClickListener() {
+        fabAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
-                intent.putExtra("category", "projects");
-                startActivity(intent);
-                finish();
-            }
-        });
-        imageButtonBooks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
-                intent.putExtra("category", "books");
-                startActivity(intent);
-                finish();
-            }
-        });
-        imageButtonFilms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
-                intent.putExtra("category", "films");
                 startActivity(intent);
                 finish();
             }
         });
     }
+
 }

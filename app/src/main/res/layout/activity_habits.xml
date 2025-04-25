@@ -19,7 +19,6 @@
         android:textColor="@color/blue_dark"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:background="@drawable/title_bg"
         app:layout_constraintBottom_toTopOf="@id/textViewCitation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
