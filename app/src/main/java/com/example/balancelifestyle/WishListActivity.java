@@ -10,10 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.balancelifestyle.database.WishList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class WishListActivity extends AppCompatActivity {
 
@@ -38,6 +42,7 @@ public class WishListActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(WishListViewModel.class);
         wishListAdapter = new WishListAdapter();
         recyclerViewWishlist.setAdapter(wishListAdapter);
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -58,6 +63,14 @@ public class WishListActivity extends AppCompatActivity {
                 Intent intent = AddWishListActivity.newIntent(WishListActivity.this);
                 startActivity(intent);
                 finish();
+            }
+        });
+    }
+    private void observeViewModel(){
+        viewModel.getWishLists().observe(this, new Observer<List<WishList>>() {
+            @Override
+            public void onChanged(List<WishList> wishLists) {
+                wishListAdapter.setWishLists(wishLists);
             }
         });
     }
