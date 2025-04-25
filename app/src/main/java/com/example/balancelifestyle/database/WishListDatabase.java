@@ -1,5 +1,6 @@
 package com.example.balancelifestyle.database;
 
+
 import android.app.Application;
 
 import androidx.room.Database;
@@ -7,14 +8,15 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities = {WishList.class}, version = 1)
+@Database(entities = {WishList.class}, version = 3)
 public abstract class WishListDatabase extends RoomDatabase {
+
 
     private static WishListDatabase instance = null;
     private static final String DB_NAME = "wishes.db";
 
 
-    public static WishListDatabase getInstance(Application application){
+    public static WishListDatabase getInstance(Application application) {
         if(instance == null){
             //crear ejemplar base de datos:
             instance = Room.databaseBuilder(
@@ -25,6 +27,6 @@ public abstract class WishListDatabase extends RoomDatabase {
         }
         return instance;
     }
-    //public abstract WishListDao wishListDao;
-    public WishListDao wishListDao;
+    public abstract WishListDao wishListDao();
 }
+
