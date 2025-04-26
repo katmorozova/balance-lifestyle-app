@@ -7,9 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.balancelifestyle.database.WishList;
-import com.example.balancelifestyle.database.WishListDatabase;
-
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -23,13 +20,13 @@ public class WishListViewModel extends AndroidViewModel {
 
     private static final String TAG = "WishListViewModel";
 
-    private WishListDatabase wishListDatabase;
+    private WishlistDatabase wishListDatabase;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private MutableLiveData<List<WishList>> wishLists = new MutableLiveData<>();
 
     public WishListViewModel(@NonNull Application application) {
         super(application);
-        wishListDatabase = WishListDatabase.getInstance(application);
+        wishListDatabase = WishlistDatabase.getInstance(application);
     }
 
     public MutableLiveData<List<WishList>> getWishLists() {

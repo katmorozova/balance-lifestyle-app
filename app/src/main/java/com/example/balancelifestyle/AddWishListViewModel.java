@@ -7,10 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.balancelifestyle.database.WishList;
-import com.example.balancelifestyle.database.WishListDao;
-import com.example.balancelifestyle.database.WishListDatabase;
-
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -27,14 +23,14 @@ public class AddWishListViewModel extends AndroidViewModel {
 
     public AddWishListViewModel(@NonNull Application application) {
         super(application);
-        wishListDao = WishListDatabase.getInstance(application).wishListDao();
+        wishListDao = WishlistDatabase.getInstance(application).wishListDao();
     }
 
     public MutableLiveData<Boolean> getShouldCloseScreen() {
         return shouldCloseScreen;
     }
 
-    public void saveWishList(WishList wishList){
+    public void saveNote(WishList wishList){
         Disposable disposable = wishListDao.add(wishList)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

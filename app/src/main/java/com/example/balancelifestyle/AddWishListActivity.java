@@ -16,9 +16,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
-
-import com.example.balancelifestyle.database.WishList;
-
 public class AddWishListActivity extends AppCompatActivity {
 
     private EditText editTextAddWishListTitle;
@@ -57,7 +54,7 @@ public class AddWishListActivity extends AppCompatActivity {
         buttonSaveWish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //saveNote();
+                saveNote();
                 Intent intent = WishListActivity.newIntent(AddWishListActivity.this);
                 startActivity(intent);
                 finish();
@@ -73,7 +70,7 @@ public class AddWishListActivity extends AppCompatActivity {
             Toast.makeText(this, "Introduce titulo y nota", Toast.LENGTH_SHORT).show();
         }else{
             WishList wishList = new WishList(0, title, text);
-            //viewModel.saveToDoList(toDoList);
+            viewModel.saveNote(wishList);
         }
 
     }
