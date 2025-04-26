@@ -7,6 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.balancelifestyle.database.NoteList;
+import com.example.balancelifestyle.database.NoteListDao;
+import com.example.balancelifestyle.database.NoteListDatabase;
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -17,21 +21,21 @@ public class AddWishListViewModel extends AndroidViewModel {
 
     private static final String TAG = "AddWishListViewModel";
 
-    private WishListDao wishListDao;
+    private NoteListDao noteListDao;
     private MutableLiveData<Boolean> shouldCloseScreen = new MutableLiveData<>();
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     public AddWishListViewModel(@NonNull Application application) {
         super(application);
-        wishListDao = WishlistDatabase.getInstance(application).wishListDao();
+        noteListDao = NoteListDatabase.getInstance(application).noteListDao();
     }
 
     public MutableLiveData<Boolean> getShouldCloseScreen() {
         return shouldCloseScreen;
     }
 
-    public void saveNote(WishList wishList){
-        Disposable disposable = wishListDao.add(wishList)
+    public void saveNote(NoteList noteList){
+        Disposable disposable = noteListDao.add(noteList)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {

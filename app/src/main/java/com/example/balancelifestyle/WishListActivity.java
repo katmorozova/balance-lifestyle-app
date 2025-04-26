@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.balancelifestyle.database.NoteList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -68,10 +69,10 @@ public class WishListActivity extends AppCompatActivity {
         });
     }
     private void observeViewModel(){
-        viewModel.getWishLists().observe(this, new Observer<List<WishList>>() {
+        viewModel.getNoteLists().observe(this, new Observer<List<NoteList>>() {
             @Override
-            public void onChanged(List<WishList> wishLists) {
-                wishListAdapter.setWishLists(wishLists);
+            public void onChanged(List<NoteList> noteLists) {
+                wishListAdapter.setNoteLists(noteLists);
             }
         });
     }
@@ -99,8 +100,8 @@ public class WishListActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
-                WishList wishList = wishListAdapter.getWishLists().get(position);
-                viewModel.remove(wishList);
+                NoteList noteList = wishListAdapter.getNoteLists().get(position);
+                viewModel.remove(noteList);
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerViewWishlist);

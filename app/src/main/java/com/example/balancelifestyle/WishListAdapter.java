@@ -9,20 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.balancelifestyle.database.NoteList;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishListViewHolder>{
 
-    private List<WishList> wishLists = new ArrayList<>();
+    private List<NoteList> noteLists = new ArrayList<>();
 
 
-    public List<WishList> getWishLists() {
-        return wishLists;
+    public List<NoteList> getNoteLists() {
+        return noteLists;
     }
 
-    public void setWishLists(List<WishList> wishLists) {
-        this.wishLists = wishLists;
+    public void setNoteLists(List<NoteList> noteLists) {
+        this.noteLists = noteLists;
         notifyDataSetChanged();
     }
 
@@ -41,25 +43,23 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.WishLi
     //añade color del fondo para objetos y el texto
     @Override
     public void onBindViewHolder(@NonNull WishListViewHolder viewHolder, int position) {
-        WishList wishList = wishLists.get(position);
-        viewHolder.textViewTitle.setText(wishList.getText());
-        viewHolder.textViewNote.setText(wishList.getText());
+        NoteList noteList = noteLists.get(position);
+        viewHolder.textViewTitle.setText(noteList.getTitle());
+        viewHolder.textViewNote.setText(noteList.getText());
     }
 
     @Override
     public int getItemCount() {
-        return wishLists.size();
+        return noteLists.size();
     }
 
     class WishListViewHolder extends RecyclerView.ViewHolder{
 
-        private LinearLayout linearLayoutWishlist; //en teoria en este layout tenemos que pasar los valores de datos recibidos y mostrarles en pantalla
         private TextView textViewTitle;
         private TextView textViewNote;
 
         public WishListViewHolder(@NonNull View itemView) {
             super(itemView);
-            linearLayoutWishlist = itemView.findViewById(R.id.linearLayoutWishList);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewNote = itemView.findViewById(R.id.textViewNote);
         }
