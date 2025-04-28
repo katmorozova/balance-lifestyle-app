@@ -84,4 +84,16 @@
     <string name="title_addNote">AÑADIR UNA NOTA A LA LISTA </string>
     <string name="hint_addNote">Introduce una nota</string>
 
+
+    <string name="urgentImportant_title">URGENTE IMPORTANTE</string>
+    <string name="urgentImportant_note">%s</string>
+
+    <string name="urgentNotImportant_title">URGENTE NO IMPORTANTE</string>
+    <string name="urgentNotImportant_note">%s</string>
+
+    <string name="notUrgentImportant_title">NO URGENTE IMPORTANTE</string>
+    <string name="notUrgentImportant_note">%s</string>
+
+    <string name="notUrgentNotImportant_title">NO URGENTE NO IMPORTANTE</string>
+    <string name="notUrgentNotImportant_note">%s</string>
 </resources>
