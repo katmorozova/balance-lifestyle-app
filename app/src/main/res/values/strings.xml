@@ -99,4 +99,11 @@
 
     <string name="goals_month">METAS DEL MES</string>
 
+    <string name="matrix_title">AÑADIR NOTAS EN TU LISTA</string>
+    <string name="note_urgentImportant">Urgente Importante</string>
+    <string name="note_notUrgentImportant">No Urgente Importante</string>
+    <string name="note_urgentNotImportant">Urgente no Importante</string>
+    <string name="note_notUrgentNotImportant">No Urgente no Importante</string>
+    <string name="matrix_button">GUARDAR</string>
+
 </resources>
