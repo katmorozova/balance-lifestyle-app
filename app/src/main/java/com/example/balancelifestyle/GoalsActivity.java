@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ public class GoalsActivity extends AppCompatActivity {
     private LinearLayout layoutNotUrgentImportant;
     private LinearLayout layoutUrgentNotImportant;
     private LinearLayout layoutNotUrgentNotImportant;
-    private TextView textViewGoalsOfMonth;
+    private Button buttonGoalsOfMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class GoalsActivity extends AppCompatActivity {
         layoutNotUrgentImportant = findViewById(R.id.layoutNotUrgentImportant);
         layoutUrgentNotImportant = findViewById(R.id.layoutUrgentNotImportant);
         layoutNotUrgentNotImportant = findViewById(R.id.layoutNotUrgentNotImportant);
-        textViewGoalsOfMonth = findViewById(R.id.textViewGoalsOfMonth);
+        buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
     }
 
     public static Intent newIntent(Context context){

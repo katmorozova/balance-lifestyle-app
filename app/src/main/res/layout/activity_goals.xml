@@ -84,8 +84,8 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textViewGoalsOfMonth"
+    <Button
+        android:id="@+id/buttonGoalsOfMonth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -95,7 +95,7 @@
         android:text="@string/goals_month"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:background="@drawable/button_bg"
+        android:backgroundTint="@color/blue_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
