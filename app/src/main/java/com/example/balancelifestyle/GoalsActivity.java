@@ -1,6 +1,10 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +13,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class GoalsActivity extends AppCompatActivity {
+
+    private LinearLayout layoutUrgentImportant;
+    private LinearLayout layoutNotUrgentImportant;
+    private LinearLayout layoutUrgentNotImportant;
+    private LinearLayout layoutNotUrgentNotImportant;
+    private TextView textViewGoalsOfMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +30,18 @@ public class GoalsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initViews();
+    }
+
+    public void initViews(){
+        layoutUrgentImportant = findViewById(R.id.layoutUrgentImportant);
+        layoutNotUrgentImportant = findViewById(R.id.layoutNotUrgentImportant);
+        layoutUrgentNotImportant = findViewById(R.id.layoutUrgentNotImportant);
+        layoutNotUrgentNotImportant = findViewById(R.id.layoutNotUrgentNotImportant);
+        textViewGoalsOfMonth = findViewById(R.id.textViewGoalsOfMonth);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, GoalsActivity.class);
     }
 }

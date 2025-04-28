@@ -159,7 +159,8 @@ public class UserActivity extends AppCompatActivity {
         imageViewGoals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = GoalsActivity.newIntent(UserActivity.this);
+                startActivity(intent);
             }
         });
         imageViewPlanning.setOnClickListener(new View.OnClickListener() {
