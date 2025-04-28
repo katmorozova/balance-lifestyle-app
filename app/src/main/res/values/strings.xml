@@ -96,4 +96,7 @@
 
     <string name="notUrgentNotImportant_title">NO URGENTE NO IMPORTANTE</string>
     <string name="notUrgentNotImportant_note">%s</string>
+
+    <string name="goals_month">METAS DEL MES</string>
+
 </resources>
