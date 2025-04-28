@@ -72,12 +72,16 @@
 
     <TextView
         android:id="@+id/textViewGoalsOfMonth"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:text="@string/goals_month"
         android:textAlignment="center"
-        android:textColor="@color/blue_dark"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
