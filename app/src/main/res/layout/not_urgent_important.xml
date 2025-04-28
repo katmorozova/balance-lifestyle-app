@@ -22,13 +22,11 @@
         android:textColor="@color/coral"/>
 
 
-    <TextView
-        android:id="@+id/textViewUrgentImportantNote"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNotUrgentImportant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/notUrgentImportant_note"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:paddingTop="10dp"
-        android:textColor="@color/blue_dark"/>
+        android:contentDescription="@string/recycler"
+        android:padding="12dp"/>
+
 </LinearLayout>
