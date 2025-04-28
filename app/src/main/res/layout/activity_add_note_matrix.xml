@@ -79,6 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/matrix_button"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:backgroundTint="@color/blue_dark"/>
 
 </LinearLayout>

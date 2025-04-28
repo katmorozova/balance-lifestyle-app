@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class GoalsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
     }
 
     public void initViews(){
@@ -43,5 +45,38 @@ public class GoalsActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, GoalsActivity.class);
+    }
+
+
+    private void setUpClickListeners(){
+        layoutUrgentImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                startActivity(intent);
+            }
+        });
+        layoutNotUrgentImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                startActivity(intent);
+            }
+        });
+        layoutUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                startActivity(intent);
+            }
+        });
+        layoutNotUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                startActivity(intent);
+            }
+        });
+
     }
 }
