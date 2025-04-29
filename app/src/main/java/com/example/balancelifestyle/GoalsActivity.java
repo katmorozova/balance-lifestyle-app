@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class GoalsActivity extends AppCompatActivity {
 
@@ -20,7 +21,14 @@ public class GoalsActivity extends AppCompatActivity {
     private LinearLayout layoutNotUrgentImportant;
     private LinearLayout layoutUrgentNotImportant;
     private LinearLayout layoutNotUrgentNotImportant;
+
+    private RecyclerView recyclerViewUrgentImportant;
+    private RecyclerView recyclerViewUrgentNotImportant;
+    private RecyclerView recyclerViewNotUrgentImportant;
+    private RecyclerView recyclerViewNotUrgentNotImportant;
+
     private Button buttonGoalsOfMonth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,7 @@ public class GoalsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpRecyclerViews();
         setUpClickListeners();
     }
 
@@ -41,6 +50,10 @@ public class GoalsActivity extends AppCompatActivity {
         layoutNotUrgentImportant = findViewById(R.id.layoutNotUrgentImportant);
         layoutUrgentNotImportant = findViewById(R.id.layoutUrgentNotImportant);
         layoutNotUrgentNotImportant = findViewById(R.id.layoutNotUrgentNotImportant);
+        recyclerViewUrgentImportant = findViewById(R.id.recyclerViewUrgentImportant);
+        recyclerViewUrgentNotImportant = findViewById(R.id.recyclerViewUrgentNotImportant);
+        recyclerViewNotUrgentImportant = findViewById(R.id.recyclerViewNotUrgentImportant);
+        recyclerViewNotUrgentNotImportant = findViewById(R.id.recyclerViewNotUrgentNotImportant);
         buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
     }
 
@@ -80,4 +93,19 @@ public class GoalsActivity extends AppCompatActivity {
         });
 
     }
+
+    private void setUpRecyclerViews() {
+        GoalsAdapter adapterUrgentImportant = new GoalsAdapter(0);
+        recyclerViewUrgentImportant.setAdapter(adapterUrgentImportant);
+
+        GoalsAdapter adapterNotUrgentImportant = new GoalsAdapter(1);
+        recyclerViewNotUrgentImportant.setAdapter(adapterNotUrgentImportant);
+
+        GoalsAdapter adapterUrgentNotImportant = new GoalsAdapter(2);
+        recyclerViewUrgentNotImportant.setAdapter(adapterUrgentNotImportant);
+
+        GoalsAdapter adapterNotUrgentNotImportant = new GoalsAdapter(3);
+        recyclerViewNotUrgentNotImportant.setAdapter(adapterNotUrgentNotImportant);
+    }
+
 }
