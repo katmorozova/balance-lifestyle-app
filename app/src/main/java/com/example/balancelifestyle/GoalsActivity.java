@@ -9,11 +9,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.balancelifestyle.database.NoteMatrix;
+
+import java.util.List;
 
 public class GoalsActivity extends AppCompatActivity {
 
@@ -29,6 +37,13 @@ public class GoalsActivity extends AppCompatActivity {
 
     private Button buttonGoalsOfMonth;
 
+    private GoalsAdapter adapterUrgentImportant;
+    private GoalsAdapter adapterNotUrgentImportant;
+    private GoalsAdapter adapterUrgentNotImportant;
+    private GoalsAdapter adapterNotUrgentNotImportant;
+
+    private GoalsViewModel viewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +56,9 @@ public class GoalsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        viewModel = new ViewModelProvider(this).get(GoalsViewModel.class);
         setUpRecyclerViews();
+        observeViewModel();
         setUpClickListeners();
     }
 
@@ -95,17 +112,61 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void setUpRecyclerViews() {
-        GoalsAdapter adapterUrgentImportant = new GoalsAdapter(0);
+        adapterUrgentImportant = new GoalsAdapter(0);
         recyclerViewUrgentImportant.setAdapter(adapterUrgentImportant);
 
-        GoalsAdapter adapterNotUrgentImportant = new GoalsAdapter(1);
+        adapterNotUrgentImportant = new GoalsAdapter(1);
         recyclerViewNotUrgentImportant.setAdapter(adapterNotUrgentImportant);
 
-        GoalsAdapter adapterUrgentNotImportant = new GoalsAdapter(2);
+        adapterUrgentNotImportant = new GoalsAdapter(2);
         recyclerViewUrgentNotImportant.setAdapter(adapterUrgentNotImportant);
 
-        GoalsAdapter adapterNotUrgentNotImportant = new GoalsAdapter(3);
+        adapterNotUrgentNotImportant = new GoalsAdapter(3);
         recyclerViewNotUrgentNotImportant.setAdapter(adapterNotUrgentNotImportant);
     }
+
+    private void observeViewModel(){
+        viewModel.getNoteMatrices().observe(this, new Observer<List<NoteMatrix>>() {
+            @Override
+            public void onChanged(List<NoteMatrix> noteMatrices) {
+                adapterUrgentImportant.setNoteMatrices(noteMatrices);
+                adapterNotUrgentImportant.setNoteMatrices(noteMatrices);
+                adapterUrgentNotImportant.setNoteMatrices(noteMatrices);
+                adapterNotUrgentNotImportant.setNoteMatrices(noteMatrices);
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.refreshNotesMatrix();
+    }
+
+    private void setupItemTouchHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                NoteMatrix noteMatrix = adapterUrgentImportant.getNoteMatrices().get(position);
+                viewModel.remove(noteMatrix);
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewUrgentImportant);
+        setUpClickListeners();
+    }
+
+
 
 }

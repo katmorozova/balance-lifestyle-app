@@ -23,6 +23,10 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsHolder>
         this.category = category;
     }
 
+    public List<NoteMatrix> getNoteMatrices() {
+        return noteMatrices;
+    }
+
     public void setNoteMatrices(List<NoteMatrix> noteMatrices) {
         this.noteMatrices = noteMatrices;
         notifyDataSetChanged();
