@@ -17,10 +17,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.balancelifestyle.database.NoteMatrix;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoalsActivity extends AppCompatActivity {
@@ -60,6 +62,7 @@ public class GoalsActivity extends AppCompatActivity {
         setUpRecyclerViews();
         observeViewModel();
         setUpClickListeners();
+
     }
 
     public void initViews(){
@@ -112,16 +115,21 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void setUpRecyclerViews() {
-        adapterUrgentImportant = new GoalsAdapter(0);
+        recyclerViewUrgentImportant.setLayoutManager(new LinearLayoutManager(this));
+        adapterUrgentImportant = new GoalsAdapter("UrgentImportant");
         recyclerViewUrgentImportant.setAdapter(adapterUrgentImportant);
 
-        adapterNotUrgentImportant = new GoalsAdapter(1);
+        recyclerViewNotUrgentImportant.setLayoutManager(new LinearLayoutManager(this));
+        adapterNotUrgentImportant = new GoalsAdapter("NotUrgentImportant");
         recyclerViewNotUrgentImportant.setAdapter(adapterNotUrgentImportant);
 
-        adapterUrgentNotImportant = new GoalsAdapter(2);
+        recyclerViewUrgentNotImportant.setLayoutManager(new LinearLayoutManager(this));
+        adapterUrgentNotImportant = new GoalsAdapter("UrgentNotImportant");
         recyclerViewUrgentNotImportant.setAdapter(adapterUrgentNotImportant);
 
-        adapterNotUrgentNotImportant = new GoalsAdapter(3);
+
+        recyclerViewNotUrgentNotImportant.setLayoutManager(new LinearLayoutManager(this));
+        adapterNotUrgentNotImportant = new GoalsAdapter("NotUrgentNotImportant");
         recyclerViewNotUrgentNotImportant.setAdapter(adapterNotUrgentNotImportant);
     }
 
@@ -129,42 +137,36 @@ public class GoalsActivity extends AppCompatActivity {
         viewModel.getNoteMatrices().observe(this, new Observer<List<NoteMatrix>>() {
             @Override
             public void onChanged(List<NoteMatrix> noteMatrices) {
-                adapterUrgentImportant.setNoteMatrices(noteMatrices);
-                adapterNotUrgentImportant.setNoteMatrices(noteMatrices);
-                adapterUrgentNotImportant.setNoteMatrices(noteMatrices);
-                adapterNotUrgentNotImportant.setNoteMatrices(noteMatrices);
+                adapterUrgentImportant.setNoteMatrices(
+                        filterNotesByCategory(noteMatrices, "UrgentImportant")
+                );
+                adapterNotUrgentImportant.setNoteMatrices(
+                        filterNotesByCategory(noteMatrices, "NotUrgentImportant")
+                );
+                adapterUrgentNotImportant.setNoteMatrices(
+                        filterNotesByCategory(noteMatrices, "UrgentNotImportant")
+                );
+                adapterNotUrgentNotImportant.setNoteMatrices(
+                        filterNotesByCategory(noteMatrices, "NotUrgentNotImportant")
+                );
             }
         });
+    }
+
+    private List<NoteMatrix> filterNotesByCategory(List<NoteMatrix> notes, String category) {
+        List<NoteMatrix> filteredList = new ArrayList<>();
+        for (NoteMatrix note : notes) {
+            if (note.getCategory().equals(category)) {
+                filteredList.add(note);
+            }
+        }
+        return filteredList;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         viewModel.refreshNotesMatrix();
-    }
-
-    private void setupItemTouchHelper(){
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-                0,
-                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
-        ) {
-            @Override
-            public boolean onMove(
-                    @NonNull RecyclerView recyclerView,
-                    @NonNull RecyclerView.ViewHolder viewHolder,
-                    @NonNull RecyclerView.ViewHolder target
-            ) {
-                return false;
-            }
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                NoteMatrix noteMatrix = adapterUrgentImportant.getNoteMatrices().get(position);
-                viewModel.remove(noteMatrix);
-            }
-        });
-        itemTouchHelper.attachToRecyclerView(recyclerViewUrgentImportant);
-        setUpClickListeners();
     }
 
 

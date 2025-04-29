@@ -16,10 +16,10 @@ import java.util.List;
 public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsHolder>{
 
     private List<NoteMatrix> noteMatrices = new ArrayList<>();
-    private int category; // Nueva variable para filtrar notas por categoría
+    private String category; // Nueva variable para filtrar notas por categoría
 
 
-    public GoalsAdapter(int category) {
+    public GoalsAdapter(String category) {
         this.category = category;
     }
 
