@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.balancelifestyle.database.NoteMatrix;
 
@@ -26,6 +27,8 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
     private RadioButton radioButtonNotUrgentNotImportant;
     private Button buttonAddMatrix;
 
+    private AddNoteMatrixViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +40,7 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
-
+        viewModel = new ViewModelProvider(this).get(AddNoteMatrixViewModel.class);
         setCheckedButtons();
         setOnClickListeners();
     }
