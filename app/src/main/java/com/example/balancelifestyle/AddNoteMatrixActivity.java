@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.balancelifestyle.database.NoteMatrix;
@@ -96,7 +97,7 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
         buttonAddMatrix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //saveNoteMatrix();
+                saveNoteMatrix();
                 String category = getTypeOfCategory();
                 Intent intent = GoalsActivity.newIntent(AddNoteMatrixActivity.this);
                 intent.putExtra("category", category);
@@ -117,10 +118,35 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
         }else{
             String category = getTypeOfCategory();
             NoteMatrix noteMatrix = new NoteMatrix(0, text, category);
+            switch (category) {
+                case "UrgentImportant":
+                    viewModel.saveNoteMatrix(noteMatrix);
+                    break;
+                case "NotUrgentImportant":
+                    viewModel.saveNoteMatrix(noteMatrix);
+                    break;
+                case "UrgentNotImportant":
+                    viewModel.saveNoteMatrix(noteMatrix);
+                    break;
+                case "NotUrgentNotImportant":
+                    viewModel.saveNoteMatrix(noteMatrix);
+                    break;
+            }
+
 
         }
     }
 
+    public void observeViewModel(){
+        viewModel.getShouldCloseScreen().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean shouldClose) {
+                if(shouldClose){
+                    finish();
+                }
+            }
+        });
+    }
 
 
 }
