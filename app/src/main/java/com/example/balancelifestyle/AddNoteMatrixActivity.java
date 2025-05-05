@@ -70,6 +70,7 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
     }
 
     public void setCheckedButtons(){
+
         String category = getIntent().getStringExtra("category");
         if(category != null){
             switch (category){
@@ -93,9 +94,12 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //saveNoteMatrix();
+                String category = getTypeOfCategory();
                 Intent intent = GoalsActivity.newIntent(AddNoteMatrixActivity.this);
+                intent.putExtra("category", category);
                 startActivity(intent);
                 finish();
+
 
             }
         });

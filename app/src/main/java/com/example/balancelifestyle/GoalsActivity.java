@@ -87,31 +87,37 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
-            }
-        });
-        layoutNotUrgentImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
-            }
-        });
-        layoutUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
-            }
-        });
-        layoutNotUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("category", "UrgentImportant");
                 startActivity(intent);
             }
         });
 
+        layoutNotUrgentImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("category", "NotUrgentImportant");
+                startActivity(intent);
+            }
+        });
+
+        layoutUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("category", "UrgentNotImportant");
+                startActivity(intent);
+            }
+        });
+
+        layoutNotUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("category", "NotUrgentNotImportant");
+                startActivity(intent);
+            }
+        });
     }
 
     private void setUpRecyclerViews() {
