@@ -99,6 +99,7 @@
 
     <string name="goals_month">METAS DEL MES</string>
     <string name="matrix_name">LA MATRIZ DE EISENHOWER</string>
+    <string name="goalsNotes_text">%s</string>
 
     <string name="matrix_title">AÑADIR NOTAS EN TU LISTA</string>
     <string name="note_urgentImportant">Urgente Importante</string>

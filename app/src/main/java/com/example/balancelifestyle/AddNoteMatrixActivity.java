@@ -120,14 +120,8 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
             NoteMatrix noteMatrix = new NoteMatrix(0, text, category);
             switch (category) {
                 case "UrgentImportant":
-                    viewModel.saveNoteMatrix(noteMatrix);
-                    break;
                 case "NotUrgentImportant":
-                    viewModel.saveNoteMatrix(noteMatrix);
-                    break;
                 case "UrgentNotImportant":
-                    viewModel.saveNoteMatrix(noteMatrix);
-                    break;
                 case "NotUrgentNotImportant":
                     viewModel.saveNoteMatrix(noteMatrix);
                     break;

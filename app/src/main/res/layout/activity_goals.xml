@@ -15,8 +15,8 @@
         android:text="@string/matrix_name"
         android:textAlignment="center"
         android:textColor="@color/blue_dark"
-        android:textStyle="bold"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,63 +24,158 @@
 
     <LinearLayout
         android:id="@+id/layoutUrgentImportant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="18dp"
+        android:layout_width="180dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/notes_bg"
         android:orientation="vertical"
+        android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/layoutUrgentNotImportant"
         app:layout_constraintEnd_toStartOf="@+id/layoutNotUrgentImportant"
         app:layout_constraintStart_toEndOf="@+id/layoutUrgentNotImportant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
 
-        <include layout="@layout/urgent_important" />
+        <TextView
+            android:id="@+id/textViewTitle0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/urgentImportant_title"
+            android:textAlignment="center"
+            android:textColor="@color/coral"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewUrgentImportant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/recycler"
+            android:padding="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layoutNotUrgentImportant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="280dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/notes_bg"
         android:orientation="vertical"
+        android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/layoutNotUrgentNotImportant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/layoutUrgentImportant"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
-        <include layout="@layout/not_urgent_important" />
+
+        <TextView
+            android:id="@+id/textViewTitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/notUrgentImportant_title"
+            android:textAlignment="center"
+            android:textColor="@color/coral"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNotUrgentImportant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/recycler"
+            android:padding="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layoutUrgentNotImportant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_width="180dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/notes_bg"
         android:orientation="vertical"
-
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGoalsOfMonth"
         app:layout_constraintEnd_toStartOf="@+id/layoutNotUrgentNotImportant"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutUrgentImportant" >
+        app:layout_constraintTop_toBottomOf="@+id/layoutUrgentImportant"
+        app:layout_constraintVertical_bias="0.5">
 
-        <include layout="@layout/urgent_not_important" />
+        <TextView
+            android:id="@+id/textViewTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/urgentNotImportant_title"
+            android:textAlignment="center"
+            android:textColor="@color/coral"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewUrgentNotImportant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/recycler"
+            android:padding="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layoutNotUrgentNotImportant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
+        android:layout_width="180dp"
+        android:layout_height="280dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/notes_bg"
         android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGoalsOfMonth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/layoutUrgentNotImportant"
-        app:layout_constraintTop_toBottomOf="@+id/layoutNotUrgentImportant">
+        app:layout_constraintTop_toBottomOf="@+id/layoutNotUrgentImportant"
+        app:layout_constraintVertical_bias="0.5">
 
 
-        <include layout="@layout/not_urgent_not_important" />
+        <TextView
+            android:id="@+id/textViewTitle3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/notUrgentImportant_title"
+            android:textAlignment="center"
+            android:textColor="@color/coral"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNotUrgentNotImportant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/recycler"
+            android:padding="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 
@@ -89,13 +184,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/blue_dark"
         android:text="@string/goals_month"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:backgroundTint="@color/blue_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

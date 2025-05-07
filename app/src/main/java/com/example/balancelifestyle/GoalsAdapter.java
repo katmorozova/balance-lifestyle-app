@@ -36,7 +36,7 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsHolder>
     @Override
     public GoalsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.note_matrix,
+                R.layout.note_matrix_item,
                 parent,
                 false
         );
@@ -46,7 +46,10 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.GoalsHolder>
     @Override
     public void onBindViewHolder(@NonNull GoalsHolder viewHolder, int position) {
         NoteMatrix noteMatrix = noteMatrices.get(position);
-        viewHolder.textViewNoteMatrix.setText(noteMatrix.getText());
+        if(category.equals("UrgentImportant")){
+            viewHolder.textViewNoteMatrix.setText(noteMatrix.getText());
+        }
+
 
     }
 
