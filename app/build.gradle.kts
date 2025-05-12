@@ -44,6 +44,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
 
     implementation("androidx.room:room-runtime:2.7.1")
+    implementation(libs.gridlayout)
     annotationProcessor("androidx.room:room-compiler:2.7.1")
 
     implementation ("io.reactivex.rxjava3:rxandroid:3.0.2")
