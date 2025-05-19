@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,24 +25,26 @@ import java.util.List;
 
 public class GoalsActivity extends AppCompatActivity {
 
-    private LinearLayout layoutUrgentImportant;
-    private LinearLayout layoutNotUrgentImportant;
-    private LinearLayout layoutUrgentNotImportant;
-    private LinearLayout layoutNotUrgentNotImportant;
-
+    private TextView textViewUrgentImportant;
+    private TextView textViewNotUrgentImportant;
+    private TextView textViewUrgentNotImportant;
+    private TextView textViewNotUrgentNotImportant;
+/*
     private RecyclerView recyclerViewUrgentImportant;
     private RecyclerView recyclerViewUrgentNotImportant;
     private RecyclerView recyclerViewNotUrgentImportant;
     private RecyclerView recyclerViewNotUrgentNotImportant;
 
-    private Button buttonGoalsOfMonth;
+ */
 
+    private Button buttonGoalsOfMonth;
+/*
     private GoalsAdapter adapterUrgentImportant;
     private GoalsAdapter adapterNotUrgentImportant;
     private GoalsAdapter adapterUrgentNotImportant;
     private GoalsAdapter adapterNotUrgentNotImportant;
 
-    private GoalsViewModel viewModel;
+ */
 
 
     @Override
@@ -56,22 +58,22 @@ public class GoalsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
-        viewModel = new ViewModelProvider(this).get(GoalsViewModel.class);
-        setUpRecyclerViews();
-        observeViewModel();
+
         setUpClickListeners();
 
     }
 
     public void initViews(){
-        layoutUrgentImportant = findViewById(R.id.layoutUrgentImportant);
-        layoutNotUrgentImportant = findViewById(R.id.layoutNotUrgentImportant);
-        layoutUrgentNotImportant = findViewById(R.id.layoutUrgentNotImportant);
-        layoutNotUrgentNotImportant = findViewById(R.id.layoutNotUrgentNotImportant);
+        textViewUrgentImportant = findViewById(R.id.textViewUrgentImportant);
+        textViewNotUrgentImportant = findViewById(R.id.textViewNotUrgentImportant);
+        textViewUrgentNotImportant = findViewById(R.id.textViewUrgentNotImportant);
+        textViewNotUrgentNotImportant = findViewById(R.id.textViewNotUrgentNotImportant);
+      /*
         recyclerViewUrgentImportant = findViewById(R.id.recyclerViewUrgentImportant);
         recyclerViewUrgentNotImportant = findViewById(R.id.recyclerViewUrgentNotImportant);
         recyclerViewNotUrgentImportant = findViewById(R.id.recyclerViewNotUrgentImportant);
         recyclerViewNotUrgentNotImportant = findViewById(R.id.recyclerViewNotUrgentNotImportant);
+       */
         buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
     }
 
@@ -81,7 +83,7 @@ public class GoalsActivity extends AppCompatActivity {
 
 
     private void setUpClickListeners(){
-        layoutUrgentImportant.setOnClickListener(new View.OnClickListener() {
+        textViewUrgentImportant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
@@ -90,7 +92,7 @@ public class GoalsActivity extends AppCompatActivity {
             }
         });
 
-        layoutNotUrgentImportant.setOnClickListener(new View.OnClickListener() {
+        textViewNotUrgentImportant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
@@ -99,7 +101,7 @@ public class GoalsActivity extends AppCompatActivity {
             }
         });
 
-        layoutUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
+        textViewUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
@@ -108,7 +110,7 @@ public class GoalsActivity extends AppCompatActivity {
             }
         });
 
-        layoutNotUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
+        textViewNotUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
@@ -118,60 +120,10 @@ public class GoalsActivity extends AppCompatActivity {
         });
     }
 
-    private void setUpRecyclerViews() {
-        recyclerViewUrgentImportant.setLayoutManager(new LinearLayoutManager(this));
-        adapterUrgentImportant = new GoalsAdapter("UrgentImportant");
-        recyclerViewUrgentImportant.setAdapter(adapterUrgentImportant);
-
-        recyclerViewNotUrgentImportant.setLayoutManager(new LinearLayoutManager(this));
-        adapterNotUrgentImportant = new GoalsAdapter("NotUrgentImportant");
-        recyclerViewNotUrgentImportant.setAdapter(adapterNotUrgentImportant);
-
-        recyclerViewUrgentNotImportant.setLayoutManager(new LinearLayoutManager(this));
-        adapterUrgentNotImportant = new GoalsAdapter("UrgentNotImportant");
-        recyclerViewUrgentNotImportant.setAdapter(adapterUrgentNotImportant);
 
 
-        recyclerViewNotUrgentNotImportant.setLayoutManager(new LinearLayoutManager(this));
-        adapterNotUrgentNotImportant = new GoalsAdapter("NotUrgentNotImportant");
-        recyclerViewNotUrgentNotImportant.setAdapter(adapterNotUrgentNotImportant);
-    }
 
-    private void observeViewModel(){
-        viewModel.getNoteMatrices().observe(this, new Observer<List<NoteMatrix>>() {
-            @Override
-            public void onChanged(List<NoteMatrix> noteMatrices) {
-                adapterUrgentImportant.setNoteMatrices(
-                        filterNotesByCategory(noteMatrices, "UrgentImportant")
-                );
-                adapterNotUrgentImportant.setNoteMatrices(
-                        filterNotesByCategory(noteMatrices, "NotUrgentImportant")
-                );
-                adapterUrgentNotImportant.setNoteMatrices(
-                        filterNotesByCategory(noteMatrices, "UrgentNotImportant")
-                );
-                adapterNotUrgentNotImportant.setNoteMatrices(
-                        filterNotesByCategory(noteMatrices, "NotUrgentNotImportant")
-                );
-            }
-        });
-    }
 
-    private List<NoteMatrix> filterNotesByCategory(List<NoteMatrix> notes, String category) {
-        List<NoteMatrix> filteredList = new ArrayList<>();
-        for (NoteMatrix note : notes) {
-            if (note.getCategory().equals(category)) {
-                filteredList.add(note);
-            }
-        }
-        return filteredList;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        viewModel.refreshNotesMatrix();
-    }
 
 
 
