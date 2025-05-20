@@ -38,13 +38,6 @@ public class GoalsActivity extends AppCompatActivity {
  */
 
     private Button buttonGoalsOfMonth;
-/*
-
-    private GoalsAdapter adapterNotUrgentImportant;
-    private GoalsAdapter adapterUrgentNotImportant;
-    private GoalsAdapter adapterNotUrgentNotImportant;
-
- */
 
 
     @Override
@@ -68,12 +61,6 @@ public class GoalsActivity extends AppCompatActivity {
         textViewNotUrgentImportant = findViewById(R.id.textViewNotUrgentImportant);
         textViewUrgentNotImportant = findViewById(R.id.textViewUrgentNotImportant);
         textViewNotUrgentNotImportant = findViewById(R.id.textViewNotUrgentNotImportant);
-      /*
-        recyclerViewUrgentImportant = findViewById(R.id.recyclerViewUrgentImportant);
-        recyclerViewUrgentNotImportant = findViewById(R.id.recyclerViewUrgentNotImportant);
-        recyclerViewNotUrgentImportant = findViewById(R.id.recyclerViewNotUrgentImportant);
-        recyclerViewNotUrgentNotImportant = findViewById(R.id.recyclerViewNotUrgentNotImportant);
-       */
         buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
     }
 
@@ -119,12 +106,5 @@ public class GoalsActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
-
 
 }
