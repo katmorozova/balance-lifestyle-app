@@ -30,7 +30,7 @@ public class GoalsActivity extends AppCompatActivity {
     private TextView textViewUrgentNotImportant;
     private TextView textViewNotUrgentNotImportant;
 /*
-    private RecyclerView recyclerViewUrgentImportant;
+
     private RecyclerView recyclerViewUrgentNotImportant;
     private RecyclerView recyclerViewNotUrgentImportant;
     private RecyclerView recyclerViewNotUrgentNotImportant;
@@ -39,7 +39,7 @@ public class GoalsActivity extends AppCompatActivity {
 
     private Button buttonGoalsOfMonth;
 /*
-    private GoalsAdapter adapterUrgentImportant;
+
     private GoalsAdapter adapterNotUrgentImportant;
     private GoalsAdapter adapterUrgentNotImportant;
     private GoalsAdapter adapterNotUrgentNotImportant;

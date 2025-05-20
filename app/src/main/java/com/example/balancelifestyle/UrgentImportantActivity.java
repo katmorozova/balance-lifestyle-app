@@ -19,6 +19,8 @@ public class UrgentImportantActivity extends AppCompatActivity {
     private RecyclerView recyclerViewUrgentImportant;
     private FloatingActionButton fabAddNoteUrgentImportant;
 
+    private UrgentImportantAdapter adapterUrgentImportant;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,8 @@ public class UrgentImportantActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        adapterUrgentImportant = new UrgentImportantAdapter();
+        recyclerViewUrgentImportant.setAdapter(adapterUrgentImportant);
         setOnClickListeners();
     }
 
