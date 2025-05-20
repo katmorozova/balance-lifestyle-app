@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class UrgentImportantActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setOnClickListeners();
     }
 
     private void initViews(){
@@ -38,5 +40,16 @@ public class UrgentImportantActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, UrgentImportantActivity.class);
+    }
+
+    private void setOnClickListeners(){
+        fabAddNoteUrgentImportant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddNoteMatrixActivity.newIntent(UrgentImportantActivity.this);
+                startActivity(intent);
+            }
+        });
+
     }
 }

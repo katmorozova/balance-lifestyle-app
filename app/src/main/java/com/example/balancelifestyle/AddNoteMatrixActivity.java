@@ -99,7 +99,30 @@ public class AddNoteMatrixActivity extends AppCompatActivity {
             public void onClick(View view) {
                 saveNoteMatrix();
                 String category = getTypeOfCategory();
-                Intent intent = GoalsActivity.newIntent(AddNoteMatrixActivity.this);
+                /*
+                if(category == 0){
+                    Intent intent = UrgentImportantActivity.newIntent(AddNoteMatrixActivity.this);
+                    intent.putExtra("category", category);
+                    startActivity(intent);
+                    finish();
+                }else if(category == 1){
+                    Intent intent = NotUrgentImportantActivity.newIntent(AddNoteMatrixActivity.this);
+                    intent.putExtra("category", category);
+                    startActivity(intent);
+                    finish();
+                }else if(category == 2){
+                    Intent intent = UrgentNotImportantActivity.newIntent(AddNoteMatrixActivity.this);
+                    intent.putExtra("category", category);
+                    startActivity(intent);
+                    finish();
+                }else if(category == 3){
+                    Intent intent = NotUrgentNotImportantActivity.newIntent(AddNoteMatrixActivity.this);
+                    intent.putExtra("category", category);
+                    startActivity(intent);
+                    finish();
+                }
+                 */
+                Intent intent = UrgentImportantActivity.newIntent(AddNoteMatrixActivity.this);
                 intent.putExtra("category", category);
                 startActivity(intent);
                 finish();
