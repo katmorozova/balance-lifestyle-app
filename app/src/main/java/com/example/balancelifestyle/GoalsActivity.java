@@ -86,7 +86,7 @@ public class GoalsActivity extends AppCompatActivity {
         textViewUrgentImportant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
+                Intent intent = UrgentImportantActivity.newIntent(GoalsActivity.this);
                 intent.putExtra("category", "UrgentImportant");
                 startActivity(intent);
             }
