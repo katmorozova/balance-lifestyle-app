@@ -19,39 +19,41 @@ import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class GoalsViewModel extends AndroidViewModel {
+public class UrgentImportantViewModel extends AndroidViewModel {
 
-    private static final String TAG = "GoalsViewModel";
+    private static final String TAG = "UrgentImportantViewModel";
 
     private NoteMatrixDatabase noteMatrixDatabase;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private MutableLiveData<List<NoteMatrix>> noteMatrices = new MutableLiveData<>();
+    private MutableLiveData<List<NoteMatrix>> noteMatrixList = new MutableLiveData<>();
 
-    public GoalsViewModel(@NonNull Application application) {
+
+    public UrgentImportantViewModel(@NonNull Application application){
         super(application);
         noteMatrixDatabase = NoteMatrixDatabase.getInstance(application);
     }
 
-    public MutableLiveData<List<NoteMatrix>> getNoteMatrices() {
-        return noteMatrices;
+    public MutableLiveData<List<NoteMatrix>> getNoteMatrixList() {
+        return noteMatrixList;
     }
 
-    public void refreshNotesMatrix() {
+    public void refreshWishList() {
         Disposable disposable = noteMatrixDatabase.noteMatrixDao().getNoteMatrixs()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<List<NoteMatrix>>() {
                     @Override
-                    public void accept(List<NoteMatrix> noteMatricesFromDb) throws Throwable {
-                        noteMatrices.setValue(noteMatricesFromDb);
+                    public void accept(List<NoteMatrix> noteMatrices) throws Throwable {
+                        noteMatrixList.setValue(noteMatrices);
                     }
                 });
         compositeDisposable.add(disposable);
+
     }
 
     public void remove(NoteMatrix noteMatrix){
         Disposable disposable = noteMatrixDatabase.noteMatrixDao().remove(
-                        noteMatrix.getId()
+                noteMatrix.getId(), noteMatrix.getCategory()
                 )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -59,11 +61,12 @@ public class GoalsViewModel extends AndroidViewModel {
                     @Override
                     public void run() throws Throwable {
                         Log.d(TAG, "Removed: "+ noteMatrix.getId());
-                        refreshNotesMatrix();
+                        refreshWishList();
                     }
                 });
         compositeDisposable.add(disposable);
     }
+
 
     @Override
     protected void onCleared() {

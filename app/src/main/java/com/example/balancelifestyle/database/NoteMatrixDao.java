@@ -25,4 +25,6 @@ public interface NoteMatrixDao {
 
     @Query("DELETE FROM notesMatrix WHERE id = :id AND category = :category")
     Completable remove(int id, String category);//Elimina nota por su id y categoria
+
+
 }
