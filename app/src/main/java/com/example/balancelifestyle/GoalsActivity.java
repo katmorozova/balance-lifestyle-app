@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -12,20 +13,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class GoalsActivity extends AppCompatActivity {
 
-    private TextView textViewUrgentImportant;
-    private TextView textViewNotUrgentImportant;
-    private TextView textViewUrgentNotImportant;
-    private TextView textViewNotUrgentNotImportant;
-/*
+    private LinearLayout linearLayoutDoNow;
+    private LinearLayout linearLayoutPlaning;
+    private LinearLayout linearLayoutDelegate;
+    private LinearLayout linearLayoutDelete;
 
-    private RecyclerView recyclerViewUrgentNotImportant;
-    private RecyclerView recyclerViewNotUrgentImportant;
-    private RecyclerView recyclerViewNotUrgentNotImportant;
-
- */
+    private RecyclerView recyclerViewDoNow;
+    private RecyclerView recyclerViewPlaning;
+    private RecyclerView recyclerViewDelegate;
+    private RecyclerView recyclerViewDelete;
 
     private Button buttonGoalsOfMonth;
 
@@ -42,15 +42,14 @@ public class GoalsActivity extends AppCompatActivity {
         });
         initViews();
 
-        setUpClickListeners();
 
     }
 
     public void initViews(){
-        textViewUrgentImportant = findViewById(R.id.textViewUrgentImportant);
-        textViewNotUrgentImportant = findViewById(R.id.textViewNotUrgentImportant);
-        textViewUrgentNotImportant = findViewById(R.id.textViewUrgentNotImportant);
-        textViewNotUrgentNotImportant = findViewById(R.id.textViewNotUrgentNotImportant);
+        linearLayoutDoNow = findViewById(R.id.linearLayoutDoNow);
+        linearLayoutPlaning = findViewById(R.id.linearLayoutPlaning);
+        linearLayoutDelegate = findViewById(R.id.linearLayoutDelegate);
+        linearLayoutDelete = findViewById(R.id.linearLayoutDelete);
         buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
     }
 
@@ -59,42 +58,5 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
 
-    private void setUpClickListeners(){
-        textViewUrgentImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = UrgentImportantActivity.newIntent(GoalsActivity.this);
-                intent.putExtra("category", "UrgentImportant");
-                startActivity(intent);
-            }
-        });
-
-        textViewNotUrgentImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
-                intent.putExtra("category", "NotUrgentImportant");
-                startActivity(intent);
-            }
-        });
-
-        textViewUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
-                intent.putExtra("category", "UrgentNotImportant");
-                startActivity(intent);
-            }
-        });
-
-        textViewNotUrgentNotImportant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = AddNoteMatrixActivity.newIntent(GoalsActivity.this);
-                intent.putExtra("category", "NotUrgentNotImportant");
-                startActivity(intent);
-            }
-        });
-    }
 
 }
