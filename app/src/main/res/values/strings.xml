@@ -85,17 +85,18 @@
     <string name="hint_addNote">Introduce una nota</string>
 
 
-    <string name="urgentImportant_title">URGENTE IMPORTANTE</string>
-    <string name="urgentImportant_note">%s</string>
+    <string name="do_title">HACER AHORA</string>
+    <string name="doNow_note">%s</string>
 
-    <string name="urgentNotImportant_title">URGENTE NO IMPORTANTE</string>
-    <string name="urgentNotImportant_note">%s</string>
+    <string name="planing_title">PLANIFICAR</string>
+    <string name="planing_note">%s</string>
 
-    <string name="notUrgentImportant_title">NO URGENTE IMPORTANTE</string>
-    <string name="notUrgentImportant_note">%s</string>
+    <string name="delegate_title">DELEGAR</string>
+    <string name="delegate_note">%s</string>
 
-    <string name="notUrgentNotImportant_title">NO URGENTE NO IMPORTANTE</string>
-    <string name="notUrgentNotImportant_note">%s</string>
+
+    <string name="delete_title">ELIMINAR</string>
+    <string name="delete_note">%s</string>
 
     <string name="goals_month">METAS DEL MES</string>
     <string name="matrix_name">LA MATRIZ DE EISENHOWER</string>
