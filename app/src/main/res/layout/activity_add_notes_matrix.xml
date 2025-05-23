@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/beige"
+    tools:context=".AddNotesMatrixActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/matrix_title"
+        android:textAlignment="center"
+        android:textColor="@color/blue_dark"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextAddNoteMatrix"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:inputType="textMultiLine"
+        android:hint="@string/matrix_hint"
+        android:padding="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/notes_bg" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:padding="16dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonDoNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_doNow"
+            android:textStyle="bold"
+            android:textColor="@color/coral"/>
+        <RadioButton
+            android:id="@+id/radioButtonPlaning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_planing"
+            android:textStyle="bold"
+            android:textColor="@color/coral"/>
+        <RadioButton
+            android:id="@+id/radioButtonDelegate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_delegate"
+            android:textStyle="bold"
+            android:textColor="@color/coral"/>
+        <RadioButton
+            android:id="@+id/radioButtonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_delete"
+            android:textStyle="bold"
+            android:textColor="@color/coral"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonAddNoteMatrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/matrix_button"
+        android:backgroundTint="@color/blue_dark"/>
+</LinearLayout>

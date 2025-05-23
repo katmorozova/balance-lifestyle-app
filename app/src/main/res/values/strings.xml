@@ -103,10 +103,11 @@
     <string name="goalsNotes_text">%s</string>
 
     <string name="matrix_title">AÑADIR NOTAS EN TU LISTA</string>
-    <string name="note_urgentImportant">Urgente Importante</string>
-    <string name="note_notUrgentImportant">No Urgente Importante</string>
-    <string name="note_urgentNotImportant">Urgente no Importante</string>
-    <string name="note_notUrgentNotImportant">No Urgente no Importante</string>
+    <string name="matrix_hint">Introduce una nota</string>
+    <string name="note_doNow">Hacer ahora</string>
+    <string name="note_planing">Planificar</string>
+    <string name="note_delegate">Delegar</string>
+    <string name="note_delete">Eliminar</string>
     <string name="matrix_button">GUARDAR</string>
 
 </resources>
