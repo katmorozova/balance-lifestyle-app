@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -52,6 +53,7 @@ public class GoalsActivity extends AppCompatActivity {
         linearLayoutDelegate = findViewById(R.id.linearLayoutDelegate);
         linearLayoutDelete = findViewById(R.id.linearLayoutDelete);
         buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
+
     }
 
     public static Intent newIntent(Context context){
@@ -94,7 +96,11 @@ public class GoalsActivity extends AppCompatActivity {
         {
             Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
             startActivity(intent);
+
+
         }
     }
+
+
 
 }

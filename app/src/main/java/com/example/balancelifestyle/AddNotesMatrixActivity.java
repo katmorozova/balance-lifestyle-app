@@ -50,4 +50,6 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
     public static Intent newIntent(Context context){
         return new Intent(context, AddNotesMatrixActivity.class);
     }
+
+
 }
