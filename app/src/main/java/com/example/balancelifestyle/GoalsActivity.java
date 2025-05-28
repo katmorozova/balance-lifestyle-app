@@ -41,6 +41,7 @@ public class GoalsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setUpClickListeners();
 
 
     }
@@ -55,6 +56,33 @@ public class GoalsActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, GoalsActivity.class);
+    }
+
+    private void setUpClickListeners(){
+        linearLayoutDoNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        linearLayoutPlaning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        linearLayoutDelegate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        linearLayoutDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 
