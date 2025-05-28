@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,5 +42,9 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
         radioButtonDelegate = findViewById(R.id.radioButtonDelegate);
         radioButtonDelete = findViewById(R.id.radioButtonDelete);
         buttonAddNoteMatrix = findViewById(R.id.buttonAddNoteMatrix);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, AddNotesMatrixActivity.class);
     }
 }
