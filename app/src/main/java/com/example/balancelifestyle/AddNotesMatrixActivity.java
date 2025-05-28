@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class AddNotesMatrixActivity extends AppCompatActivity {
 
     private EditText editTextAddNoteMatrix;
+    private RadioGroup radioGroupMatrix;
     private RadioButton radioButtonDoNow;
     private RadioButton radioButtonPlaning;
     private RadioButton radioButtonDelegate;
@@ -37,6 +39,7 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
 
     private void initViews(){
         editTextAddNoteMatrix = findViewById(R.id.editTextAddNoteMatrix);
+        radioGroupMatrix = findViewById(R.id.radioGroupMatrix);
         radioButtonDoNow = findViewById(R.id.radioButtonDoNow);
         radioButtonPlaning = findViewById(R.id.radioButtonPlaning);
         radioButtonDelegate = findViewById(R.id.radioButtonDelegate);
