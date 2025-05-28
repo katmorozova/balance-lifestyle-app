@@ -58,6 +58,12 @@ public class GoalsActivity extends AppCompatActivity {
         linearLayoutDelete = findViewById(R.id.linearLayoutDelete);
         buttonGoalsOfMonth = findViewById(R.id.buttonGoalsOfMonth);
 
+        recyclerViewDoNow = findViewById(R.id.recyclerViewDoNow);
+        recyclerViewPlaning = findViewById(R.id.recyclerViewPlaning);
+        recyclerViewDelegate = findViewById(R.id.recyclerViewDelegate);
+        recyclerViewDelete = findViewById(R.id.recyclerViewDelete);
+
+
     }
 
     public static Intent newIntent(Context context){
@@ -69,6 +75,7 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showAddNotesActivity();
+
             }
         });
         linearLayoutPlaning.setOnClickListener(new View.OnClickListener() {
