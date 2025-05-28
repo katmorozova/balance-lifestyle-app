@@ -62,33 +62,39 @@ public class GoalsActivity extends AppCompatActivity {
         linearLayoutDoNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
+                showAddNotesActivity();
             }
         });
         linearLayoutPlaning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
+                showAddNotesActivity();
             }
         });
         linearLayoutDelegate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
+                showAddNotesActivity();
             }
         });
         linearLayoutDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
-                startActivity(intent);
+                showAddNotesActivity();
             }
         });
     }
 
-
+    private void showAddNotesActivity(){
+        if(
+                linearLayoutDoNow.isClickable() ||
+                linearLayoutPlaning.isClickable() ||
+                linearLayoutDelegate.isClickable() ||
+                linearLayoutDelete.isClickable())
+        {
+            Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
+            startActivity(intent);
+        }
+    }
 
 }
