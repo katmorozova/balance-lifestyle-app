@@ -34,6 +34,7 @@
 
 
     <RadioGroup
+        android:id="@+id/radioGroupMatrix"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -75,5 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/matrix_button"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:backgroundTint="@color/blue_dark"/>
 </LinearLayout>
