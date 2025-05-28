@@ -1,7 +1,12 @@
 package com.example.balancelifestyle.database;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "notes_matrix_list")
 public class NotesMatrixList {
 
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String text;
     private int typeOfMatrixList;
