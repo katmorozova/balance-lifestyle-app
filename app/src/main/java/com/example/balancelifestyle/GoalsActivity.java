@@ -28,6 +28,8 @@ public class GoalsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewDelegate;
     private RecyclerView recyclerViewDelete;
 
+    private GoalsAdapter goalsAdapter;
+
     private Button buttonGoalsOfMonth;
 
 
@@ -42,7 +44,9 @@ public class GoalsActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setAdapters();
         setUpClickListeners();
+
 
 
     }
@@ -102,5 +106,10 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
 
-
+    private void setAdapters(){
+       recyclerViewDoNow.setAdapter(goalsAdapter);
+       recyclerViewPlaning.setAdapter(goalsAdapter);
+       recyclerViewDelegate.setAdapter(goalsAdapter);
+       recyclerViewDelete.setAdapter(goalsAdapter);
+    }
 }
