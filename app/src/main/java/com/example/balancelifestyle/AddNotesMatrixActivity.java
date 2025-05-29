@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -36,6 +37,7 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
         });
         initViews();
         setCheckedButtons();
+        setOnClickListeners();
     }
 
     private void initViews(){
@@ -84,6 +86,17 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
                     break;
             }
         }
+    }
+
+    private void setOnClickListeners(){
+        buttonAddNoteMatrix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = GoalsActivity.newIntent(AddNotesMatrixActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 
