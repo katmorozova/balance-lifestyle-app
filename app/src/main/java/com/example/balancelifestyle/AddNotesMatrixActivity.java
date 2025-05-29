@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.balancelifestyle.database.NotesMatrixList;
 
 public class AddNotesMatrixActivity extends AppCompatActivity {
 
@@ -97,6 +100,21 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void saveNoteMatrix(){
+        String text = editTextAddNoteMatrix.getText().toString().trim();
+        if(text.isEmpty()){
+            Toast.makeText(this, "Introduce titulo y nota", Toast.LENGTH_SHORT).show();
+        }else{
+            NotesMatrixList notesMatrixList = new NotesMatrixList(
+                    0,
+                    text,
+                    getTypeOfNoteMatrixList()
+            );
+        }
+
+
     }
 
 
