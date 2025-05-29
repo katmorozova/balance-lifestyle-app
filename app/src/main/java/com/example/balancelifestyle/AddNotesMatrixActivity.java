@@ -35,6 +35,7 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        setCheckedButtons();
     }
 
     private void initViews(){
@@ -49,6 +50,40 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context){
         return new Intent(context, AddNotesMatrixActivity.class);
+    }
+
+    private int getTypeOfNoteMatrixList(){
+        int typeOfMatrixList = -1;
+        if(radioButtonDoNow.isChecked()){
+            typeOfMatrixList = 0;
+        }else if(radioButtonPlaning.isChecked()){
+            typeOfMatrixList = 1;
+        }else if(radioButtonDelegate.isChecked()) {
+            typeOfMatrixList = 2;
+        }else if(radioButtonDelete.isChecked()) {
+            typeOfMatrixList = 3;
+        }
+        return typeOfMatrixList;
+    }
+
+    public void setCheckedButtons(){
+        int typeOfMatrixList = getIntent().getIntExtra("typeOfMatrixList", -1);
+        if(typeOfMatrixList != -1){
+            switch (typeOfMatrixList){
+                case 0:
+                    radioButtonDoNow.setChecked(true);
+                    break;
+                case 1:
+                    radioButtonPlaning.setChecked(true);
+                    break;
+                case 2:
+                    radioButtonDelegate.setChecked(true);
+                    break;
+                case 3:
+                    radioButtonDelete.setChecked(true);
+                    break;
+            }
+        }
     }
 
 

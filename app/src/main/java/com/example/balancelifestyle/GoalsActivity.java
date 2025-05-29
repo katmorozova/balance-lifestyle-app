@@ -74,42 +74,36 @@ public class GoalsActivity extends AppCompatActivity {
         linearLayoutDoNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAddNotesActivity();
+                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("typeOfMatrixList", 0);
+                startActivity(intent);
 
             }
         });
         linearLayoutPlaning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAddNotesActivity();
+                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("typeOfMatrixList", 1);
+                startActivity(intent);
             }
         });
         linearLayoutDelegate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAddNotesActivity();
+                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("typeOfMatrixList", 2);
+                startActivity(intent);
             }
         });
         linearLayoutDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAddNotesActivity();
+                Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
+                intent.putExtra("typeOfMatrixList", 3);
+                startActivity(intent);
             }
         });
-    }
-
-    private void showAddNotesActivity(){
-        if(
-                linearLayoutDoNow.isClickable() ||
-                linearLayoutPlaning.isClickable() ||
-                linearLayoutDelegate.isClickable() ||
-                linearLayoutDelete.isClickable())
-        {
-            Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
-            startActivity(intent);
-
-
-        }
     }
 
 
