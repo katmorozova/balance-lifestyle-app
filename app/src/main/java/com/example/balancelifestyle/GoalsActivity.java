@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -121,6 +122,28 @@ public class GoalsActivity extends AppCompatActivity {
                 goalsAdapter.setNotesMatrixLists(notesMatrixLists);
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshDatesOfNotes();
+
+    }
+
+    private void refreshDatesOfNotes(){
+        RadioButton radioButtonDoNow = findViewById(R.id.radioButtonDoNow);
+        RadioButton radioButtonPlaning = findViewById(R.id.radioButtonPlaning);
+        RadioButton radioButtonDelegate = findViewById(R.id.radioButtonDelegate);
+        RadioButton radioButtonDelete = findViewById(R.id.radioButtonDelete);
+        if(radioButtonDoNow.isChecked()){
+            viewModel.refreshNotesMatrixList(0);
+        }else if(radioButtonPlaning.isChecked()){
+            viewModel.refreshNotesMatrixList(1);
+        }else if(radioButtonDelegate.isChecked()){
+            viewModel.refreshNotesMatrixList(2);
+        }else if(radioButtonDelete.isChecked()){
+            viewModel.refreshNotesMatrixList(3);
+        }
     }
 
 
