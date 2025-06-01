@@ -14,8 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.balancelifestyle.database.NotesMatrixList;
+
+import java.util.List;
 
 public class GoalsActivity extends AppCompatActivity {
 
@@ -49,9 +54,8 @@ public class GoalsActivity extends AppCompatActivity {
         initViews();
         viewModel = new ViewModelProvider(this).get(GoalsViewModel.class);
         setAdapters();
+        observeViewModel();
         setUpClickListeners();
-
-
 
     }
 
@@ -106,6 +110,15 @@ public class GoalsActivity extends AppCompatActivity {
                 Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
                 intent.putExtra("typeOfMatrixList", 3);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void observeViewModel(){
+        viewModel.getNotesMatrixLists().observe(this, new Observer<List<NotesMatrixList>>() {
+            @Override
+            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+                goalsAdapter.setNotesMatrixLists(notesMatrixLists);
             }
         });
     }
