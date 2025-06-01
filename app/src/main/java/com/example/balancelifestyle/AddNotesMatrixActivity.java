@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.balancelifestyle.database.NotesMatrixList;
@@ -98,6 +99,16 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
         }
 
 
+    }
+    public void observeViewModel(){
+        viewModel.getShouldCloseScreen().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean shouldClose) {
+                if(shouldClose){
+                    finish();
+                }
+            }
+        });
     }
 
 

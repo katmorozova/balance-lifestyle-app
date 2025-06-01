@@ -132,11 +132,12 @@ public class GoalsActivity extends AppCompatActivity {
 
     }
 
-    private void refreshDatesOfNotes() {
+    private void refreshDatesOfNotes() {//este metodo tiene que insertar nota por su categoria
             viewModel.refreshNotesMatrixList(0);
             viewModel.refreshNotesMatrixList(1);
             viewModel.refreshNotesMatrixList(2);
             viewModel.refreshNotesMatrixList(3);
+
     }
 
 
