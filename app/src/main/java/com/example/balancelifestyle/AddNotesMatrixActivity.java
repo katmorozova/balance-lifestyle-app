@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.balancelifestyle.database.NotesMatrixList;
 
@@ -27,6 +27,8 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
     private RadioButton radioButtonDelete;
     private Button buttonAddNoteMatrix;
 
+    private AddNotesMatrixViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
             return insets;
         });
         initViews();
+        viewModel = new ViewModelProvider(this).get(AddNotesMatrixViewModel.class);
         setCheckedButtons();
         setOnClickListeners();
     }
@@ -93,6 +96,7 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
         buttonAddNoteMatrix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                saveNoteMatrix();
                 Intent intent = GoalsActivity.newIntent(AddNotesMatrixActivity.this);
                 startActivity(intent);
                 finish();
@@ -110,6 +114,7 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
                     text,
                     getTypeOfNoteMatrixList()
             );
+            viewModel.saveNoteMatrix(notesMatrixList);
         }
 
 
