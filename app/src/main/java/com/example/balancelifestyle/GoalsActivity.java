@@ -3,6 +3,7 @@ package com.example.balancelifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -34,6 +35,7 @@ public class GoalsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewPlaning;
     private RecyclerView recyclerViewDelegate;
     private RecyclerView recyclerViewDelete;
+
 
     private GoalsAdapter goalsAdapter;
 
@@ -130,24 +132,17 @@ public class GoalsActivity extends AppCompatActivity {
 
     }
 
-    private void refreshDatesOfNotes(){
-        RadioButton radioButtonDoNow = findViewById(R.id.radioButtonDoNow);
-        RadioButton radioButtonPlaning = findViewById(R.id.radioButtonPlaning);
-        RadioButton radioButtonDelegate = findViewById(R.id.radioButtonDelegate);
-        RadioButton radioButtonDelete = findViewById(R.id.radioButtonDelete);
-        if(radioButtonDoNow.isChecked()){
+    private void refreshDatesOfNotes() {
             viewModel.refreshNotesMatrixList(0);
-        }else if(radioButtonPlaning.isChecked()){
             viewModel.refreshNotesMatrixList(1);
-        }else if(radioButtonDelegate.isChecked()){
             viewModel.refreshNotesMatrixList(2);
-        }else if(radioButtonDelete.isChecked()){
             viewModel.refreshNotesMatrixList(3);
-        }
     }
 
 
+
     private void setAdapters(){
+       goalsAdapter = new GoalsAdapter();
        recyclerViewDoNow.setAdapter(goalsAdapter);
        recyclerViewPlaning.setAdapter(goalsAdapter);
        recyclerViewDelegate.setAdapter(goalsAdapter);

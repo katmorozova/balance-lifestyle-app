@@ -41,7 +41,6 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
         });
         initViews();
         viewModel = new ViewModelProvider(this).get(AddNotesMatrixViewModel.class);
-        setCheckedButtons();
         setOnClickListeners();
     }
 
@@ -60,36 +59,17 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
 
     private int getTypeOfNoteMatrixList(){
         int typeOfMatrixList = -1;
-        if(radioButtonDoNow.isChecked()){
+
+        if(radioButtonDoNow.isChecked() && radioButtonDoNow != null){
             typeOfMatrixList = 0;
-        }else if(radioButtonPlaning.isChecked()){
+        }else if(radioButtonPlaning.isChecked() && radioButtonPlaning != null){
             typeOfMatrixList = 1;
-        }else if(radioButtonDelegate.isChecked()) {
+        }else if(radioButtonDelegate.isChecked() && radioButtonDelegate != null) {
             typeOfMatrixList = 2;
-        }else if(radioButtonDelete.isChecked()) {
+        }else if(radioButtonDelete.isChecked() && radioButtonDelete != null) {
             typeOfMatrixList = 3;
         }
         return typeOfMatrixList;
-    }
-
-    public void setCheckedButtons(){
-        int typeOfMatrixList = getIntent().getIntExtra("typeOfMatrixList", -1);
-        if(typeOfMatrixList != -1){
-            switch (typeOfMatrixList){
-                case 0:
-                    radioButtonDoNow.setChecked(true);
-                    break;
-                case 1:
-                    radioButtonPlaning.setChecked(true);
-                    break;
-                case 2:
-                    radioButtonDelegate.setChecked(true);
-                    break;
-                case 3:
-                    radioButtonDelete.setChecked(true);
-                    break;
-            }
-        }
     }
 
     private void setOnClickListeners(){

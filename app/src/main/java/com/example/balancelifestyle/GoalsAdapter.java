@@ -15,12 +15,6 @@ import java.util.List;
 
 public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.NotesMatrixListHolder>{
 
-    private RecyclerView recyclerViewDoNow;
-    private RecyclerView recyclerViewPlaning;
-    private RecyclerView recyclerViewDelegate;
-    private RecyclerView recyclerViewDelete;
-
-
 
     private List<NotesMatrixList> notesMatrixLists = new ArrayList<>();
 
@@ -37,32 +31,38 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.NotesMatrixL
     @NonNull
     @Override
     public NotesMatrixListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = null;
-
-        if(recyclerViewDoNow.isClickable()){
+        View view;
+        switch (viewType) {
+            case 0:
             view = LayoutInflater.from(parent.getContext()).inflate(
             R.layout.do_now_item,
                     parent,
                     false
             );
-        }else if (recyclerViewPlaning.isClickable()){
+            break;
+            case 1:
             view = LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.planning_item,
                     parent,
                     false
             );
-        } else if (recyclerViewDelegate.isClickable()) {
+            break;
+            case 2:
             view = LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.delegate_item,
                     parent,
                     false
             );
-        }else if (recyclerViewDelete.isClickable()){
+            break;
+            case 3:
             view = LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.delete_item,
                     parent,
                     false
             );
+            break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + viewType);
         }
         return new NotesMatrixListHolder(view);
     }
@@ -91,6 +91,10 @@ public class GoalsAdapter extends RecyclerView.Adapter<GoalsAdapter.NotesMatrixL
 
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return notesMatrixLists.get(position).getTypeOfMatrixList();
+    }
 
 
     @Override
