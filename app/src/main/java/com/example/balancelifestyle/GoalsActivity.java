@@ -121,7 +121,7 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void observeViewModel(){
-        viewModel.getNotesMatrixLists(0).observe(
+        viewModel.getDoNowList().observe(
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
@@ -129,7 +129,7 @@ public class GoalsActivity extends AppCompatActivity {
                 adapterDoNow.setNotesMatrixLists(notesMatrixLists);
             }
         });
-        viewModel.getNotesMatrixLists(1).observe(
+        viewModel.getPlanningList().observe(
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
@@ -137,7 +137,7 @@ public class GoalsActivity extends AppCompatActivity {
                 adapterPlanning.setNotesMatrixLists(notesMatrixLists);
             }
         });
-        viewModel.getNotesMatrixLists(2).observe(
+        viewModel.getDelegateList().observe(
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
@@ -145,7 +145,7 @@ public class GoalsActivity extends AppCompatActivity {
                 adapterDelegate.setNotesMatrixLists(notesMatrixLists);
             }
         });
-        viewModel.getNotesMatrixLists(3).observe(
+        viewModel.getDeleteList().observe(
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override

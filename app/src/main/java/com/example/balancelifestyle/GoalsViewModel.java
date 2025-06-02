@@ -26,18 +26,39 @@ public class GoalsViewModel extends AndroidViewModel {
 
     private NotesMatrixDatabase notesMatrixDatabase;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private MutableLiveData<List<NotesMatrixList>> notesMatrixLists = new MutableLiveData<>();
+    //private MutableLiveData<List<NotesMatrixList>> notesMatrixLists = new MutableLiveData<>();
+    private MutableLiveData<List<NotesMatrixList>> doNowList = new MutableLiveData<>();
+    private MutableLiveData<List<NotesMatrixList>> planningList = new MutableLiveData<>();
+    private MutableLiveData<List<NotesMatrixList>> delegateList = new MutableLiveData<>();
+    private MutableLiveData<List<NotesMatrixList>> deleteList = new MutableLiveData<>();
 
 
     public GoalsViewModel(@NonNull Application application) {
         super(application);
         notesMatrixDatabase = NotesMatrixDatabase.getInstance(application);
     }
-
+/*
     public LiveData<List<NotesMatrixList>> getNotesMatrixLists(int typeOfMatrixList) {
         return notesMatrixLists;
     }
 
+ */
+
+    public MutableLiveData<List<NotesMatrixList>> getDoNowList() {
+        return doNowList;
+    }
+
+    public MutableLiveData<List<NotesMatrixList>> getPlanningList() {
+        return planningList;
+    }
+
+    public MutableLiveData<List<NotesMatrixList>> getDelegateList() {
+        return delegateList;
+    }
+
+    public MutableLiveData<List<NotesMatrixList>> getDeleteList() {
+        return deleteList;
+    }
 
     public void refreshNotesMatrixList(int typeOfMatrixList) { //dependiendo de categoria(typeOfMatrixList), radiobutton elegido renovar datos de la db
         Disposable disposable = notesMatrixDatabase.notesMatrixListDao()
@@ -47,7 +68,21 @@ public class GoalsViewModel extends AndroidViewModel {
                     .subscribe(new Consumer<List<NotesMatrixList>>() {
                         @Override
                         public void accept(List<NotesMatrixList> notesMatrixListsFromDb) throws Throwable {
-                            notesMatrixLists.setValue(notesMatrixListsFromDb);
+                            switch (typeOfMatrixList){
+                                case 0:
+                                    doNowList.setValue(notesMatrixListsFromDb);
+                                break;
+                                case 1:
+                                    planningList.setValue(notesMatrixListsFromDb);
+                                break;
+                                case 2:
+                                    delegateList.setValue(notesMatrixListsFromDb);
+                                break;
+                                case 3:
+                                    deleteList.setValue(notesMatrixListsFromDb);
+                                break;
+                            }
+                            //notesMatrixLists.setValue(notesMatrixListsFromDb);
                         }
                     }, new Consumer<Throwable>() {
                         @Override
