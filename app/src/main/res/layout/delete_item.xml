@@ -4,11 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/delete_note"
-    android:padding="8dp"
-    android:layout_margin="5dp"
     android:textSize="14sp"
     android:textStyle="normal"
-    android:paddingTop="10dp"
+    android:paddingTop="1dp"
     android:textColor="@color/blue_dark"
     android:background="@drawable/notes_bg"
     tools:text="crear APP para portafolio" >
