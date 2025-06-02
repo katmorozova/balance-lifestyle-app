@@ -37,10 +37,11 @@ public class GoalsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewDelete;
 
 
-    private GoalsAdapter adapterDoNow;
-    private GoalsAdapter adapterPlanning;
-    private GoalsAdapter adapterDelegate;
-    private GoalsAdapter adapterDelete;
+    //private GoalsAdapter goalsAdapter = new GoalsAdapter();
+    private DoNowAdapter doNowAdapter;
+    private PlanningAdapter planningAdapter;
+    private DelegateAdapter delegateAdapter;
+    private DeleteAdapter deleteAdapter;
 
     private Button buttonGoalsOfMonth;
 
@@ -126,7 +127,11 @@ public class GoalsActivity extends AppCompatActivity {
                 new Observer<List<NotesMatrixList>>() {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
-                adapterDoNow.setNotesMatrixLists(notesMatrixLists);
+                if (doNowAdapter != null) {
+                    doNowAdapter.setNotesMatrixLists(notesMatrixLists);
+                } else {
+                    Log.e("GoalsActivity", "DoNoewAdapter es nulo");
+                }
             }
         });
         viewModel.getPlanningList().observe(
@@ -134,7 +139,11 @@ public class GoalsActivity extends AppCompatActivity {
                 new Observer<List<NotesMatrixList>>() {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
-                adapterPlanning.setNotesMatrixLists(notesMatrixLists);
+                if (planningAdapter != null) {
+                    planningAdapter.setNotesMatrixLists(notesMatrixLists);
+                } else {
+                    Log.e("GoalsActivity", "PlanningAdapter es nulo");
+                }
             }
         });
         viewModel.getDelegateList().observe(
@@ -142,7 +151,11 @@ public class GoalsActivity extends AppCompatActivity {
                 new Observer<List<NotesMatrixList>>() {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
-                adapterDelegate.setNotesMatrixLists(notesMatrixLists);
+                if (delegateAdapter != null) {
+                    delegateAdapter.setNotesMatrixLists(notesMatrixLists);
+                } else {
+                    Log.e("GoalsActivity", "DelegateAdapter es nulo");
+                }
             }
         });
         viewModel.getDeleteList().observe(
@@ -150,7 +163,11 @@ public class GoalsActivity extends AppCompatActivity {
                 new Observer<List<NotesMatrixList>>() {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
-                adapterDelete.setNotesMatrixLists(notesMatrixLists);
+                if (deleteAdapter != null) {
+                    deleteAdapter.setNotesMatrixLists(notesMatrixLists);
+                } else {
+                    Log.e("GoalsActivity", "DeleteAdapter es nulo");
+                }
             }
         });
     }
@@ -162,26 +179,24 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void refreshDatesOfNotes() {//este metodo tiene que insertar nota por su categoria
-
-
             viewModel.refreshNotesMatrixList(0);
             viewModel.refreshNotesMatrixList(1);
             viewModel.refreshNotesMatrixList(2);
             viewModel.refreshNotesMatrixList(3);
-
     }
 
 
 
     private void setAdapters(){
-       adapterDoNow = new GoalsAdapter();
-       adapterPlanning = new GoalsAdapter();
-       adapterDelegate = new GoalsAdapter();
-       adapterDelete = new GoalsAdapter();
+        doNowAdapter = new DoNowAdapter();
+        planningAdapter = new PlanningAdapter();
+        delegateAdapter = new DelegateAdapter();
+        deleteAdapter = new DeleteAdapter();
 
-       recyclerViewDoNow.setAdapter(adapterDoNow);
-       recyclerViewPlaning.setAdapter(adapterPlanning);
-       recyclerViewDelegate.setAdapter(adapterDelegate);
-       recyclerViewDelete.setAdapter(adapterDelete);
+
+        recyclerViewDoNow.setAdapter(doNowAdapter);
+        recyclerViewPlaning.setAdapter(planningAdapter);
+        recyclerViewDelegate.setAdapter(delegateAdapter);
+        recyclerViewDelete.setAdapter(deleteAdapter);
     }
 }
