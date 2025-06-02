@@ -44,19 +44,19 @@ public class GoalsViewModel extends AndroidViewModel {
 
  */
 
-    public MutableLiveData<List<NotesMatrixList>> getDoNowList() {
+    public LiveData<List<NotesMatrixList>> getDoNowList() {
         return doNowList;
     }
 
-    public MutableLiveData<List<NotesMatrixList>> getPlanningList() {
+    public LiveData<List<NotesMatrixList>> getPlanningList() {
         return planningList;
     }
 
-    public MutableLiveData<List<NotesMatrixList>> getDelegateList() {
+    public LiveData<List<NotesMatrixList>> getDelegateList() {
         return delegateList;
     }
 
-    public MutableLiveData<List<NotesMatrixList>> getDeleteList() {
+    public LiveData<List<NotesMatrixList>> getDeleteList() {
         return deleteList;
     }
 

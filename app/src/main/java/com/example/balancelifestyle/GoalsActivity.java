@@ -65,8 +65,11 @@ public class GoalsActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(GoalsViewModel.class);
         setAdapters();
         observeViewModel();
+        setupItemTouchDoNowHelper();
+        setupItemTouchPlanningHelper();
+        setupItemTouchDelegateHelper();
+        setupItemTouchDeleteHelper();
         setUpClickListeners();
-        setupItemTouchHelper();
     }
 
     public void initViews(){
@@ -129,10 +132,10 @@ public class GoalsActivity extends AppCompatActivity {
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
-            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+            public void onChanged(List<NotesMatrixList> doNowList) {
                 if (doNowAdapter != null) {
                     doNowAdapter.setNotesMatrixLists(new ArrayList<>()); // Limpiar datos antiguos
-                    doNowAdapter.setNotesMatrixLists(notesMatrixLists);
+                    doNowAdapter.setNotesMatrixLists(doNowList);
                 } else {
                     Log.e("GoalsActivity", "DoNoewAdapter es nulo");
                 }
@@ -142,10 +145,10 @@ public class GoalsActivity extends AppCompatActivity {
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
-            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+            public void onChanged(List<NotesMatrixList> planningList) {
                 if (planningAdapter != null) {
                     planningAdapter.setNotesMatrixLists(new ArrayList<>());
-                    planningAdapter.setNotesMatrixLists(notesMatrixLists);
+                    planningAdapter.setNotesMatrixLists(planningList);
                 } else {
                     Log.e("GoalsActivity", "PlanningAdapter es nulo");
                 }
@@ -155,10 +158,10 @@ public class GoalsActivity extends AppCompatActivity {
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
-            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+            public void onChanged(List<NotesMatrixList> delegateList) {
                 if (delegateAdapter != null) {
-                    delegateAdapter.setNotesMatrixLists(new ArrayList<>());
-                    delegateAdapter.setNotesMatrixLists(notesMatrixLists);
+                    delegateAdapter.setNotesMatrixLists(new ArrayList<>());// Clonar lista
+                    delegateAdapter.setNotesMatrixLists(delegateList);
                 } else {
                     Log.e("GoalsActivity", "DelegateAdapter es nulo");
                 }
@@ -168,10 +171,10 @@ public class GoalsActivity extends AppCompatActivity {
                 this,
                 new Observer<List<NotesMatrixList>>() {
             @Override
-            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+            public void onChanged(List<NotesMatrixList> deleteList) {
                 if (deleteAdapter != null) {
                     deleteAdapter.setNotesMatrixLists(new ArrayList<>());
-                    deleteAdapter.setNotesMatrixLists(notesMatrixLists);
+                    deleteAdapter.setNotesMatrixLists(deleteList);
                 } else {
                     Log.e("GoalsActivity", "DeleteAdapter es nulo");
                 }
@@ -201,14 +204,13 @@ public class GoalsActivity extends AppCompatActivity {
         delegateAdapter = new DelegateAdapter();
         deleteAdapter = new DeleteAdapter();
 
-
         recyclerViewDoNow.setAdapter(doNowAdapter);
         recyclerViewPlaning.setAdapter(planningAdapter);
         recyclerViewDelegate.setAdapter(delegateAdapter);
         recyclerViewDelete.setAdapter(deleteAdapter);
     }
 
-    private void setupItemTouchHelper(){
+    private void setupItemTouchDoNowHelper(){
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
                 0,
                 ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
@@ -236,6 +238,30 @@ public class GoalsActivity extends AppCompatActivity {
                             "Posición fuera de los límites para doNowAdapter"
                     );
                 }
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewDoNow);
+
+
+    }
+
+    private void setupItemTouchPlanningHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
 
                 if (position >= 0 && position < planningAdapter.getNotesMatrixLists().size()) {
                     NotesMatrixList planningList = planningAdapter
@@ -245,9 +271,35 @@ public class GoalsActivity extends AppCompatActivity {
                 } else {
                     Log.e(
                             "GoalsActivity",
-                            "Posición fuera de los límites para planningAdapter"
+                            "Posición fuera de los límites para planningAdapter." +
+                                    " Tamaño de la lista: " +
+                                    planningAdapter.getNotesMatrixLists().size() +
+                                    ", posición: " + position
                     );
                 }
+            }
+
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewPlaning);
+    }
+
+    private void setupItemTouchDelegateHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
 
                 if (position >= 0 && position < delegateAdapter.getNotesMatrixLists().size()) {
                     NotesMatrixList delegateList = delegateAdapter
@@ -261,6 +313,29 @@ public class GoalsActivity extends AppCompatActivity {
                     );
                 }
 
+            }
+
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewDelegate);
+    }
+    private void setupItemTouchDeleteHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+
                 if (position >= 0 && position < deleteAdapter.getNotesMatrixLists().size()) {
                     NotesMatrixList deleteList = deleteAdapter.getNotesMatrixLists().get(position);
                     viewModel.remove(deleteList);
@@ -271,28 +346,11 @@ public class GoalsActivity extends AppCompatActivity {
                             "Posición fuera de los límites para deleteAdapter"
                     );
                 }
-                }
-
-
-
-
-/*
-                NotesMatrixList doNowList = doNowAdapter.getNotesMatrixLists().get(position);
-                viewModel.remove(doNowList);
-                NotesMatrixList planningList = planningAdapter.getNotesMatrixLists().get(position);
-                viewModel.remove(planningList);
-                NotesMatrixList delegateList = delegateAdapter.getNotesMatrixLists().get(position);
-                viewModel.remove(delegateList);
-                NotesMatrixList deleteList = deleteAdapter.getNotesMatrixLists().get(position);
-                viewModel.remove(deleteList);
-
- */
+            }
 
         });
-        itemTouchHelper.attachToRecyclerView(recyclerViewDoNow);
-        itemTouchHelper.attachToRecyclerView(recyclerViewPlaning);
-        itemTouchHelper.attachToRecyclerView(recyclerViewDelegate);
         itemTouchHelper.attachToRecyclerView(recyclerViewDelete);
-        setUpClickListeners();
+
     }
+
 }
