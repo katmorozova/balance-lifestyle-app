@@ -12,16 +12,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.balancelifestyle.database.NotesMatrixList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoalsActivity extends AppCompatActivity {
@@ -63,7 +66,7 @@ public class GoalsActivity extends AppCompatActivity {
         setAdapters();
         observeViewModel();
         setUpClickListeners();
-
+        setupItemTouchHelper();
     }
 
     public void initViews(){
@@ -128,6 +131,7 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
                 if (doNowAdapter != null) {
+                    doNowAdapter.setNotesMatrixLists(new ArrayList<>()); // Limpiar datos antiguos
                     doNowAdapter.setNotesMatrixLists(notesMatrixLists);
                 } else {
                     Log.e("GoalsActivity", "DoNoewAdapter es nulo");
@@ -140,6 +144,7 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
                 if (planningAdapter != null) {
+                    planningAdapter.setNotesMatrixLists(new ArrayList<>());
                     planningAdapter.setNotesMatrixLists(notesMatrixLists);
                 } else {
                     Log.e("GoalsActivity", "PlanningAdapter es nulo");
@@ -152,6 +157,7 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
                 if (delegateAdapter != null) {
+                    delegateAdapter.setNotesMatrixLists(new ArrayList<>());
                     delegateAdapter.setNotesMatrixLists(notesMatrixLists);
                 } else {
                     Log.e("GoalsActivity", "DelegateAdapter es nulo");
@@ -164,6 +170,7 @@ public class GoalsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
                 if (deleteAdapter != null) {
+                    deleteAdapter.setNotesMatrixLists(new ArrayList<>());
                     deleteAdapter.setNotesMatrixLists(notesMatrixLists);
                 } else {
                     Log.e("GoalsActivity", "DeleteAdapter es nulo");
@@ -179,10 +186,11 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void refreshDatesOfNotes() {//este metodo tiene que insertar nota por su categoria
-            viewModel.refreshNotesMatrixList(0);
-            viewModel.refreshNotesMatrixList(1);
-            viewModel.refreshNotesMatrixList(2);
-            viewModel.refreshNotesMatrixList(3);
+        Log.d("GoalsActivity", "Actualizando lista de notas...");
+        viewModel.refreshNotesMatrixList(0);
+        viewModel.refreshNotesMatrixList(1);
+        viewModel.refreshNotesMatrixList(2);
+        viewModel.refreshNotesMatrixList(3);
     }
 
 
@@ -198,5 +206,93 @@ public class GoalsActivity extends AppCompatActivity {
         recyclerViewPlaning.setAdapter(planningAdapter);
         recyclerViewDelegate.setAdapter(delegateAdapter);
         recyclerViewDelete.setAdapter(deleteAdapter);
+    }
+
+    private void setupItemTouchHelper(){
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT
+        ) {
+            @Override
+            public boolean onMove(
+                    @NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target
+            ) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+
+                if (position >= 0 && position < doNowAdapter.getNotesMatrixLists().size()) {
+                    NotesMatrixList doNowList = doNowAdapter.getNotesMatrixLists().get(position);
+                    viewModel.remove(doNowList);
+                    doNowAdapter.notifyItemRemoved(position);
+                } else {
+                    Log.e(
+                            "GoalsActivity",
+                            "Posición fuera de los límites para doNowAdapter"
+                    );
+                }
+
+                if (position >= 0 && position < planningAdapter.getNotesMatrixLists().size()) {
+                    NotesMatrixList planningList = planningAdapter
+                            .getNotesMatrixLists().get(position);
+                    viewModel.remove(planningList);
+                    planningAdapter.notifyItemRemoved(position);
+                } else {
+                    Log.e(
+                            "GoalsActivity",
+                            "Posición fuera de los límites para planningAdapter"
+                    );
+                }
+
+                if (position >= 0 && position < delegateAdapter.getNotesMatrixLists().size()) {
+                    NotesMatrixList delegateList = delegateAdapter
+                            .getNotesMatrixLists().get(position);
+                    viewModel.remove(delegateList);
+                    delegateAdapter.notifyItemRemoved(position);
+                } else {
+                    Log.e(
+                            "GoalsActivity",
+                            "Posición fuera de los límites para delegateAdapter"
+                    );
+                }
+
+                if (position >= 0 && position < deleteAdapter.getNotesMatrixLists().size()) {
+                    NotesMatrixList deleteList = deleteAdapter.getNotesMatrixLists().get(position);
+                    viewModel.remove(deleteList);
+                    deleteAdapter.notifyItemRemoved(position);
+                } else {
+                    Log.e(
+                            "GoalsActivity",
+                            "Posición fuera de los límites para deleteAdapter"
+                    );
+                }
+                }
+
+
+
+
+/*
+                NotesMatrixList doNowList = doNowAdapter.getNotesMatrixLists().get(position);
+                viewModel.remove(doNowList);
+                NotesMatrixList planningList = planningAdapter.getNotesMatrixLists().get(position);
+                viewModel.remove(planningList);
+                NotesMatrixList delegateList = delegateAdapter.getNotesMatrixLists().get(position);
+                viewModel.remove(delegateList);
+                NotesMatrixList deleteList = deleteAdapter.getNotesMatrixLists().get(position);
+                viewModel.remove(deleteList);
+
+ */
+
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewDoNow);
+        itemTouchHelper.attachToRecyclerView(recyclerViewPlaning);
+        itemTouchHelper.attachToRecyclerView(recyclerViewDelegate);
+        itemTouchHelper.attachToRecyclerView(recyclerViewDelete);
+        setUpClickListeners();
     }
 }
