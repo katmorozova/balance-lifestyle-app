@@ -129,6 +129,13 @@ public class GoalsActivity extends AppCompatActivity {
                 finish();
             }
         });
+        buttonGoalsOfMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AddGoalsOfMonthActivity.newIntent(GoalsActivity.this);
+                startActivity(intent);
+            }
+        });
     }
 
     private void observeViewModel(){

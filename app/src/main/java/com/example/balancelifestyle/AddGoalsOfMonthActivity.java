@@ -1,5 +1,7 @@
 package com.example.balancelifestyle;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +51,10 @@ public class AddGoalsOfMonthActivity extends AppCompatActivity {
         edittextAddAction2 = findViewById(R.id.edittextAddAction2);
         edittextAddAction3 = findViewById(R.id.edittextAddAction3);
         edittextAddAction4 = findViewById(R.id.edittextAddAction4);
-        buttonSaveGoalsMonth = findViewById(R.id.buttonGoalsOfMonth);
+        buttonSaveGoalsMonth = findViewById(R.id.buttonSaveGoalsMonth);
+    }
+
+    public static Intent newIntent(Context context){
+        return new Intent(context, AddGoalsOfMonthActivity.class);
     }
 }
