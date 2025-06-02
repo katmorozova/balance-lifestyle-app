@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BalanceLifestyle"
         tools:targetApi="31">
         <activity
+            android:name=".AddGoalsOfMonthActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddNotesMatrixActivity"
             android:exported="false" />
         <activity

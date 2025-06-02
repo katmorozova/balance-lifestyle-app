@@ -110,4 +110,13 @@
     <string name="note_delete">Eliminar</string>
     <string name="matrix_button">GUARDAR</string>
 
+    <string name="addGoals_title">AÑADIR META DEL MES</string>
+    <string name="meta_hint">Introduce una meta: </string>
+    <string name="date_hint">Introduce una fecha: </string>
+    <string name="proposite_hint">Introduce un proposito: </string>
+    <string name="recompence_hint">Introduce una recompensa: </string>
+    <string name="title_action">PLAN DE ACTION</string>
+    <string name="hint_action">Introduce plan de action</string>
+    <string name="save_addGoals">GUARDAR</string>
+
 </resources>
