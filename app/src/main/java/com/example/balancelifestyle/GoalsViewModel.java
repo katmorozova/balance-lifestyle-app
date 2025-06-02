@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.balancelifestyle.database.NotesMatrixDatabase;
@@ -33,7 +34,7 @@ public class GoalsViewModel extends AndroidViewModel {
         notesMatrixDatabase = NotesMatrixDatabase.getInstance(application);
     }
 
-    public MutableLiveData<List<NotesMatrixList>> getNotesMatrixLists() {
+    public LiveData<List<NotesMatrixList>> getNotesMatrixLists(int typeOfMatrixList) {
         return notesMatrixLists;
     }
 

@@ -37,7 +37,10 @@ public class GoalsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewDelete;
 
 
-    private GoalsAdapter goalsAdapter;
+    private GoalsAdapter adapterDoNow;
+    private GoalsAdapter adapterPlanning;
+    private GoalsAdapter adapterDelegate;
+    private GoalsAdapter adapterDelete;
 
     private Button buttonGoalsOfMonth;
 
@@ -118,10 +121,36 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void observeViewModel(){
-        viewModel.getNotesMatrixLists().observe(this, new Observer<List<NotesMatrixList>>() {
+        viewModel.getNotesMatrixLists(0).observe(
+                this,
+                new Observer<List<NotesMatrixList>>() {
             @Override
             public void onChanged(List<NotesMatrixList> notesMatrixLists) {
-                goalsAdapter.setNotesMatrixLists(notesMatrixLists);
+                adapterDoNow.setNotesMatrixLists(notesMatrixLists);
+            }
+        });
+        viewModel.getNotesMatrixLists(1).observe(
+                this,
+                new Observer<List<NotesMatrixList>>() {
+            @Override
+            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+                adapterPlanning.setNotesMatrixLists(notesMatrixLists);
+            }
+        });
+        viewModel.getNotesMatrixLists(2).observe(
+                this,
+                new Observer<List<NotesMatrixList>>() {
+            @Override
+            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+                adapterDelegate.setNotesMatrixLists(notesMatrixLists);
+            }
+        });
+        viewModel.getNotesMatrixLists(3).observe(
+                this,
+                new Observer<List<NotesMatrixList>>() {
+            @Override
+            public void onChanged(List<NotesMatrixList> notesMatrixLists) {
+                adapterDelete.setNotesMatrixLists(notesMatrixLists);
             }
         });
     }
@@ -133,6 +162,8 @@ public class GoalsActivity extends AppCompatActivity {
     }
 
     private void refreshDatesOfNotes() {//este metodo tiene que insertar nota por su categoria
+
+
             viewModel.refreshNotesMatrixList(0);
             viewModel.refreshNotesMatrixList(1);
             viewModel.refreshNotesMatrixList(2);
@@ -143,10 +174,14 @@ public class GoalsActivity extends AppCompatActivity {
 
 
     private void setAdapters(){
-       goalsAdapter = new GoalsAdapter();
-       recyclerViewDoNow.setAdapter(goalsAdapter);
-       recyclerViewPlaning.setAdapter(goalsAdapter);
-       recyclerViewDelegate.setAdapter(goalsAdapter);
-       recyclerViewDelete.setAdapter(goalsAdapter);
+       adapterDoNow = new GoalsAdapter();
+       adapterPlanning = new GoalsAdapter();
+       adapterDelegate = new GoalsAdapter();
+       adapterDelete = new GoalsAdapter();
+
+       recyclerViewDoNow.setAdapter(adapterDoNow);
+       recyclerViewPlaning.setAdapter(adapterPlanning);
+       recyclerViewDelegate.setAdapter(adapterDelegate);
+       recyclerViewDelete.setAdapter(adapterDelete);
     }
 }

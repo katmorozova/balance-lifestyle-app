@@ -77,7 +77,8 @@ public class AddNotesMatrixActivity extends AppCompatActivity {
         buttonAddNoteMatrix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveNoteMatrix();
+                viewModel.saveNoteMatrix(new NotesMatrixList(0, "Ejemplo nota Do Now", 0));
+
                 Intent intent = GoalsActivity.newIntent(AddNotesMatrixActivity.this);
                 startActivity(intent);
                 finish();
