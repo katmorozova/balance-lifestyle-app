@@ -98,6 +98,7 @@ public class GoalsActivity extends AppCompatActivity {
                 Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
                 intent.putExtra("typeOfMatrixList", 0);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -107,6 +108,7 @@ public class GoalsActivity extends AppCompatActivity {
                 Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
                 intent.putExtra("typeOfMatrixList", 1);
                 startActivity(intent);
+                finish();
             }
         });
         linearLayoutDelegate.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +117,7 @@ public class GoalsActivity extends AppCompatActivity {
                 Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
                 intent.putExtra("typeOfMatrixList", 2);
                 startActivity(intent);
+                finish();
             }
         });
         linearLayoutDelete.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +126,7 @@ public class GoalsActivity extends AppCompatActivity {
                 Intent intent = AddNotesMatrixActivity.newIntent(GoalsActivity.this);
                 intent.putExtra("typeOfMatrixList", 3);
                 startActivity(intent);
+                finish();
             }
         });
     }
