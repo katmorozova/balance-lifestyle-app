@@ -1,4 +1,4 @@
-import 'package:balance_lifestyle/home_page.dart';
+import 'package:balance_lifestyle/home/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
