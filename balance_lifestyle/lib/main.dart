@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Balance Lifestyle',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 185, 158, 233)),
+        colorScheme: .fromSeed(
+          seedColor: const Color.fromARGB(255, 185, 158, 233),
+        ),
       ),
       home: const HomePage(),
     );
   }
 }
-
