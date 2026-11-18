@@ -1,4 +1,5 @@
 import 'package:balance_lifestyle/features/home/widgets/profile_header.dart';
+import 'package:balance_lifestyle/features/home/widgets/tasks_statistics_card.dart';
 import 'package:balance_lifestyle/features/home/widgets/week_calendar.dart';
 import 'package:balance_lifestyle/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,8 @@ class HomePage extends StatelessWidget {
             children: [
               ProfileHeader(),
               WeekCalendar(),
-              // Aquí debajo irán siguientes piezas:
-              // TasksStatisticsCard(),
+              TasksStatisticsCard(),
+          // Aquí debajo irán siguientes piezas:
               //CategoryGridItems(),
               //SectorTabs(),
               //MenuNavegador()
