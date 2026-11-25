@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 4.0, top: 4.0),
+      child: Row(
       children: [
         CircleAvatar(
-          radius: 60,
+          radius: 34,
           backgroundImage: AssetImage('assets/images/ekaterina_image.jpg'),
         ),
-        SizedBox(width: 24),
+        SizedBox(width: 14),
 
         Expanded(
           child: Column(
@@ -19,22 +21,27 @@ class ProfileHeader extends StatelessWidget {
               Text(
                 'Ekaterina Morozova',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
+                  fontFamily: 'Georgia',
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
                 ),
               ),
-              SizedBox(height: 4),
+              SizedBox(height: 2),
 
               Text(
-                '"Nothing is impossible. Everithing is possible"',
-                style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                '"Nothing is impossible. Everything is possible"',
+                style: TextStyle(
+                  fontSize: 10, 
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textAccent),
                 maxLines: 2,
               ),
             ],
           ),
         ),
       ],
+    ),
     );
   }
 }

@@ -8,37 +8,38 @@ class TasksStatisticsCard extends StatelessWidget {
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: Colors.white,
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'TASK STATISTICS',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 14,
+                fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
-                letterSpacing: 1.2,
+                letterSpacing: 1.4,
                 color: AppColors.textPrimary,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 14),
 
             Row(
               children: [
                 SizedBox(
-                  width: 200,
-                  height: 250,
+                  width: 82,
+                  height: 82,
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
                       SizedBox(
-                        width: 150,
-                        height: 150,
+                        width: 76,
+                        height: 76,
                         child: CircularProgressIndicator(
                           value: 0.78,
-                          strokeWidth: 12,
+                          strokeWidth: 8,
                           backgroundColor: Colors.grey.shade200,
                           valueColor: const AlwaysStoppedAnimation<Color>(
                             AppColors.primary,
@@ -48,7 +49,8 @@ class TasksStatisticsCard extends StatelessWidget {
                       Text(
                         '78%',
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 16,
+                          fontFamily: 'Georgia',
                           fontWeight: FontWeight.bold,
                           color: AppColors.textPrimary,
                         ),
@@ -56,30 +58,49 @@ class TasksStatisticsCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 22),
+                // Cuadrícula de columnas con textos 2x2
                 Expanded(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      _buildStatItem(
-                        color: Colors.green,
-                        title: 'Tasks',
-                        subtitle: '10/14 completed',
+                      // Fila 1: Tasks + Goals
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _buildStatItem(
+                              color: Colors.green,
+                              title: 'Tasks',
+                              subtitle: '10/14 done',
+                            ),
+                          ),
+                          const SizedBox(width: 2),
+                          Expanded(
+                            child: _buildStatItem(
+                              color: Colors.orange,
+                              title: 'Goals',
+                              subtitle: '8/14 done',
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 12),
-                      _buildStatItem(
-                        color: Colors.orange,
-                        title: 'Goals',
-                        subtitle: '8/14 completed',
+                      const SizedBox(height: 8),
+                      // Fila 2: Habits + To Do
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _buildStatItem(
+                              color: Colors.amber,
+                              title: 'Habits',
+                              subtitle: '12/14 done',
+                            ),
+                          ),
+                          const SizedBox(width: 2),
+                          Expanded(
+                            child: _buildToDoItem(),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 12),
-                      _buildStatItem(
-                        color: Colors.amber,
-                        title: 'Habits',
-                        subtitle: '12/14 completed',
-                      ),
-                      const SizedBox(height: 12),
-                      _buildToDoItem(),
                     ],
                   ),
                 ),
@@ -101,9 +122,9 @@ class TasksStatisticsCard extends StatelessWidget {
       children: [
         Container(
           width: 3,
-          height: 35,
+          height: 24,
           color: color,
-          margin: const EdgeInsets.only(right: 8),
+          margin: const EdgeInsets.only(right: 6),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,13 +133,18 @@ class TasksStatisticsCard extends StatelessWidget {
               title,
               style: TextStyle(
                 fontSize: 14,
+                fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
+                color: AppColors.textSecondary,
               ),
             ),
             Text(
               subtitle,
-              style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+              style: TextStyle(
+                fontSize: 10.5, 
+                fontFamily: 'Georgia',
+                color: Colors.grey.shade600
+              ),
             ),
           ],
         ),
@@ -129,13 +155,13 @@ class TasksStatisticsCard extends StatelessWidget {
   //Widget ToDo
   Widget _buildToDoItem() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
           width: 3,
-          height: 50,
+          height: 24,
           color: AppColors.textPrimary,
-          margin: const EdgeInsets.only(right: 8),
+          margin: const EdgeInsets.only(right: 5),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,18 +169,19 @@ class TasksStatisticsCard extends StatelessWidget {
             Text(
               'To Do',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 12,
+                fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
                 color: AppColors.textPrimary,
               ),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
             Row(
               children: [
                 _buildDotLabel(Colors.red, '2/5'),
-                const SizedBox(width: 8),
+                const SizedBox(width: 4),
                 _buildDotLabel(Colors.orange, '3/5'),
-                const SizedBox(width: 8),
+                const SizedBox(width: 4),
                 _buildDotLabel(Colors.green, '4/5'),
               ],
             ),

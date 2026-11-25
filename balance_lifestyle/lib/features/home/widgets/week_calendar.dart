@@ -11,8 +11,8 @@ class WeekCalendar extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 16.0, 
-        horizontal: 8.0
+        vertical: 6.0, 
+        horizontal: 4.0
       ),
   
       child: Row(
@@ -29,16 +29,17 @@ class WeekCalendar extends StatelessWidget {
                   Text(
                     weekDays[index],
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 13,
+                      fontFamily: 'Georgia',
                       fontWeight: FontWeight.bold,
                       color: AppColors.textPrimary,
                     ),
                   ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 4),
 
                 Container(
-                  width: 36,
-                  height: 36,
+                  width: 30,
+                  height: 30,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: isToday ? AppColors.textPrimary : Colors.white,
@@ -47,7 +48,8 @@ class WeekCalendar extends StatelessWidget {
                   child: Text(
                     '${currentDay.day}',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 13,
+                      fontFamily: 'Georgia',
                       fontWeight: FontWeight.bold,
                       color: isToday ? Colors.white : AppColors.textPrimary,
                     ),
