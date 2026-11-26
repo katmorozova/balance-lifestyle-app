@@ -8,9 +8,9 @@ class TasksStatisticsCard extends StatelessWidget {
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: Colors.white,
-      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -20,11 +20,11 @@ class TasksStatisticsCard extends StatelessWidget {
                 fontSize: 14,
                 fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
-                letterSpacing: 1.4,
+                letterSpacing: 1.2,
                 color: AppColors.textPrimary,
               ),
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 10),
 
             Row(
               children: [
@@ -39,7 +39,7 @@ class TasksStatisticsCard extends StatelessWidget {
                         height: 76,
                         child: CircularProgressIndicator(
                           value: 0.78,
-                          strokeWidth: 8,
+                          strokeWidth: 7,
                           backgroundColor: Colors.grey.shade200,
                           valueColor: const AlwaysStoppedAnimation<Color>(
                             AppColors.primary,
@@ -58,7 +58,7 @@ class TasksStatisticsCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(width: 22),
+                const SizedBox(width: 15),
                 // Cuadrícula de columnas con textos 2x2
                 Expanded(
                   child: Column(
@@ -122,9 +122,9 @@ class TasksStatisticsCard extends StatelessWidget {
       children: [
         Container(
           width: 3,
-          height: 24,
+          height: 22,
           color: color,
-          margin: const EdgeInsets.only(right: 6),
+          margin: const EdgeInsets.only(right: 4),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +132,7 @@ class TasksStatisticsCard extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 13,
                 fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
                 color: AppColors.textSecondary,
@@ -141,7 +141,7 @@ class TasksStatisticsCard extends StatelessWidget {
             Text(
               subtitle,
               style: TextStyle(
-                fontSize: 10.5, 
+                fontSize: 9.5, 
                 fontFamily: 'Georgia',
                 color: Colors.grey.shade600
               ),
@@ -159,9 +159,9 @@ class TasksStatisticsCard extends StatelessWidget {
       children: [
         Container(
           width: 3,
-          height: 24,
+          height: 22,
           color: AppColors.textPrimary,
-          margin: const EdgeInsets.only(right: 5),
+          margin: const EdgeInsets.only(right: 4),
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,10 +169,10 @@ class TasksStatisticsCard extends StatelessWidget {
             Text(
               'To Do',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 13,
                 fontFamily: 'Georgia',
                 fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
+                color: AppColors.textSecondary,
               ),
             ),
             const SizedBox(height: 2),
@@ -196,18 +196,18 @@ class TasksStatisticsCard extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 6,
-          height: 6,
+          width: 4.5,
+          height: 4.5,
           decoration: BoxDecoration(
             color: color,
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: 2),
         Text(
           text,
           style: TextStyle(
-            fontSize: 11,
+            fontSize: 10,
             color: Colors.grey.shade600,
             fontWeight: FontWeight.w500,
           ),
