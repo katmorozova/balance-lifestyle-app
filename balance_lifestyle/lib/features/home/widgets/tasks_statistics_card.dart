@@ -8,9 +8,9 @@ class TasksStatisticsCard extends StatelessWidget {
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: Colors.white,
-      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+      margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 17.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -24,7 +24,7 @@ class TasksStatisticsCard extends StatelessWidget {
                 color: AppColors.textPrimary,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
 
             Row(
               children: [

@@ -5,18 +5,19 @@ class CategoryGridItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: [
           Expanded(
             child:Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
                   'BALANCE',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
+                    letterSpacing: 0.3,
                     fontFamily: 'Georgia',
                     fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
@@ -26,7 +27,7 @@ class CategoryGridItems extends StatelessWidget {
               ],
             ),  
           ),
-          const SizedBox(width: 14),
+         
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -36,6 +37,7 @@ class CategoryGridItems extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
+                    letterSpacing: 0.3,
                     fontFamily: 'Georgia',
                     fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
@@ -45,7 +47,7 @@ class CategoryGridItems extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 14),
+          
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -55,6 +57,7 @@ class CategoryGridItems extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
+                    letterSpacing: 0.3,
                     fontFamily: 'Georgia',
                     fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
@@ -64,7 +67,7 @@ class CategoryGridItems extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 14),
+          
         ],
       ),
     );

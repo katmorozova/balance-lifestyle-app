@@ -5,7 +5,7 @@ class SectorTabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
+      padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 3.0),
       child: GridView.count(
         crossAxisCount: 3,
         mainAxisSpacing: 10.0,
@@ -14,7 +14,7 @@ class SectorTabs extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          _createCard('Balance Wheel', 'assets/images/wheelColor.png'),
+          _createCard('Wheel', 'assets/images/wheelColor.png'),
           _createCard('Goals', 'assets/images/goal.png'),
           _createCard('Wishlist', 'assets/images/wishlist.png'),
           _createCard('Habits', 'assets/images/interval.png'),
@@ -40,29 +40,30 @@ class SectorTabs extends StatelessWidget {
           // Acción al tocar cada sección
         },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
               child: Padding(
-                  padding: const EdgeInsets.all(6.0),
+                  padding: const EdgeInsets.all(4.0),
                   child: Image.asset(
                     imageRoute,
                     fit: BoxFit.contain,
                   ),
                 ),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 4),
             Text(
               title,
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                fontSize: 11,
-                color: AppColors.textSecondary,
+                fontSize: 9.5,
                 fontFamily: 'Georgia',
+                fontWeight: FontWeight.w600,
+                color: AppColors.textSecondary,
               ),
               ),
             ],

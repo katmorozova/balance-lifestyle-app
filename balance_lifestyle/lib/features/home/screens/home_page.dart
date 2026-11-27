@@ -20,13 +20,13 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 ProfileHeader(),
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 WeekCalendar(),
-                const SizedBox(height: 10),
+                const SizedBox(height: 14),
                 TasksStatisticsCard(),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
                 CategoryGridItems(),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
                 Flexible(
                 child: SectorTabs(),
                 ),
